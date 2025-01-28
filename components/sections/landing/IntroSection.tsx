@@ -1,0 +1,65 @@
+import React from "react";
+
+const IntroSection = () => {
+  return (
+    <div className="px-[150px] ">
+      <div className="my-[100px] flex flex-col gap-[12px]">
+        <h1 className="font-helvetica text-[32px] font-light leading-[36.8px]">
+          We are committed to pioneering <br /> technological advancements that
+          drive <br /> innovation within the dental industry.
+        </h1>
+        <h1 className="w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
+          Partner with Us
+        </h1>
+      </div>
+
+      <div className="py-[100px] flex gap-[50px] justify-between">
+        <div className="flex flex-col gap-[12px]">
+          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+            10+
+            <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
+              &nbsp;years
+            </span>
+          </h1>
+          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+            of Experience
+          </h1>
+          <hr />
+          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+            Delivering top-notch dental instruments to <br /> healthcare
+            providers globally.
+          </h1>
+        </div>
+        <div className="flex flex-col gap-[12px]">
+          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+            100+
+          </h1>
+          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+            Product Lines
+          </h1>
+          <hr />
+          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+            Trusted by hospitals and clinics across <br /> multiple regions.
+          </h1>
+        </div>
+        <div className="flex flex-col gap-[12px]">
+          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+            500+
+            {/* <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
+              &nbsp;years
+            </span> */}
+          </h1>
+          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+            Happy Clients
+          </h1>
+          <hr />
+          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+            Offering a wide range of dental equipment to <br /> meet every need.
+          </h1>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default IntroSection;
