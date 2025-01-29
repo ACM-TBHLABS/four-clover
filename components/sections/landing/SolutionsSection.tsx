@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import React, { use } from "react";
+import { useRouter } from "next/navigation";
 
 const SolutionsSection = () => {
+  const router = useRouter();
   return (
     <div className="py-[100px] flex flex-col gap-[50px]">
       <div className="px-[150px]">
@@ -36,7 +39,12 @@ const SolutionsSection = () => {
             </h1>
           </div>
 
-          <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm">
+          <div
+            onClick={() => {
+              router.push("/products");
+            }}
+            className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm"
+          >
             <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
               View Products
             </h1>
@@ -63,7 +71,12 @@ const SolutionsSection = () => {
                 </h1>
               </div>
 
-              <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm">
+              <div
+                onClick={() => {
+                  router.push("/products");
+                }}
+                className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm"
+              >
                 <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                   View Products
                 </h1>
@@ -89,7 +102,12 @@ const SolutionsSection = () => {
                 </h1>
               </div>
 
-              <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm">
+              <div
+                onClick={() => {
+                  router.push("/products");
+                }}
+                className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm"
+              >
                 <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                   View Products
                 </h1>
@@ -117,7 +135,12 @@ const SolutionsSection = () => {
               </h1>
             </div>
 
-            <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm">
+            <div
+              onClick={() => {
+                router.push("/products");
+              }}
+              className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-black hover:text-white hover:bg-opacity-100 hover:backdrop-blur-sm"
+            >
               <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                 View Products
               </h1>

@@ -21,7 +21,11 @@ const FAQSection = () => {
           </AccordionTrigger>
           <AccordionContent>
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
-              Yes.
+              Yes, Four Clover offers comprehensive support and maintenance
+              services for all the dental products we supply. Our dedicated
+              support team is available to assist with any issues or concerns.
+              We also provide regular maintenance packages to ensure your
+              equipment operates at its best.
             </h1>
           </AccordionContent>
         </AccordionItem>
@@ -33,7 +37,10 @@ const FAQSection = () => {
           </AccordionTrigger>
           <AccordionContent>
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
-              Yes.
+              To request a quotation, simply fill out the form on our Products
+              page, providing the details of the products you're interested in.
+              Our team will get back to you with a customized quote based on
+              your needs.
             </h1>
           </AccordionContent>
         </AccordionItem>
@@ -45,7 +52,10 @@ const FAQSection = () => {
           </AccordionTrigger>
           <AccordionContent>
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
-              Yes.
+              Yes, we offer product training for all our dental equipment. Our
+              experts will guide you through the setup, operation, and
+              maintenance of your products. Contact us for more information on
+              training schedules and availability.
             </h1>
           </AccordionContent>
         </AccordionItem>
