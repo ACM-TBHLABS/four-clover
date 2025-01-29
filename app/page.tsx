@@ -1,3 +1,4 @@
+import FAQSection from "@/components/sections/landing/FAQSection";
 import HeroSection from "@/components/sections/landing/HeroSection";
 import IntroSection from "@/components/sections/landing/IntroSection";
 import PartnersSection from "@/components/sections/landing/PartnersSection";
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <IntroSection />
       <SolutionsSection />
+      <FAQSection />
       <PartnersSection />
     </div>
   );
