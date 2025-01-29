@@ -1,6 +1,10 @@
+"use client";
 import React from "react";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
+  const router = useRouter();
   return (
     <div className="h-[800px] bg-red-500 relative">
       <img
@@ -16,6 +20,11 @@ const HeroSection = () => {
       <h1 className="absolute bottom-12 left-[150px] text-white font-helvetica font-normal text-[100px] leading-[114.99px]">
         SMARTmatic
       </h1>
+      <ArrowLeft
+        className="absolute top-12 left-[150px] text-black w-12 h-12"
+        strokeWidth={1}
+        onClick={() => router.push("/products")}
+      />
     </div>
   );
 };
