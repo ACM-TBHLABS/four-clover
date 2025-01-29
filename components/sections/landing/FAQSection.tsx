@@ -32,8 +32,11 @@ const FAQSection = () => {
             </h1>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger className="border-b-[1px] border-solid border-[#5a5a5a] py-[20px]">
+        <AccordionItem
+          value="item-2"
+          className="border-b-[1px] border-solid border-[#5a5a5a] "
+        >
+          <AccordionTrigger className="py-[20px]">
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
               2. How can I request a quotation for dental products?
             </h1>
@@ -47,8 +50,11 @@ const FAQSection = () => {
             </h1>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger className="border-b-[1px] border-solid border-[#5a5a5a] py-[20px]">
+        <AccordionItem
+          value="item-3"
+          className="border-b-[1px] border-solid border-[#5a5a5a] "
+        >
+          <AccordionTrigger className="py-[20px]">
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
               3. Do you offer international shipping?
             </h1>
