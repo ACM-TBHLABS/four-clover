@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 const IntroSection = () => {
@@ -8,13 +9,13 @@ const IntroSection = () => {
           We are committed to pioneering <br /> technological advancements that
           drive <br /> innovation within the dental industry.
         </h1>
-        <h1 className="w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
+        <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
           Partner with Us
-        </h1>
+        </button>
       </div>
 
-      <div className="py-[100px] flex gap-[50px] justify-between">
-        <div className="flex flex-col gap-[12px]">
+      <div className="py-[100px] flex gap-[50px] justify-between cursor-default">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             10+
             <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
@@ -30,7 +31,7 @@ const IntroSection = () => {
             providers globally.
           </h1>
         </div>
-        <div className="flex flex-col gap-[12px]">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             100+
           </h1>
@@ -42,7 +43,7 @@ const IntroSection = () => {
             Trusted by hospitals and clinics across <br /> multiple regions.
           </h1>
         </div>
-        <div className="flex flex-col gap-[12px]">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             500+
             {/* <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">

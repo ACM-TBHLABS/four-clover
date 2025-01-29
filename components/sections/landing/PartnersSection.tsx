@@ -10,22 +10,22 @@ const PartnersSection = () => {
         <img
           src="/landing/partner1.png"
           alt=""
-          className="w-[200px] object-contain"
+          className="w-[200px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
         />
         <img
           src="/landing/partner2.png"
           alt=""
-          className="w-[200px] object-contain"
+          className="w-[200px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
         />
         <img
           src="/landing/partner3.png"
           alt=""
-          className="w-[200px] object-contain"
+          className="w-[200px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
         />
         <img
           src="/landing/partner4.png"
           alt=""
-          className="w-[200px] object-contain"
+          className="w-[200px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
         />
       </div>
     </div>

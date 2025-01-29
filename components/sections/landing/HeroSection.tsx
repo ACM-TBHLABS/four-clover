@@ -17,7 +17,7 @@ const HeroSection = () => {
       />
       {/* <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black to-transparent blur-sm"></div> */}
 
-      <h1 className="text-white text-[100px] font-helvetica font-normal leading-[114.99px] text-left absolute bottom-12 left-[150px]">
+      <h1 className="text-white text-[100px] font-helvetica font-normal leading-[114.99px] text-left absolute bottom-12 left-[150px] cursor-default">
         Leading to Digital
       </h1>
     </div>

@@ -36,7 +36,7 @@ const SolutionsSection = () => {
             </h1>
           </div>
 
-          <div className="absolute bg-white bg-opacity-20 backdrop-blur-lg right-[150px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
+          <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[150px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
             <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
               View Products
             </h1>
@@ -63,7 +63,7 @@ const SolutionsSection = () => {
                 </h1>
               </div>
 
-              <div className="absolute bg-white bg-opacity-35 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
+              <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
                 <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                   View Products
                 </h1>
@@ -89,7 +89,7 @@ const SolutionsSection = () => {
                 </h1>
               </div>
 
-              <div className="absolute bg-white bg-opacity-35 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
+              <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[50px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
                 <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                   View Products
                 </h1>
@@ -117,7 +117,7 @@ const SolutionsSection = () => {
               </h1>
             </div>
 
-            <div className="absolute bg-white bg-opacity-20 backdrop-blur-lg right-[150px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
+            <div className="absolute hover:scale-[1.02] bg-white bg-opacity-20 backdrop-blur-lg right-[150px] bottom-10 rounded-[1000px] border-solid border-black border-[1px] py-[12px] px-[32px] text-center transition-all duration-300 ease-in-out  hover:cursor-pointer hover:bg-opacity-50 hover:backdrop-blur-sm">
               <h1 className="font-helvetica font-light text-[32px] leading-[32px] text-center">
                 View Products
               </h1>
