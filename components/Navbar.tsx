@@ -1,9 +1,15 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <div className="w-screen h-[108px] py-[24px] px-[150px] bg-white flex justify-between items-center relative">
-      <div className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
+      <div
+        className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]"
+        onClick={() => router.push("/")}
+      >
         <img
           src="/logo.png"
           alt="Four Clover"
@@ -21,7 +27,10 @@ const Navbar = () => {
         <h1 className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800">
           about
         </h1>
-        <h1 className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800">
+        <h1
+          className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
+          onClick={() => router.push("/products")}
+        >
           products
         </h1>
         <h1 className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800">
