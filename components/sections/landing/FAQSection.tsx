@@ -13,14 +13,17 @@ const FAQSection = () => {
         FAQs
       </h1>
       <Accordion type="multiple">
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="border-b-[1px] border-solid border-[#5a5a5a] py-[20px]">
+        <AccordionItem
+          value="item-1"
+          className="border-b-[1px] border-solid border-[#5a5a5a] "
+        >
+          <AccordionTrigger className="py-[20px]">
             <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
               1. Does Four Clover provide support and maintenance?
             </h1>
           </AccordionTrigger>
           <AccordionContent>
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
+            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6 transition-transform">
               Yes, Four Clover offers comprehensive support and maintenance
               services for all the dental products we supply. Our dedicated
               support team is available to assist with any issues or concerns.
