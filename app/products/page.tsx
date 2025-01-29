@@ -6,10 +6,12 @@ import FAQSection from "@/components/sections/landing/FAQSection";
 
 const ProductsPage = () => {
   return (
-    <div className="px-[150px] min-h-screen">
-      <HeroSection />
-      <ProductsSection />
-      <CtaSection />
+    <div>
+      <div className="px-[150px]">
+        <HeroSection />
+        <ProductsSection />
+        <CtaSection />
+      </div>
       <FAQSection />
     </div>
   );
