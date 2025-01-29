@@ -14,27 +14,30 @@ const ProductsSection = () => {
       image: "/products/smartmatic.png",
     },
     {
+      name: "SMARTmatic 1",
+      category: "Dental Aligners",
+      image: "/products/smartmatic.png",
+    },
+    {
       name: "SMARTmatic 2",
       category: "Dental Aligners",
       image: "/products/smartmatic.png",
     },
     {
-      name: "SMARTmatic 3",
-      category: "Dental Aligners",
-      image: "/products/smartmatic.png",
-    },
-    {
-      name: "Egronomic Chair (Steel Gray)",
+      name: "Egronomic Chair 1",
+      color: "Steel Gray",
       category: "Chairs",
       image: "/products/chair-gray.png",
     },
     {
-      name: "Egronomic Chair (Cherry Red)",
+      name: "Egronomic Chair 2",
+      color: "Cherry Red",
       category: "Chairs",
       image: "/products/chair-red.png",
     },
     {
-      name: "Egronomic Chair 2 (Cherry Red)",
+      name: "Egronomic Chair 3",
+      color: "Cherry Red",
       category: "Chairs",
       image: "/products/chair-red.png",
     },
@@ -59,6 +62,7 @@ const ProductsSection = () => {
             name={product.name}
             category={product.category}
             image={product.image}
+            color={product.color ? product.color : ""}
             router={router}
           />
         ))}
@@ -101,11 +105,13 @@ const ProductCard = ({
   name,
   category,
   image,
+  color,
   router,
 }: {
   name: string;
   category: string;
   image: string;
+  color?: string;
   router: any;
 }) => {
   return (
@@ -134,6 +140,12 @@ const ProductCard = ({
       <h1 className="font-helvetica font-light text-[24px] leading-[27.6px]">
         {name}
       </h1>
+
+      {color && (
+        <h1 className="font-helvetica font-light text-[24px] leading-[27.6px]">
+          ({color})
+        </h1>
+      )}
     </div>
   );
 };
