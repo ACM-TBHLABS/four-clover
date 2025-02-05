@@ -9,3 +9,13 @@ const builder = createImageUrlBuilder({ projectId, dataset })
 export const urlFor = (source: SanityImageSource) => {
   return builder.image(source)
 }
+
+
+// <Image
+// src={urlFor(products[0].productHeroImage)
+//   .url()} // Add .url()
+// width={1920}
+// height={1080}
+// alt={products[0].productName} // Required by Next.js
+// priority // Optional: improves performance for above-the-fold images
+// />
