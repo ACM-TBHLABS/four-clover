@@ -13,6 +13,21 @@ export default defineType({
 				Rule.required().error("Event name is required"),
 		}),
 		defineField({
+			name: "slug",
+			type: "slug",
+			title: "Slug",
+			options: {
+				source: "name",
+				slugify: (input) =>
+					input
+						.toLowerCase()
+						.replace(/\s+/g, "-")
+						.replace(/[^a-z0-9-]/g, "")
+						.slice(0, 200),
+			},
+			validation: (Rule) => Rule.required().error("Slug is required"),
+		}),
+		defineField({
 			name: "description",
 			type: "text",
 			title: "Description",
@@ -90,6 +105,34 @@ export default defineType({
 			type: "boolean",
 			title: "Display on Main Screen",
 			description: "Toggle to display this event on the main screen",
+		}),
+		defineField({
+			name: "content",
+			title: "Content",
+			type: "array",
+			of: [
+				{
+					type: "block",
+				},
+				{
+					type: "image",
+					fields: [
+						{
+							type: "text",
+							name: "alt",
+							title: "Alternative text",
+							description: `Some of your visitors cannot see images, 
+                be they blind, color-blind, low-sighted; 
+                alternative text is of great help for those 
+                people that can rely on it to have a good idea of 
+                what\'s on your page.`,
+							options: {
+								isHighlighted: true,
+							},
+						},
+					],
+				},
+			],
 		}),
 	],
 });

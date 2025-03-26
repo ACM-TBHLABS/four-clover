@@ -13,6 +13,21 @@ export default defineType({
 				Rule.required().error("Training name is required"),
 		}),
 		defineField({
+			name: "slug",
+			type: "slug",
+			title: "Slug",
+			options: {
+				source: "name",
+				slugify: (input) =>
+					input
+						.toLowerCase()
+						.replace(/\s+/g, "-")
+						.replace(/[^a-z0-9-]/g, "")
+						.slice(0, 200),
+			},
+			validation: (Rule) => Rule.required().error("Slug is required"),
+		}),
+		defineField({
 			name: "description",
 			type: "text",
 			title: "Description",
