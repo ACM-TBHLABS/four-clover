@@ -78,14 +78,14 @@ export default defineType({
 			title: "Brand",
 		}),
 		defineField({
-			name: "faqs",
+			name: "productFaqs",
 			type: "array",
-			title: "FAQs",
+			title: "Product FAQs",
 			of: [
 				defineField({
-					name: "faq",
+					name: "productFaqs",
 					type: "object",
-					title: "FAQ",
+					title: "Product FAQ",
 					fields: [
 						defineField({
 							name: "question",
