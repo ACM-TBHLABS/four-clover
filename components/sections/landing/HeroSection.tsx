@@ -1,16 +1,20 @@
 import React from "react";
+import { PlayCircleIcon } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="w-full bg-[#DAFFB7] relative flex flex-col items-center justify-center pt-[100px] mb-[100px]">
-      <div className="w-full max-w-[1600px] px-[150px] flex flex-col gap-[32px]">
+    <div className="w-full relative flex flex-col items-center justify-center pt-[100px] py-[32px] xl:py-[100px]">
+      {/* Green background that covers only half the image height */}
+      <div className="absolute top-0 left-0 right-0 bg-[#DAFFB7] h-2/3 z-0"></div>
+
+      <div className="w-full max-w-[1600px] px-[24px] md:px-[150px] flex flex-col gap-[32px] relative z-10">
         <div className="flex flex-row gap-[12px] justify-between w-full">
-          <h1 className="w-full font-helvetica text-[32px] md:text-[80px] font-normal uppercase">
+          <h1 className="w-full font-helvetica text-[32px] lg:text-[80px] font-normal uppercase">
             Lead the <br />
             Generation with
             <br /> Innovation
           </h1>
-          <div className="flex flex-col gap-[12px] items-end mt-auto w-[300px]">
+          <div className="flex-col gap-[12px] items-end mt-auto w-[300px] hidden xl:flex">
             <h1 className="font-helvetica text-[18px] font-light">
               We are committed to pioneering technological advancements that
               drive innovation within the dental industry.
@@ -20,19 +24,29 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
-        <div className="w-full max-w-[1600px] h-auto z-10">
+        <div className="w-full max-w-[1600px] h-auto z-10 relative">
           <img
             src="/landing/hero.png"
             alt="hero"
-            className="w-full h-[600px] object-cover rounded-[30px] border-[20px] border-[#DAFFB7] border-rounded-[30px]"
+            className="w-full aspect-video object-cover rounded-[30px] md:border-[5px] border-[#DAFFB7]"
+          />
+          <PlayCircleIcon
+            size={100}
+            strokeWidth={0.55}
+            className="absolute text-gray-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:bg-white rounded-full transition-all duration-300 ease-in-out"
           />
         </div>
       </div>
-      <div className="absolute bg-white bottom-0 left-0 h-[300px] w-[calc((100vw-1600px)/2+150px)] rounded-t-xl" />
-      <div className="absolute bg-white bottom-0 right-0 h-[300px] w-[calc((100vw-1600px)/2+150px)] rounded-t-xl" />
-      <div className="absolute bg-white bottom-0 left-0 h-[20px] w-full z-1"></div>
     </div>
   );
 };
 
 export default HeroSection;
+
+{
+  /* <div className="absolute bg-white bottom-0 left-0 h-[400px] w-screen" />
+<div className="absolute bg-white bottom-0 right-0 h-[400px] w-screen" /> */
+}
+{
+  /* <div className="absolute bg-white bottom-0 left-0 h-[20px] w-full z-1"></div> */
+}

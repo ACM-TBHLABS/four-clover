@@ -3,13 +3,13 @@ import React from "react";
 
 const IntroSection = () => {
   return (
-    <div className="px-[150px] ">
-      <div className="my-[100px] flex flex-col gap-[12px]">
-        <h1 className="font-helvetica text-[32px] font-light leading-[36.8px]">
+    <div className="px-[24px] md:px-[150px]">
+      <div className="flex xl:hidden flex-col gap-[12px]">
+        <h1 className="font-helvetica text-[18px] font-normal">
           We are committed to pioneering <br /> technological advancements that
           drive <br /> innovation within the dental industry.
         </h1>
-        <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
+        <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[20px]">
           Partner with Us
         </button>
       </div>
