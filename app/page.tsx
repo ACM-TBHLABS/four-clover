@@ -7,9 +7,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-full flex justify-center">
-      <div className="max-w-[1800px] w-full">
-        <HeroSection />
+    <div className="w-full flex flex-col items-center">
+      <HeroSection />
+      <div className="max-w-[1800px] w-full ">
         <IntroSection />
         <SolutionsSection />
         <FAQSection />

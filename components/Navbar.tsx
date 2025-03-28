@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="max-w-[1800px] w-full h-[108px] py-[24px] px-[150px] bg-white flex justify-between items-center relative">
+    <div className="w-full flex flex-col items-center bg-[#DAFFB7]">
+      <div className="max-w-[1800px] w-full h-[108px] py-[24px] px-[150px] flex justify-between items-center relative">
         <div
           className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]"
           onClick={() => router.push("/")}
