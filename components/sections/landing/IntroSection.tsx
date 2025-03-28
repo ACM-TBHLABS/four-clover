@@ -15,7 +15,7 @@ const IntroSection = () => {
       </div>
 
       <div className="py-[100px] flex gap-[50px] justify-between cursor-default">
-        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             10+
             <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
@@ -31,7 +31,7 @@ const IntroSection = () => {
             providers globally.
           </h1>
         </div>
-        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             100+
           </h1>
@@ -43,7 +43,7 @@ const IntroSection = () => {
             Trusted by hospitals and clinics across <br /> multiple regions.
           </h1>
         </div>
-        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group hover:scale-[1.05]">
+        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
           <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
             500+
             {/* <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
