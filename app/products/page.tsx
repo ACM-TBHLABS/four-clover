@@ -6,13 +6,15 @@ import FAQSection from "@/components/sections/landing/FAQSection";
 
 const ProductsPage = () => {
   return (
-    <div>
-      <div className="px-[150px]">
-        <HeroSection />
-        <ProductsSection />
-        <CtaSection />
+    <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+      <div className="max-w-screen md:max-w-[1600px] w-full">
+        <div className="px-[15px] md:px-[150px]">
+          <HeroSection />
+          <ProductsSection />
+          <CtaSection />
+        </div>
+        <FAQSection />
       </div>
-      <FAQSection />
     </div>
   );
 };

@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Router } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const ProductsSection = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("All");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const tabs = ["All", "Dental Aligners", "Chairs", "Implants", "3D Scanners"];
   const products = [
     {
@@ -43,9 +44,16 @@ const ProductsSection = () => {
     },
   ];
 
+  // Filter products based on active tab
+  const filteredProducts =
+    activeTab === "All"
+      ? products
+      : products.filter((product) => product.category === activeTab);
+
   return (
     <div className="flex flex-col gap-[50px]">
-      <div className="flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden cursor-pointer">
+      {/* Desktop Tabs */}
+      <div className="hidden md:flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden cursor-pointer">
         {tabs.map((tab) => (
           <TabButton
             key={tab}
@@ -55,8 +63,54 @@ const ProductsSection = () => {
           />
         ))}
       </div>
+
+      {/* Mobile Dropdown */}
+      <div className="md:hidden relative">
+        <div
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className="flex items-center justify-between border border-black rounded-[8px] p-3 bg-white"
+        >
+          <span
+            className={`${
+              activeTab === "All" ? "text-black" : "text-green-700"
+            }`}
+          >
+            {activeTab}
+          </span>
+          <ChevronDown
+            className={`transition-transform duration-300 ${
+              isDropdownOpen ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+        {isDropdownOpen && (
+          <div className="absolute z-10 w-full border border-black rounded-[8px] mt-1 bg-white shadow-lg">
+            {tabs.map((tab) => (
+              <div
+                key={tab}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setIsDropdownOpen(false);
+                }}
+                className={`p-3 hover:bg-[#EFEFEF] cursor-pointer
+                  ${
+                    activeTab === tab
+                      ? "bg-[#EFEFEF] text-green-700"
+                      : "text-black"
+                  }
+                  ${tab === tabs[tabs.length - 1] ? "rounded-b-[8px]" : ""}
+                  ${tab === tabs[0] ? "rounded-t-[8px]" : ""}`}
+              >
+                {tab}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Products Grid */}
       <div className="flex flex-wrap justify-between gap-y-[50px]">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard
             key={product.name}
             name={product.name}
@@ -117,7 +171,7 @@ const ProductCard = ({
   return (
     <div
       onClick={() => router.push("/products/productXYZ")}
-      className="w-[380px] flex flex-col gap-[10px] relative group hover:scale-[1.01] transition-transform duration-300 ease-in-out"
+      className="w-full md:w-[380px] flex flex-col gap-[10px] relative group hover:scale-[1.01] transition-transform duration-300 ease-in-out"
     >
       <div className="h-[300px] bg-slate-700 relative cursor-pointer">
         <img
@@ -137,12 +191,12 @@ const ProductCard = ({
           +Quote
         </button>
       </div>
-      <h1 className="font-helvetica font-light text-[24px] leading-[27.6px]">
+      <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[27.6px]">
         {name}
       </h1>
 
       {color && (
-        <h1 className="font-helvetica font-light text-[24px] leading-[27.6px]">
+        <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[27.6px]">
           ({color})
         </h1>
       )}
