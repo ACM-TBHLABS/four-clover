@@ -14,47 +14,47 @@ const IntroSection = () => {
         </button>
       </div>
 
-      <div className="py-[100px] flex gap-[50px] justify-between cursor-default">
-        <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+      <div className="py-[100px] flex flex-col md:flex-row gap-[50px] justify-between cursor-default">
+        <div className="flex flex-col gap-0 md:gap-[12px] transition-transform duration-300 ease-in-out group">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] md:leading-[82.79px] flex items-baseline">
             10+
-            <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
+            <span className="font-helvetica font-light text-[28px] md:text-[42px] md:leading-[48.2px] ml-2">
               &nbsp;years
             </span>
           </h1>
-          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+          <h1 className="font-helvetica font-light text-[28px] md:text-[42px] md:leading-[48.2px]">
             of Experience
           </h1>
-          <hr />
-          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+          <hr className="my-[12px]" />
+          <h1 className="font-helvetica font-normal text-[18px] md:leading-[20.7px] text-[#666666]">
             Delivering top-notch dental instruments to <br /> healthcare
             providers globally.
           </h1>
         </div>
         <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] md:leading-[82.79px] flex items-baseline">
             100+
           </h1>
-          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+          <h1 className="font-helvetica font-light text-[28px] md:text-[42px] md:leading-[48.2px]">
             Product Lines
           </h1>
           <hr />
-          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+          <h1 className="font-helvetica font-light text-[18px] md:leading-[20.7px] text-[#666666]">
             Trusted by hospitals and clinics across <br /> multiple regions.
           </h1>
         </div>
         <div className="flex flex-col gap-[12px] transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px] flex items-baseline">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] md:leading-[82.79px] flex items-baseline">
             500+
-            {/* <span className="font-helvetica font-light text-[42px] leading-[48.2px] ml-2">
+            {/* <span className="font-helvetica font-light text-[28px] md:text-[42px] md:leading-[48.2px] ml-2">
               &nbsp;years
             </span> */}
           </h1>
-          <h1 className="font-helvetica font-light text-[42px] leading-[48.2px]">
+          <h1 className="font-helvetica font-light text-[28px] md:text-[42px] md:leading-[48.2px]">
             Happy Clients
           </h1>
           <hr />
-          <h1 className="font-helvetica font-light text-[18px] leading-[20.7px] text-[#666666]">
+          <h1 className="font-helvetica font-light text-[18px] md:leading-[20.7px] text-[#666666]">
             Offering a wide range of dental equipment to <br /> meet every need.
           </h1>
         </div>
