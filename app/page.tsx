@@ -7,12 +7,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
-      <HeroSection />
-      <IntroSection />
-      <SolutionsSection />
-      <FAQSection />
-      <PartnersSection />
+    <div className="w-full flex justify-center">
+      <div className="max-w-[1800px] w-full">
+        <HeroSection />
+        <IntroSection />
+        <SolutionsSection />
+        <FAQSection />
+        <PartnersSection />
+      </div>
     </div>
   );
 }

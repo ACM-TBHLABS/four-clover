@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="w-screen h-[800px] relative">
+    <div className="w-full h-[800px] relative">
       {/* <Image
         src="/landing/hero.png"
         alt="Hero"

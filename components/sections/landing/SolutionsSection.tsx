@@ -18,7 +18,7 @@ const SolutionsSection = () => {
       </div>
 
       <div className="flex flex-col gap-[20px]">
-        <div className="w-screen relative ">
+        <div className="w-full relative ">
           <img
             src="/landing/chairs.png"
             alt="chairs"
@@ -52,7 +52,7 @@ const SolutionsSection = () => {
         </div>
 
         <div className="flex gap-[20px]">
-          <div className="bg-red-500 w-1/2 h-[903px]">
+          <div className=" w-1/2 h-[903px]">
             <div className="w-full relative h-full bg-blue-500 overflow-hidden">
               <img
                 src="/landing/scanners.png"
@@ -83,7 +83,7 @@ const SolutionsSection = () => {
               </div>
             </div>
           </div>
-          <div className="bg-red-500 w-1/2 h-[903px]">
+          <div className=" w-1/2 h-[903px]">
             <div className="w-full relative h-full bg-blue-500 overflow-hidden">
               <img
                 src="/landing/aligners.png"
@@ -116,7 +116,7 @@ const SolutionsSection = () => {
           </div>
         </div>
 
-        <div className="bg-red-500 w-screen">
+        <div className=" w-full">
           <div className="w-full relative ">
             <img
               src="/landing/implants.png"
