@@ -11,13 +11,15 @@ const ProductPage: React.FC = () => {
   const { productName } = useParams<{ productName: string }>(); // Extract product name
 
   return (
-    <div>
+    <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <HeroSection />
-      <div className="px-[150px]">
-        <DescriptionSection />
-        <QuotationSection />
+      <div className="max-w-screen md:max-w-[1600px] w-full">
+        <div className="px-[24px] md:px-[150px]">
+          <DescriptionSection />
+          <QuotationSection />
+        </div>
+        <FAQSection />
       </div>
-      <FAQSection />
     </div>
   );
 };
