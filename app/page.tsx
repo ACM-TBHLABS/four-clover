@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col items-center overflow-x-hidden">
       <HeroSection />
-      <div className="max-w-[1600px] w-full ">
+      <div className="max-w-screen md:max-w-[1600px] w-full ">
         <IntroSection />
         {/* <SolutionsSection /> */}
         <FAQSection />

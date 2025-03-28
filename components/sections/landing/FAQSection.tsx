@@ -8,8 +8,8 @@ import {
 
 const FAQSection = () => {
   return (
-    <div className="my-[100px] mx-[150px] flex flex-col gap-[20px]">
-      <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px]">
+    <div className="my-[100px] mx-[24px] md:mx-[150px] flex flex-col gap-[20px]">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[82.79px]">
         FAQs
       </h1>
       <Accordion type="multiple">
@@ -18,12 +18,12 @@ const FAQSection = () => {
           className="border-b-[1px] border-solid border-[#5a5a5a] "
         >
           <AccordionTrigger className="py-[20px]">
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px]">
               1. Does Four Clover provide support and maintenance?
             </h1>
           </AccordionTrigger>
           <AccordionContent>
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6 transition-transform">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px] py-[20px] ml-6 transition-transform">
               Yes, Four Clover offers comprehensive support and maintenance
               services for all the dental products we supply. Our dedicated
               support team is available to assist with any issues or concerns.
@@ -37,12 +37,12 @@ const FAQSection = () => {
           className="border-b-[1px] border-solid border-[#5a5a5a] "
         >
           <AccordionTrigger className="py-[20px]">
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px]">
               2. How can I request a quotation for dental products?
             </h1>
           </AccordionTrigger>
           <AccordionContent>
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px] py-[20px] ml-6">
               To request a quotation, simply fill out the form on our Products
               page, providing the details of the products you're interested in.
               Our team will get back to you with a customized quote based on
@@ -55,12 +55,12 @@ const FAQSection = () => {
           className="border-b-[1px] border-solid border-[#5a5a5a] "
         >
           <AccordionTrigger className="py-[20px]">
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px]">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px]">
               3. Do you offer international shipping?
             </h1>
           </AccordionTrigger>
           <AccordionContent>
-            <h1 className="font-helvetica font-normal text-[24px] leading-[27.6px] py-[20px] ml-6">
+            <h1 className="font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px] py-[20px] ml-6">
               Yes, we offer product training for all our dental equipment. Our
               experts will guide you through the setup, operation, and
               maintenance of your products. Contact us for more information on
