@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/landing/HeroSection";
 import IntroSection from "@/components/sections/landing/IntroSection";
 import PartnersSection from "@/components/sections/landing/PartnersSection";
 import SolutionsSection from "@/components/sections/landing/SolutionsSection";
+import SpotlightSection from "@/components/sections/landing/SpotlightSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="max-w-screen md:max-w-[1600px] w-full ">
         <IntroSection />
         {/* <SolutionsSection /> */}
+        <SpotlightSection />
         <FAQSection />
         <PartnersSection />
       </div>
