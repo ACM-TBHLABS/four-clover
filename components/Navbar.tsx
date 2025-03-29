@@ -1,11 +1,22 @@
 "use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
+  const pathname = usePathname();
+  const [isLandingPage, setIsLandingPage] = useState(false);
+
+  useEffect(() => {
+    setIsLandingPage(pathname === "/");
+  }, [pathname]);
+
   return (
-    <div className="w-full flex flex-col items-center bg-[#DAFFB7]">
+    <div
+      className={`w-full flex flex-col items-center ${
+        isLandingPage ? "bg-[#DAFFB7]" : ""
+      }`}
+    >
       <div className="max-w-[1600px] w-full h-[108px] py-[24px] px-[150px] flex justify-between items-center relative">
         <div
           className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]"
@@ -40,9 +51,6 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-[20px] font-helvetica text-2xl font-light leading-[27.6px]">
-          {/* <h1 className="underline hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800 ">
-          EN
-        </h1> */}
           <button className="border px-[20px] py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
             Contact
           </button>
