@@ -30,9 +30,6 @@ const Footer = () => {
       </div>
 
       <div className="flex items-center space-x-[20px] font-helvetica text-2xl font-light leading-[27.6px]">
-        <h1 className="underline hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800 ">
-          EN
-        </h1>
         <button className="border px-[20px] py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
           Contact
         </button>
