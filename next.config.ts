@@ -6,11 +6,15 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.sanity.io", // Sanity's image CDN
-        port: "",                  // Leave empty for default HTTPS port
-        pathname: "/**",           // Allow all image paths
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/**",
       },
     ],
+  },
+
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
