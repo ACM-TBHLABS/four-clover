@@ -31,7 +31,7 @@ const Footer = () => {
 
       <div className="flex items-center space-x-[20px] font-helvetica text-2xl font-light leading-[27.6px]">
         <button className="border px-[20px] py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
-          Contact
+          Contact Us
         </button>
       </div>
     </div>
