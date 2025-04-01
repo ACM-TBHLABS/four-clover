@@ -10,6 +10,7 @@ const SpotlightSection = () => {
 
 	if (isLoading) return <p>Loading partnerships...</p>;
 	if (error) return <p>Error loading partnerships</p>;
+
   return (
     <div className="px-[24px] md:px-[150px] py-[100px]">
       <div className="w-full flex flex-col gap-[100px]">
