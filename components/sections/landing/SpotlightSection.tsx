@@ -1,11 +1,15 @@
+"use client";
 import { urlFor } from "@/sanity/lib/image";
 import { fetchAllPartnerships } from "@/services/partnershipService";
+import { usePartnerships } from "@/services/query/usePartnerships";
 import Image from "next/image";
 import React from "react";
 
-const SpotlightSection = async () => {
-  const partnerships = await fetchAllPartnerships();
+const SpotlightSection = () => {
+	const { data: partnerships, isLoading, error } = usePartnerships();
 
+	if (isLoading) return <p>Loading partnerships...</p>;
+	if (error) return <p>Error loading partnerships</p>;
   return (
     <div className="px-[24px] md:px-[150px] py-[100px]">
       <div className="w-full flex flex-col gap-[100px]">
@@ -25,7 +29,7 @@ const SpotlightSection = async () => {
           </h1>
 
           <div className="flex flex-col gap-[32px] md:hidden">
-            {partnerships.map((partner) => (
+            {partnerships?.map((partner) => (
               <div key={partner._id} className="flex flex-col w-full gap-[8px]">
                 <div className="flex flex-col gap-[8px]">
                   <div className="w-full h-[300px] bg-blue-100 relative">
@@ -45,7 +49,7 @@ const SpotlightSection = async () => {
           </div>
 
           <div className="hidden md:flex flex-col gap-[32px]">
-            {partnerships.map((partner, index) => (
+            {partnerships?.map((partner, index) => (
               <div key={partner._id} className={`flex flex-row gap-[32px] justify-between ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
                 <div className="h-[300px] flex flex-col w-1/2">
                   <div className="mt-auto w-[590px]">
