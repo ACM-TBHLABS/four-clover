@@ -1,11 +1,21 @@
 import { Image } from "./Image";
 
+export interface ProductFAQ {
+	question: string;
+	answer: string;
+}
+
 export interface Product {
 	_id: string;
-	productName: string;
-	productHeroImage: Image;
-	productImages?: Image[];
-	productDescription: string;
-	productSKU: string;
-	productCategory: "dental-aligners" | "chairs" | "implants" | "3d-scanners";
+	name: string;
+	slug: string;
+	description: string;
+	tagline: string;
+	price: number;
+	heroImage: Image;
+	images?: Image[];
+	discount?: number;
+	ref_link?: string; // Optional URL
+	brand?: string;
+	productFaqs?: ProductFAQ[];
 }
