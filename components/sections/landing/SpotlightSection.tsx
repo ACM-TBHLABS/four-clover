@@ -1,6 +1,6 @@
 "use client";
 import { urlFor } from "@/sanity/lib/image";
-import { fetchAllPartnerships } from "@/services/partnershipService";
+import { fetchAllPartnerships } from "@/services/api/partnershipService";
 import { usePartnerships } from "@/services/query/usePartnerships";
 import Image from "next/image";
 import React from "react";
