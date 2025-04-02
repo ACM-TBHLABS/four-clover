@@ -105,6 +105,30 @@ export default defineType({
 			type: "boolean",
 			title: "Display on Main Screen",
 			description: "Toggle to display this event on the main screen",
+			validation: (Rule) =>
+				Rule.custom(async (value, context) => {
+					if (value) {
+						const { document, getClient } = context;
+						const client = getClient({ apiVersion: "2023-01-01" });
+						const id = document?._id.replace(/^drafts\./, "");
+						const query = `*[_type == "event" && display_on_main_screen == true && _id != $id]{name}`;
+						const params = { id };
+						const existingEvents = await client.fetch(
+							query,
+							params
+						);
+
+						if (existingEvents.length > 0) {
+							const eventNames = existingEvents
+								.map(
+									(event: { name: any }) => `"${event.name}"`
+								)
+								.join(", ");
+							return `Warning: The following event(s) are already set to display on the main screen: ${eventNames}. Consider unsetting them if only one event should be displayed on the main screen.`;
+						}
+					}
+					return true;
+				}).warning(),
 		}),
 		defineField({
 			name: "content",
