@@ -1,7 +1,8 @@
-import { Image } from "./Image";
+import { Image } from "./image";
 
 export interface Event {
 	_id: string;
+	tag: string;
 	name: string;
 	slug: { current: string };
 	description: string;

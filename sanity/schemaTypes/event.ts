@@ -6,6 +6,19 @@ export default defineType({
 	title: "Event",
 	fields: [
 		defineField({
+			name: "tag",
+			type: "string",
+			title: "Tag",
+			options: {
+				list: [
+					{ title: "Event", value: "event" },
+					{ title: "Training", value: "training" },
+				],
+				layout: "dropdown", // Optional: defaults to 'dropdown'; can be 'radio' for radio buttons
+			},
+			validation: (Rule) => Rule.required().error("Tag is required"),
+		}),
+		defineField({
 			name: "name",
 			type: "string",
 			title: "Event Name",
