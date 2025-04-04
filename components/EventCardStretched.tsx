@@ -14,11 +14,14 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
   tagline,
 }) => {
   return (
-    <div className="w-full flex gap-[32px]">
-      <div className="flex gap-[12px]">
+    <div className="w-full flex gap-[32px] justify-between">
+      <div className="flex gap-[12px] w-[250px]">
         <h2 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none w-[250px]">
           {title}
         </h2>
+      </div>
+
+      <div className="flex gap-[12px] w-[250px]">
         <img
           src={image}
           alt={title}
@@ -26,7 +29,7 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
         />
       </div>
 
-      <div className="flex flex-row gap-[12px]">
+      <div className="flex flex-row gap-[12px] w-[590px]">
         <div className="flex flex-col gap-[4px]">
           <h1 className="uppercase font-helvetica text-[20px] md:text-[24px] font-normal">
             {tagline}
@@ -37,9 +40,11 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
         </div>
       </div>
 
-      <button className="ml-auto rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit h-fit">
-        Read More
-      </button>
+      <div className="">
+        <button className="rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit h-fit">
+          Read More
+        </button>
+      </div>
     </div>
   );
 };
