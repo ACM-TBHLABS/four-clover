@@ -1,54 +1,40 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import { fetchAllProductLines } from "@/services/api/productLineService";
+import { ProductLine } from "@/types/productLine";
 
 const ProductsSection = () => {
   const router = useRouter();
+  const [productLines, setProductLines] = useState<ProductLine[]>([]);
+  const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const tabs = ["All", "Dental Aligners", "Chairs", "Implants", "3D Scanners"];
-  const products = [
-    {
-      name: "SMARTmatic",
-      category: "Dental Aligners",
-      image: "/products/smartmatic.png",
-    },
-    {
-      name: "SMARTmatic 1",
-      category: "Dental Aligners",
-      image: "/products/smartmatic.png",
-    },
-    {
-      name: "SMARTmatic 2",
-      category: "Dental Aligners",
-      image: "/products/smartmatic.png",
-    },
-    {
-      name: "Egronomic Chair 1",
-      color: "Steel Gray",
-      category: "Chairs",
-      image: "/products/chair-gray.png",
-    },
-    {
-      name: "Egronomic Chair 2",
-      color: "Cherry Red",
-      category: "Chairs",
-      image: "/products/chair-red.png",
-    },
-    {
-      name: "Egronomic Chair 3",
-      color: "Cherry Red",
-      category: "Chairs",
-      image: "/products/chair-red.png",
-    },
-  ];
+
+  useEffect(() => {
+    const fetchProductLines = async () => {
+      setLoading(true);
+      try {
+        const res = await fetchAllProductLines();
+        console.log("Fetched:", res);
+        setProductLines(res);
+      } catch (error) {
+        console.error("Error fetching product lines:", error);
+      }
+      setLoading(false);
+    };
+    fetchProductLines();
+  }, []);
 
   // Filter products based on active tab
   const filteredProducts =
     activeTab === "All"
-      ? products
-      : products.filter((product) => product.category === activeTab);
+      ? productLines
+      : productLines.filter((product) => product.category.name === activeTab);
+
+  if (loading) return <p>Loading product lines...</p>;
 
   return (
     <div className="flex flex-col gap-[50px]">
@@ -113,10 +99,11 @@ const ProductsSection = () => {
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.name}
+            id={product._id}
             name={product.name}
-            category={product.category}
-            image={product.image}
-            color={product.color ? product.color : ""}
+            category={product.category.name}
+            image="/products/smartmatic.png"
+            // color={product.color ? product.color : ""}
             router={router}
           />
         ))}
@@ -156,12 +143,14 @@ const TabButton = ({
 };
 
 const ProductCard = ({
+  id,
   name,
   category,
   image,
   color,
   router,
 }: {
+  id: string;
   name: string;
   category: string;
   image: string;
@@ -170,7 +159,7 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      onClick={() => router.push("/products/productXYZ")}
+      onClick={() => router.push(`/products/${id}`)}
       className="w-full md:w-[380px] flex flex-col gap-[10px] relative group hover:scale-[1.01] transition-transform duration-300 ease-in-out"
     >
       <div className="h-[300px] bg-slate-700 relative cursor-pointer">
