@@ -3,8 +3,8 @@ import React from "react";
 const IntroSection = () => {
   return (
     <div className="w-full flex flex-col gap-[32px]">
-      <div className="flex flex-col md:flex-row gap-[32px] h-[350px]">
-        <div className="w-1/2 px-[20px] flex flex-col gap-[10px] justify-center">
+      <div className="flex flex-col md:flex-row gap-[32px] md:h-[350px]">
+        <div className="w-full md:w-1/2 md:px-[20px] flex flex-col gap-[10px] justify-center">
           <h1 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none">
             Experience Dental Workshop
           </h1>
@@ -14,7 +14,7 @@ const IntroSection = () => {
             practice.
           </h1>
         </div>
-        <div className="w-1/2 bg-blue-200"></div>
+        <div className="w-full md:w-1/2 h-[350px] bg-blue-200"></div>
       </div>
     </div>
   );

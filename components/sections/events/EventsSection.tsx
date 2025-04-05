@@ -46,7 +46,7 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
         <div className="w-full flex flex-col md:flex-row gap-[50px]">
           {events.length > 0 ? (
             events.map((event, index) => (
-              <div key={event._id || index} className="w-1/2">
+              <div key={event._id || index} className="w-full md:w-1/2">
                 <EventCard
                   image={
                     urlFor(event.intro_image).url() || "/mockup/workshop.png"
@@ -96,35 +96,48 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
       </h1>
 
       {events.length > 0 ? (
-        events.map((event, index) => (
-          <EventCardStretched
-            key={event._id || index}
-            image={urlFor(event.intro_image).url() || "/mockup/workshop.png"}
-            title={event.name || "DENTIS Factory Visit"}
-            tagline={
-              event.tagline || "Practical insights from industry experts"
-            }
-            description={
-              event.description ||
-              "Join us for a two-day event featuring top professionals in the dental industry."
-            }
-          />
-        ))
+        <>
+          <div className="hidden md:flex flex-col gap-[50px]">
+            {events.map((event, index) => (
+              <EventCardStretched
+                key={event._id || index}
+                image={
+                  urlFor(event.intro_image).url() || "/mockup/workshop.png"
+                }
+                title={event.name || "DENTIS Factory Visit"}
+                tagline={
+                  event.tagline || "Practical insights from industry experts"
+                }
+                description={
+                  event.description ||
+                  "Join us for a two-day event featuring top professionals in the dental industry."
+                }
+              />
+            ))}
+          </div>
+          <div className="flex md:hidden flex-col gap-[50px]">
+            {events.map((event, index) => (
+              <EventCard
+                key={event._id || index}
+                image={
+                  urlFor(event.intro_image).url() || "/mockup/workshop.png"
+                }
+                title={event.name || "DENTIS Factory Visit"}
+                tagline={
+                  event.tagline || "Practical insights from industry experts"
+                }
+                description={
+                  event.description ||
+                  "Join us for a two-day event featuring top professionals in the dental industry."
+                }
+              />
+            ))}
+          </div>
+        </>
       ) : (
         // Fallback content if no events
         <>
-          <EventCardStretched
-            image="/mockup/workshop.png"
-            title="DENTIS Factory Visit"
-            tagline="Practical insights from industry experts"
-            description="Join us for a two-day event featuring top professionals in the dental industry."
-          />
-          <EventCardStretched
-            image="/mockup/workshop.png"
-            title="Runyes Factory Visit"
-            tagline="Practical insights from industry experts"
-            description="Join us for a two-day event featuring top professionals in the dental industry."
-          />
+          <h1>No events</h1>
         </>
       )}
     </div>

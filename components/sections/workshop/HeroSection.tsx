@@ -10,7 +10,7 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
   return (
     <div className="w-full ">
       <TimerSection startDate={event.start_date} />
-      <div className="w-full aspect-video relative">
+      <div className="w-full h-[350px] md:h-auto md:aspect-video relative">
         <img
           src={urlFor(event.intro_image).url()}
           className="w-full h-full object-cover"
@@ -19,23 +19,30 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
           {/* Additional overlay at the bottom for text area */}
           <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-white/80 to-transparent"></div>
         </div>
-        <div className="bottom-10 left-10 absolute flex flex-col gap-[32px]">
-          <div className="flex flex-col gap-[16px]">
-            <h1 className="font-helvetica font-light text-[18px] leading-[100%]">
+        <div className="flex bottom-2 md:bottom-10 left-2 md:left-10 absolute flex-col gap-[8px] md:gap-[32px]">
+          <div className="flex flex-col gap-[8px] md:gap-[16px]">
+            <h1 className="hidden md:block font-helvetica font-light text-[18px] leading-[100%]">
               {new Date(event.start_date).toLocaleString("en-US", {
                 dateStyle: "long",
                 timeStyle: "short",
               })}
               , {event.location}{" "}
             </h1>
-            <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
+            <h1 className="font-helvetica font-normal text-[24px] md:text-[72px] leading-[100%]">
               {event.name}
             </h1>
-            <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[100%]">
+            <h1 className="md:hidden font-helvetica font-light text-[14px] md:text-[18px] leading-[110%] md:leading-[100%] w-2/3">
+              {new Date(event.start_date).toLocaleString("en-US", {
+                dateStyle: "long",
+                timeStyle: "short",
+              })}
+              , {event.location}{" "}
+            </h1>
+            <h1 className="hidden md:block font-helvetica font-light text-[20px] md:text-[24px] leading-[100%]">
               {event.description}
             </h1>
           </div>
-          <button className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-3 px-8">
+          <button className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8">
             Register
           </button>
         </div>
