@@ -29,6 +29,7 @@ const ProductsSection = () => {
   }, []);
 
   // Filter products based on active tab
+  // fetch productlines by category
   const filteredProducts =
     activeTab === "All"
       ? productLines
