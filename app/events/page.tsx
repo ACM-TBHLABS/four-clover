@@ -22,11 +22,15 @@ const WorkshopPage = () => {
     fetchEvents();
   }, []);
 
+  if (!events) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <div className="w-full max-w-screen md:max-w-[1600px]">
         <div className="flex flex-col gap-[50px] px-[150px]">
-          <HeroSection />
+          <HeroSection event={events[0]} />
           <IntroSection />
           <EventsSection events={events} />
         </div>
