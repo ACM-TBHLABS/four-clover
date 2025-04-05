@@ -14,11 +14,11 @@ const SpotlightSection = () => {
   return (
     <div className="px-[24px] md:px-[150px] py-[100px]">
       <div className="w-full flex flex-col gap-[100px]">
-        <div className="w-full flex flex-col gap-[32px]">
-          <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[82.79px]">
+        <div className="flex flex-col gap-[32px]">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] md:leading-[82.79px]">
             Collaborating for Innovation
           </h1>
-          <h1 className="font-helvetica font-light text-[16px] md:text-[32px] w-1/2">
+          <h1 className="font-helvetica font-light text-[16px] md:text-[32px] w-full md:w-1/2">
             Our journey toward advancing dental solutions is powered by leading
             institutions and businesses that share our vision for innovation,
             quality, and excellence.
@@ -30,66 +30,31 @@ const SpotlightSection = () => {
           </h1>
 
           <div className="flex flex-col gap-[32px]">
-            <div className="md:hidden flex flex-col">
-              <div className="flex flex-col w-full gap-[8px]">
-                <div className="flex flex-col gap-[8px]">
-                  <div className="w-full h-[300px] bg-blue-100"></div>
-                  <div className="w-full h-[80px] bg-red-200"></div>
-                </div>
-                <div className="w-full">
-                  <h1 className="font-helvetica font-light text-[18px]">
-                    Lorem Ipsum Our journey toward advancing dental solutions is
-                    powered by leading institutions and businesses that share
-                    our vision for innovation, quality, and excellence.
-                  </h1>
-                </div>
-              </div>
-            </div>
-            <div className="md:hidden flex flex-col">
-              <div className="flex flex-col w-full gap-[8px]">
-                <div className="flex flex-col gap-[8px]">
-                  <div className="w-full h-[300px] bg-blue-100"></div>
-                  <div className="w-full h-[80px] bg-red-200"></div>
-                </div>
-                <div className="w-full">
-                  <h1 className="font-helvetica font-light text-[18px]">
-                    Lorem Ipsum Our journey toward advancing dental solutions is
-                    powered by leading institutions and businesses that share
-                    our vision for innovation, quality, and excellence.
-                  </h1>
+            {partnerships?.map((partnership) => (
+              <div className="md:hidden flex flex-col" key={partnership._id}>
+                <div className="flex flex-col w-full gap-[8px]">
+                  <div className="flex flex-col gap-[8px] items-start">
+                    <img
+                      src={urlFor(partnership.coverPhoto).url()}
+                      alt={partnership.name}
+                      className="w-full h-[300px] object-cover"
+                    />
+                    <img
+                      src={urlFor(partnership.logo).url()}
+                      alt={partnership.name}
+                      className="w-auto h-[80px] object-contain"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <h1 className="font-helvetica font-light text-[18px]">
+                      Lorem Ipsum Our journey toward advancing dental solutions
+                      is powered by leading institutions and businesses that
+                      share our vision for innovation, quality, and excellence.
+                    </h1>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="md:hidden flex flex-col">
-              <div className="flex flex-col w-full gap-[8px]">
-                <div className="flex flex-col gap-[8px]">
-                  <div className="w-full h-[300px] bg-blue-100"></div>
-                  <div className="w-full h-[80px] bg-red-200"></div>
-                </div>
-                <div className="w-full">
-                  <h1 className="font-helvetica font-light text-[18px]">
-                    Lorem Ipsum Our journey toward advancing dental solutions is
-                    powered by leading institutions and businesses that share
-                    our vision for innovation, quality, and excellence.
-                  </h1>
-                </div>
-              </div>
-            </div>
-            <div className="md:hidden flex flex-col">
-              <div className="flex flex-col w-full gap-[8px]">
-                <div className="flex flex-col gap-[8px]">
-                  <div className="w-full h-[300px] bg-blue-100"></div>
-                  <div className="w-full h-[80px] bg-red-200"></div>
-                </div>
-                <div className="w-full">
-                  <h1 className="font-helvetica font-light text-[18px]">
-                    Lorem Ipsum Our journey toward advancing dental solutions is
-                    powered by leading institutions and businesses that share
-                    our vision for innovation, quality, and excellence.
-                  </h1>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="flex-col gap-[32px] hidden md:flex">
