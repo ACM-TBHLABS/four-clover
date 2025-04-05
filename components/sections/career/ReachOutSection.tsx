@@ -4,7 +4,7 @@ import React from "react";
 const ReachOutSection = () => {
   return (
     <div className="flex flex-col md:flex-row py-[100px] gap-[50px]">
-      <div className="w-1/2 flex flex-col gap-[12px]">
+      <div className="w-full md:w-1/2 flex flex-col gap-[12px]">
         <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
           Reach out
         </h1>
@@ -13,7 +13,7 @@ const ReachOutSection = () => {
           make a difference together!
         </h1>
       </div>
-      <div className="w-1/2 flex flex-col gap-[12px] max-w-[800px]">
+      <div className="w-full md:w-1/2 flex flex-col gap-[12px] max-w-[800px]">
         <div className="w-full flex flex-col gap-[12px]">
           <h1 className="font-helvetica font-normal text-[20px] md:text-[24px]">
             Email

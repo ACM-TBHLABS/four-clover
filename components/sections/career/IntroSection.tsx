@@ -33,18 +33,21 @@ const IntroSection = () => {
       <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
         Our Team
       </h1>
-      <div className="flex justify-between">
+      <div className="flex flex-wrap md:flex-row justify-between">
         {teamMembers?.map((member) => (
-          <div className="w-[250px] flex flex-col gap-[8px]" key={member._id}>
+          <div
+            className="w-[45%] md:w-[250px] flex flex-col gap-[8px]"
+            key={member._id}
+          >
             <img
               src={urlFor(member.profile_image).url()}
               alt={member.name}
-              className="w-full h-[300px] object-cover rounded-md"
+              className="w-full md:h-[300px] object-cover rounded-md"
             />
             <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
               {member.name}
             </h1>
-            <h1 className="font-helvetica text-[18px] font-light">
+            <h1 className="font-helvetica text-[14px] font-light">
               {member.position}
             </h1>
           </div>
