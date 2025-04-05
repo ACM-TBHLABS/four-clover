@@ -26,11 +26,24 @@ const WorkshopPage = () => {
     return <h1>Loading...</h1>;
   }
 
+  const now = new Date();
+  const mainEvents = events.filter(
+    (event) => event.display_on_main_screen && new Date(event.start_date) > now
+  );
+  let mainEvent = mainEvents.sort(
+    (a, b) =>
+      new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+  )[0];
+
+  if (!mainEvent) {
+    mainEvent = events[0];
+  }
+
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
       <div className="w-full max-w-screen md:max-w-[1600px]">
         <div className="flex flex-col gap-[50px] px-[150px]">
-          <HeroSection event={events[0]} />
+          <HeroSection event={mainEvent} />
           <IntroSection />
           <EventsSection events={events} />
         </div>
