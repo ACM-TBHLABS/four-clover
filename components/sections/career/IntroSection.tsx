@@ -31,11 +31,11 @@ const IntroSection = () => {
   return (
     <div className="flex flex-col gap-[24px] py-[100px] w-full">
       <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
-        Our Teams
+        Our Team
       </h1>
       <div className="flex justify-between">
         {teamMembers?.map((member) => (
-          <div className="w-[250px] flex flex-col gap-[8px]">
+          <div className="w-[250px] flex flex-col gap-[8px]" key={member._id}>
             <img
               src={urlFor(member.profile_image).url()}
               alt={member.name}
