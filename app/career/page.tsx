@@ -1,5 +1,7 @@
 import HeroSection from "@/components/sections/career/HeroSection";
 import IntroSection from "@/components/sections/career/IntroSection";
+import JoinUsSection from "@/components/sections/career/JoinUsSection";
+import ReachOutSection from "@/components/sections/career/ReachOutSection";
 import React from "react";
 
 const CareerPage = () => {
@@ -9,6 +11,8 @@ const CareerPage = () => {
         <div className="flex flex-col gap-[50px] px-[150px]">
           <HeroSection />
           <IntroSection />
+          <JoinUsSection />
+          <ReachOutSection />
         </div>
       </div>
     </div>

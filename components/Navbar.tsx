@@ -33,14 +33,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-[32px] absolute left-1/2 transform -translate-x-1/2 font-helvetica text-2xl font-light leading-[27.6px]">
-          <h1
+          {/* <h1
             className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
             onClick={() => {
               router.push("/training");
             }}
           >
             training
-          </h1>
+          </h1> */}
           <h1 className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800">
             about
           </h1>
@@ -55,6 +55,12 @@ const Navbar = () => {
             onClick={() => router.push("/events")}
           >
             events
+          </h1>
+          <h1
+            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
+            onClick={() => router.push("/career")}
+          >
+            career
           </h1>
         </div>
 
