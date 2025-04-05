@@ -1,4 +1,3 @@
-// import React from "react";
 // import { Event } from "@/types/event";
 // import { urlFor } from "@/sanity/lib/image";
 
