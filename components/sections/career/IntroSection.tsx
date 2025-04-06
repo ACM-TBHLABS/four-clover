@@ -33,10 +33,28 @@ const IntroSection = () => {
       <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
         Our Team
       </h1>
-      <div className="flex flex-wrap md:flex-row justify-between">
+      <div className="flex flex-wrap md:flex-row justify-start gap-3">
         {teamMembers?.map((member) => (
           <div
-            className="w-[45%] md:w-[250px] flex flex-col gap-[8px]"
+            className="w-[45%] md:w-1/5 flex flex-col gap-[8px]"
+            key={member._id}
+          >
+            <img
+              src={urlFor(member.profile_image).url()}
+              alt={member.name}
+              className="w-full md:h-[300px] object-cover rounded-md"
+            />
+            <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
+              {member.name}
+            </h1>
+            <h1 className="font-helvetica text-[14px] font-light">
+              {member.position}
+            </h1>
+          </div>
+        ))}
+                {teamMembers?.map((member) => (
+          <div
+            className="w-[45%] md:w-1/5 flex flex-col gap-[8px]"
             key={member._id}
           >
             <img

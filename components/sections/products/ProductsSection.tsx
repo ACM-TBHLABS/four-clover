@@ -247,7 +247,7 @@ const ProductsSection = () => {
             </p>
           ) : (
             /* Products Grid */
-            <div className="flex flex-wrap justify-between gap-y-[50px]">
+            <div className={`flex flex-wrap gap-[50px] ${products.length % 3 <= 1? "justify-between" : "justify-start"}`}>
               {products.map((product) => (
                 <ProductCard
                   key={product._id}
