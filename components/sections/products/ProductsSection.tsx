@@ -2,51 +2,155 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import { fetchAllCategories } from "@/services/api/categoryService";
 import { fetchAllProductLines } from "@/services/api/productLineService";
+import { fetchProductsByProductLineId } from "@/services/api/productService";
+import { fetchAllProducts } from "@/services/api/productService"; // Assuming this endpoint exists
 import { ProductLine } from "@/types/productLine";
+import { Category } from "@/types/category";
+import { Product } from "@/types/Product";
+import { urlFor } from "@/sanity/lib/image";
 
 const ProductsSection = () => {
+  // warning: 80% Vibe Coded. If you cant fix it, Claudes Sonnet 3.7 can
   const router = useRouter();
+  const [categories, setCategories] = useState<Category[]>([]);
   const [productLines, setProductLines] = useState<ProductLine[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("All");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("");
+  const [activeProductLineId, setActiveProductLineId] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const tabs = ["All", "Dental Aligners", "Chairs", "Implants", "3D Scanners"];
 
+  // Initial data fetching - categories and product lines
   useEffect(() => {
-    const fetchProductLines = async () => {
-      setLoading(true);
+    const fetchInitialData = async () => {
       try {
-        const res = await fetchAllProductLines();
-        console.log("Fetched:", res);
-        setProductLines(res);
+        setLoading(true);
+
+        // Fetch categories and product lines in parallel
+        const [categoriesRes, productLinesRes] = await Promise.all([
+          fetchAllCategories(),
+          fetchAllProductLines(),
+        ]);
+
+        setCategories(categoriesRes);
+        setProductLines(productLinesRes);
+
+        // Set default active tab to "All"
+        setActiveTab("All");
+
+        // Fetch all products for the initial "All" tab
+        const allProducts = await fetchAllProducts();
+        setProducts(allProducts);
       } catch (error) {
-        console.error("Error fetching product lines:", error);
+        console.error("Error fetching initial data:", error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
-    fetchProductLines();
+
+    fetchInitialData();
   }, []);
 
-  // Filter products based on active tab
-  // fetch productlines by category
-  const filteredProducts =
+  // Handle tab changes
+  const handleTabChange = async (tabName: string) => {
+    if (activeTab === tabName) return;
+
+    // Clear products and show loading state
+    setProducts([]);
+    setLoading(true);
+    setActiveTab(tabName);
+
+    try {
+      if (tabName === "All") {
+        // For "All" tab, fetch all products without filtering
+        const allProducts = await fetchAllProducts();
+        setProducts(allProducts);
+      } else {
+        // For category tabs, get all product lines for this category
+        const filtered = productLines.filter(
+          (product) => product.category.name === tabName
+        );
+
+        if (filtered.length > 0) {
+          // Fetch products for all product lines in this category in parallel
+          const productPromises = filtered.map((productLine) =>
+            fetchProductsByProductLineId(productLine._id)
+          );
+
+          const productArrays = await Promise.all(productPromises);
+
+          // Flatten the array of arrays into a single array of products
+          const allCategoryProducts = productArrays.flat();
+
+          setProducts(allCategoryProducts);
+
+          // Still set the active product line ID to the first one for UI selection
+          setActiveProductLineId(filtered[0]._id);
+        } else {
+          // No product lines for this category
+          setProducts([]);
+        }
+      }
+    } catch (error) {
+      console.error(`Error fetching products for tab ${tabName}:`, error);
+      setProducts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle product line selection
+  const handleProductLineChange = async (productLineId: string) => {
+    if (activeProductLineId === productLineId) return;
+
+    // Clear products and show loading state
+    setProducts([]);
+    setLoading(true);
+    setActiveProductLineId(productLineId);
+
+    try {
+      const lineProducts = await fetchProductsByProductLineId(productLineId);
+      setProducts(lineProducts);
+    } catch (error) {
+      console.error(
+        `Error fetching products for product line ${productLineId}:`,
+        error
+      );
+      setProducts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Get filtered product lines for UI
+  const filteredProductLines =
     activeTab === "All"
-      ? productLines
+      ? [] // Don't show product line filters in "All" tab
       : productLines.filter((product) => product.category.name === activeTab);
 
-  if (loading) return <p>Loading product lines...</p>;
+  // Show loading indicator while initial data is loading
+  if (loading && categories.length === 0) {
+    return <p>Loading product lines...</p>;
+  }
 
   return (
     <div className="flex flex-col gap-[50px]">
       {/* Desktop Tabs */}
       <div className="hidden md:flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden cursor-pointer">
-        {tabs.map((tab) => (
+        <TabButton
+          key="all-tab"
+          label="All"
+          activeTab={activeTab}
+          setActiveTab={handleTabChange}
+        />
+        {categories.map((tab) => (
           <TabButton
-            key={tab}
-            label={tab}
+            key={tab._id}
+            label={tab.name}
             activeTab={activeTab}
-            setActiveTab={setActiveTab}
+            setActiveTab={handleTabChange}
           />
         ))}
       </div>
@@ -72,43 +176,91 @@ const ProductsSection = () => {
         </div>
         {isDropdownOpen && (
           <div className="absolute z-10 w-full border border-black rounded-[8px] mt-1 bg-white shadow-lg">
-            {tabs.map((tab) => (
+            <div
+              onClick={() => {
+                handleTabChange("All");
+                setIsDropdownOpen(false);
+              }}
+              className={`p-3 hover:bg-[#EFEFEF] cursor-pointer
+                ${
+                  activeTab === "All"
+                    ? "bg-[#EFEFEF] text-green-700"
+                    : "text-black"
+                }
+                ${categories.length === 0 ? "rounded-b-[8px]" : ""}
+                rounded-t-[8px]`}
+            >
+              All
+            </div>
+            {categories.map((tab, index) => (
               <div
-                key={tab}
+                key={tab._id}
                 onClick={() => {
-                  setActiveTab(tab);
+                  handleTabChange(tab.name);
                   setIsDropdownOpen(false);
                 }}
                 className={`p-3 hover:bg-[#EFEFEF] cursor-pointer
                   ${
-                    activeTab === tab
+                    activeTab === tab.name
                       ? "bg-[#EFEFEF] text-green-700"
                       : "text-black"
                   }
-                  ${tab === tabs[tabs.length - 1] ? "rounded-b-[8px]" : ""}
-                  ${tab === tabs[0] ? "rounded-t-[8px]" : ""}`}
+                  ${index === categories.length - 1 ? "rounded-b-[8px]" : ""}`}
               >
-                {tab}
+                {tab.name}
               </div>
             ))}
           </div>
         )}
       </div>
 
-      {/* Products Grid */}
-      <div className="flex flex-wrap justify-between gap-y-[50px]">
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.name}
-            id={product._id}
-            name={product.name}
-            category={product.category.name}
-            image="/products/smartmatic.png"
-            // color={product.color ? product.color : ""}
-            router={router}
-          />
-        ))}
-      </div>
+      {/* Product Line Selection - Only show when not in "All" tab and multiple product lines exist */}
+      {activeTab !== "All" && filteredProductLines.length > 1 && (
+        <div className="flex flex-wrap gap-3">
+          {filteredProductLines.map((line) => (
+            <button
+              key={line._id}
+              onClick={() => handleProductLineChange(line._id)}
+              className={`px-4 py-2 border rounded-md ${
+                activeProductLineId === line._id
+                  ? "bg-green-700 text-white"
+                  : "bg-white text-black"
+              }`}
+            >
+              {line.name}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Loading state - replaces content completely */}
+      {loading ? (
+        <div className="w-full py-10 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-700"></div>
+        </div>
+      ) : (
+        <>
+          {/* No products message */}
+          {products.length === 0 ? (
+            <p className="text-center py-10">
+              No products available for the selected category.
+            </p>
+          ) : (
+            /* Products Grid */
+            <div className="flex flex-wrap justify-between gap-y-[50px]">
+              {products.map((product) => (
+                <ProductCard
+                  key={product._id}
+                  id={product._id}
+                  name={product.name}
+                  image={urlFor(product.heroImage).url()}
+                  router={router}
+                />
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };
@@ -124,12 +276,10 @@ const TabButton = ({
 }) => {
   return (
     <div
-      className={`w-[200px] h-[60px] text-center border-black flex items-center justify-center 
+      className={`h-[60px] text-center border-black flex items-center justify-center 
         transition-all duration-300 ease-in-out cursor-pointer hover:bg-[#EFEFEF]
         ${
-          label === "All"
-            ? "w-[60px] border-l-0"
-            : "w-[200px] border-l-[0.5px] "
+          label === "All" ? "w-[60px] border-l-0" : "w-[200px] border-l-[0.5px]"
         }
         ${
           activeTab === label
@@ -146,14 +296,12 @@ const TabButton = ({
 const ProductCard = ({
   id,
   name,
-  category,
   image,
   color,
   router,
 }: {
   id: string;
   name: string;
-  category: string;
   image: string;
   color?: string;
   router: any;
@@ -166,16 +314,19 @@ const ProductCard = ({
       <div className="h-[300px] bg-slate-700 relative cursor-pointer">
         <img
           src="/products/blur_bg.png"
-          alt="products"
-          className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500 "
+          alt="background"
+          className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500"
         />
         <img
           src={image}
-          alt="products"
+          alt={name}
           className="w-[328px] h-[184px] absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 object-cover"
         />
         <button
-          onClick={() => router.push("/products/productXYZ")}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent card click
+            router.push(`/quote/${id}`);
+          }}
           className="hover:bg-slate-200 absolute bottom-0 right-0 font-helvetica font-light text-[20px] leading-[23px] px-[10px] py-[5px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
         >
           +Quote
