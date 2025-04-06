@@ -3,12 +3,12 @@ import React from "react";
 const DescriptionSection = () => {
   return (
     <div className="py-[100px] flex gap-[10px] relative">
-      <div className="w-1/2"></div>
-      <div className="w-1/2 flex flex-col gap-[12px] relative">
+      <div className="w-1/2 hidden md:block"></div>
+      <div className="w-full md:w-1/2 flex flex-col gap-[12px] relative">
         <h1 className="font-helvetica font-bold text-[32px] leading-[36.8px]">
           Super Strong, Super Quiet.
         </h1>
-        <h1 className="font-helvetica font-light text-[24px] leading-[27.6px]">
+        <h1 className="font-helvetica font-light text-[16px] md:text-[24px] leading-[27.6px]">
           KaVo&apos;s MASTERtorque premium air-driven handpieces feature
           superlative performance with up to 20% more power than KaVo&apos;s
           previous generation high-speed GENTLEsilence 6500BR.
