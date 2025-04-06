@@ -8,8 +8,8 @@ import {
 
 const FAQSection = () => {
   return (
-    <div className="my-[100px] mx-[24px] md:mx-[150px] flex flex-col gap-[20px]">
-      <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[82.79px]">
+    <div className="my-[100px] mx-[24px] md:mx-[150px] flex flex-col gap-2 md:gap-[20px]">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[72px]">
         FAQs
       </h1>
       <Accordion type="multiple">
