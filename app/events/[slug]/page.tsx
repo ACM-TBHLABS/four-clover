@@ -34,8 +34,8 @@ export default async function EventPage({ params }: Props) {
 	const dateStr = formatDateRange(event.start_date, event.end_date);
 
   return (
-    <div className="w-full px-[150px]">
-      <div className="max-w-screen md:max-w-[1600px] w-full">
+    <div className="w-full flex items-start justify-center">
+      <div className="max-w-screen md:max-w-[1600px] w-full px-[150px]">
         {/* Image */}
         <div className="w-full aspect-video">
           <img
@@ -59,7 +59,7 @@ export default async function EventPage({ params }: Props) {
           <p className="text-lg text-gray-600">{event.tagline}</p>
         </div>
         {/* Content */}
-        <div className="mt-10">
+        <div className="mt-10 pb-10">
           <PortableText value={event.content} components={portableTextComponents} />
         </div>
       </div>
