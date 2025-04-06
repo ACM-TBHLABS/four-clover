@@ -83,7 +83,10 @@ const Navbar = () => {
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-[32px] absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light leading-tight lg:leading-[27.6px]">
-          <h1 className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800">
+          <h1
+            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
+            onClick={() => router.push("/about")}
+          >
             about
           </h1>
           <h1
