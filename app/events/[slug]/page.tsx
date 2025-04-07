@@ -6,7 +6,7 @@ export default async function EventPage({
 }: {
   params: { slug: string };
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   return (
     <div className="w-full flex items-start justify-center">
