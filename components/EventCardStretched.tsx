@@ -14,7 +14,7 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
   tagline,
 }) => {
   return (
-    <div className="w-full flex gap-[32px] justify-between">
+    <div className="w-full flex gap-[32px] justify-between cursor-pointer">
       <div className="flex gap-[12px] w-[250px]">
         <h2 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none w-[250px]">
           {title}

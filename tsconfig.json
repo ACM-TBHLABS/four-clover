@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "services/api/eventService.js"
+    "services/api/eventService.js",
+    "app/events/[slug]/EventDetailSection.jsx",
+    "app/events/[slug]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

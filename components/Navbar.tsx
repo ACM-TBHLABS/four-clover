@@ -39,7 +39,12 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <div className="md:hidden h-full flex items-center justify-center gap-[12px]">
-          <button className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
+          <button
+            className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            onClick={() => {
+              router.push("/contact");
+            }}
+          >
             Contact
           </button>
           <button
@@ -111,7 +116,12 @@ const Navbar = () => {
 
         {/* Desktop contact button */}
         <div className="hidden md:flex items-center space-x-[20px] font-helvetica text-lg lg:text-2xl font-light leading-tight lg:leading-[27.6px]">
-          <button className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
+          <button
+            className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            onClick={() => {
+              router.push("/contact");
+            }}
+          >
             Contact
           </button>
         </div>

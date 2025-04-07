@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const DescriptionSection = () => {
+  const router = useRouter();
   return (
     <div className="py-[100px] flex gap-[10px] relative">
       <div className="w-1/2 hidden md:block"></div>
@@ -18,7 +21,10 @@ const DescriptionSection = () => {
           create whisper quiet operation that protects your hearing and helps
           create a more relaxing environment for all.
         </h1>
-        <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
+        <button
+          className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]"
+          onClick={() => router.push("/contact")}
+        >
           Contact Us
         </button>
       </div>

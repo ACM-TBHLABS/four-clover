@@ -3,6 +3,7 @@ import EventCard from "@/components/EventCard";
 import EventCardStretched from "@/components/EventCardStretched";
 import { Event } from "@/types/event";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 interface EventsSectionProps {
   events?: Event[];
@@ -46,20 +47,26 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
         <div className="w-full flex flex-col md:flex-row gap-[50px]">
           {events.length > 0 ? (
             events.map((event, index) => (
-              <div key={event._id || index} className="w-full md:w-1/2">
-                <EventCard
-                  image={
-                    urlFor(event.intro_image).url() || "/mockup/workshop.png"
-                  }
-                  title={event.name || "Dental Workshop"}
-                  tagline={
-                    event.tagline || "Practical insights from industry experts"
-                  }
-                  description={
-                    event.description ||
-                    "Join us for a two-day event featuring top professionals in the dental industry."
-                  }
-                />
+              <div
+                key={event._id || index}
+                className="w-full md:w-1/2 cursor-pointer"
+              >
+                <Link href={`/events/${event.slug}`}>
+                  <EventCard
+                    image={
+                      urlFor(event.intro_image).url() || "/mockup/workshop.png"
+                    }
+                    title={event.name || "Dental Workshop"}
+                    tagline={
+                      event.tagline ||
+                      "Practical insights from industry experts"
+                    }
+                    description={
+                      event.description ||
+                      "Join us for a two-day event featuring top professionals in the dental industry."
+                    }
+                  />
+                </Link>
               </div>
             ))
           ) : (
@@ -136,9 +143,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
         </>
       ) : (
         // Fallback content if no events
-        <>
-          <h1>No events</h1>
-        </>
+        <h1>No events</h1>
       )}
     </div>
   );

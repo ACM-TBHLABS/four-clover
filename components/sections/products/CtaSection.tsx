@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const CtaSection = () => {
+  const router = useRouter();
   return (
     <div className="flex justify-end w-full">
       <div className="w-[643px] flex flex-col gap-[12px] py-[100px] ml-auto">
@@ -12,7 +15,10 @@ const CtaSection = () => {
           needs. Contact us today for a personalized quotation and expert
           consultation.
         </h1>
-        <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px]">
+        <button
+          className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[20px] md:text-[24px] leading-[27.6px]"
+          onClick={() => router.push("/contact")}
+        >
           Contact Us
         </button>
       </div>

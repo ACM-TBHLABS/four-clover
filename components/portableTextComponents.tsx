@@ -12,7 +12,6 @@ export const portableTextComponents: PortableTextComponents = {
             alt={value.alt || 'Event image'}
             width={600}
             height={400}
-            className="rounded-lg"
           />
         )}
       </div>
