@@ -21,7 +21,6 @@ const page = () => {
         </div>
         <FAQSection />
       </div>
-      <Footer />
     </div>
   );
 };
