@@ -25,7 +25,7 @@ function formatDateRange(start: string, end: string) {
 }
 
 export default async function EventPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
   const event = await fetchEventBySlug(slug);
   if (!event) return <div>Event not found.</div>;
 
