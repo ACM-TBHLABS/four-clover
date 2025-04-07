@@ -1,3 +1,4 @@
+// a nice landing page
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
