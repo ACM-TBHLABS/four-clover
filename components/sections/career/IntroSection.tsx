@@ -52,24 +52,6 @@ const IntroSection = () => {
             </h1>
           </div>
         ))}
-                {teamMembers?.map((member) => (
-          <div
-            className="w-[45%] md:w-1/5 flex flex-col gap-[8px]"
-            key={member._id}
-          >
-            <img
-              src={urlFor(member.profile_image).url()}
-              alt={member.name}
-              className="w-full md:h-[300px] object-cover rounded-md"
-            />
-            <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
-              {member.name}
-            </h1>
-            <h1 className="font-helvetica text-[14px] font-light">
-              {member.position}
-            </h1>
-          </div>
-        ))}
       </div>
     </div>
   );

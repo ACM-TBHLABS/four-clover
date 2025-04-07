@@ -1,6 +1,12 @@
+import { urlFor } from "@/sanity/lib/image";
+import { Event } from "@/types/event";
 import React from "react";
 
-const IntroSection = () => {
+interface SectionProps {
+  event: Event;
+}
+
+const IntroSection: React.FC<SectionProps> = ({ event }) => {
   return (
     <div className="w-full flex flex-col gap-[32px]">
       <div className="flex flex-col md:flex-row gap-[32px] md:h-[350px]">
@@ -14,7 +20,12 @@ const IntroSection = () => {
             practice.
           </h1>
         </div>
-        <div className="w-full md:w-1/2 h-[350px] bg-blue-200"></div>
+        {/* <div className="w-full md:w-1/2 h-[350px] bg-blue-200"></div> */}
+        <img
+          src={urlFor(event.intro_image).url()}
+          alt="products"
+          className="w-full md:w-1/2 h-[350px]"
+        />
       </div>
     </div>
   );

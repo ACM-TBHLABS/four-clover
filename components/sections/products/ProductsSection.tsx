@@ -247,7 +247,9 @@ const ProductsSection = () => {
             </p>
           ) : (
             /* Products Grid */
-            <div className={`flex flex-wrap gap-[50px] ${products.length % 3 <= 1? "justify-between" : "justify-start"}`}>
+            <div
+              className={`flex flex-wrap gap-[50px] ${products.length % 3 <= 1 ? "justify-between" : "justify-start"}`}
+            >
               {products.map((product) => (
                 <ProductCard
                   key={product._id}
@@ -255,6 +257,7 @@ const ProductsSection = () => {
                   name={product.name}
                   image={urlFor(product.heroImage).url()}
                   router={router}
+                  slug={product.slug}
                 />
               ))}
             </div>
@@ -298,17 +301,19 @@ const ProductCard = ({
   name,
   image,
   color,
+  slug,
   router,
 }: {
   id: string;
   name: string;
   image: string;
   color?: string;
+  slug: string;
   router: any;
 }) => {
   return (
     <div
-      onClick={() => router.push(`/products/${id}`)}
+      onClick={() => router.push(`/products/${slug}`)}
       className="w-full md:w-[380px] flex flex-col gap-[10px] relative group hover:scale-[1.01] transition-transform duration-300 ease-in-out"
     >
       <div className="h-[300px] bg-slate-700 relative cursor-pointer">
