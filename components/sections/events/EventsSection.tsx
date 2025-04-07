@@ -106,38 +106,42 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
         <>
           <div className="hidden md:flex flex-col gap-[50px]">
             {events.map((event, index) => (
-              <EventCardStretched
-                key={event._id || index}
-                image={
-                  urlFor(event.intro_image).url() || "/mockup/workshop.png"
-                }
-                title={event.name || "DENTIS Factory Visit"}
-                tagline={
-                  event.tagline || "Practical insights from industry experts"
-                }
-                description={
-                  event.description ||
-                  "Join us for a two-day event featuring top professionals in the dental industry."
-                }
-              />
+              <Link href={`/events/${event.slug}`}>
+                <EventCardStretched
+                  key={event._id || index}
+                  image={
+                    urlFor(event.intro_image).url() || "/mockup/workshop.png"
+                  }
+                  title={event.name || "DENTIS Factory Visit"}
+                  tagline={
+                    event.tagline || "Practical insights from industry experts"
+                  }
+                  description={
+                    event.description ||
+                    "Join us for a two-day event featuring top professionals in the dental industry."
+                  }
+                />
+              </Link>
             ))}
           </div>
           <div className="flex md:hidden flex-col gap-[50px]">
             {events.map((event, index) => (
-              <EventCard
-                key={event._id || index}
-                image={
-                  urlFor(event.intro_image).url() || "/mockup/workshop.png"
-                }
-                title={event.name || "DENTIS Factory Visit"}
-                tagline={
-                  event.tagline || "Practical insights from industry experts"
-                }
-                description={
-                  event.description ||
-                  "Join us for a two-day event featuring top professionals in the dental industry."
-                }
-              />
+              <Link href={`/events/${event.slug}`}>
+                <EventCard
+                  key={event._id || index}
+                  image={
+                    urlFor(event.intro_image).url() || "/mockup/workshop.png"
+                  }
+                  title={event.name || "DENTIS Factory Visit"}
+                  tagline={
+                    event.tagline || "Practical insights from industry experts"
+                  }
+                  description={
+                    event.description ||
+                    "Join us for a two-day event featuring top professionals in the dental industry."
+                  }
+                />
+              </Link>
             ))}
           </div>
         </>
