@@ -7,6 +7,13 @@ interface SectionProps {
 }
 
 const IntroSection: React.FC<SectionProps> = ({ event }) => {
+  if (!event) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+        <div>Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className="w-full flex flex-col gap-[32px]">
       <div className="flex flex-col md:flex-row gap-[32px] md:h-[350px]">

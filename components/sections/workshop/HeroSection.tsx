@@ -7,6 +7,13 @@ interface SectionProps {
 }
 
 const HeroSection: React.FC<SectionProps> = ({ event }) => {
+  if (!event) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+        <div>Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className="w-full ">
       <TimerSection startDate={event.start_date} />

@@ -1,5 +1,5 @@
-'use server';
-import React from "react";
+'use client';
+import React, { useEffect } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +8,29 @@ import {
 } from "@/components/ui/accordion";
 import { fetchAllFAQs } from "@/services/api/faqsService";
 
-const FAQSection = async () => {
-  const faqs = await fetchAllFAQs();
+const FAQSection = () => {
+  const [faqs, setFaqs] = React.useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchFAQs = async () => {
+      try {
+        const res = await fetchAllFAQs();
+        setFaqs(res);
+      } catch (error) {
+        console.error("Error fetching FAQs:", error);
+      }
+    };
+    fetchFAQs();
+  }
+  , []);
+
+  if (!faqs) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="my-[100px] mx-[24px] md:mx-[150px] flex flex-col gap-2 md:gap-[20px]">
@@ -34,7 +55,7 @@ const FAQSection = async () => {
               </h1>
               {/* Optional: if ref_links exists and you want to show them */}
               {faq.ref_links && faq.ref_links.length > 0 && (
-                <ul className="ml-6 mt-2 list-disc text-sm text-blue-600">
+                <ul className="ml-10  list-disc text-sm underline">
                   {faq.ref_links?.map((link: string, i: number) => (
                     <li key={i}>
                       <a href={link} target="_blank" rel="noopener noreferrer">

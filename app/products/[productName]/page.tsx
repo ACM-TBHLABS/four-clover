@@ -48,7 +48,7 @@ const ProductPage = () => {
           />
           <QuotationSection />
         </div>
-        {/* <FAQSection /> */}
+        <FAQSection />
       </div>
     </div>
   );
