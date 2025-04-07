@@ -39,7 +39,12 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <div className="md:hidden h-full flex items-center justify-center gap-[12px]">
-          <button className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
+          <button
+            className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            onClick={() => {
+              router.push("/contact");
+            }}
+          >
             Contact
           </button>
           <button

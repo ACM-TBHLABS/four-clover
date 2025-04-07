@@ -88,7 +88,12 @@ const Footer = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-[20px] font-helvetica text-lg lg:text-2xl font-light leading-tight lg:leading-[27.6px]">
-          <button className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]">
+          <button
+            className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            onClick={() => {
+              router.push("/contact");
+            }}
+          >
             Contact
           </button>
         </div>
