@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import { PlayCircleIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
+  const router = useRouter();
   return (
     <div className="w-full relative flex flex-col items-center justify-center pt-[100px] py-[32px] xl:py-[100px]">
       {/* Green background that covers only half the image height */}
@@ -19,7 +22,12 @@ const HeroSection = () => {
               We are committed to pioneering technological advancements that
               drive innovation within the dental industry.
             </h1>
-            <button className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]">
+            <button
+              className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]"
+              onClick={() => {
+                router.push("/contact");
+              }}
+            >
               Partner with Us
             </button>
           </div>
@@ -40,7 +48,6 @@ const HeroSection = () => {
     </div>
   );
 };
-
 export default HeroSection;
 
 {
