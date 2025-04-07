@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/components/portableTextComponents";
 
-function formatDateRange(start: string, end: string) {
+function formatDateRange(start, end) {
   const startDate = new Date(start);
   const endDate = new Date(end);
 
@@ -15,11 +15,7 @@ function formatDateRange(start: string, end: string) {
   return `${startStr}-${endStr}, ${endDate.getFullYear()}`;
 }
 
-interface EventDetailProp {
-  slug: string;
-}
-
-export default async function EventDetailSection({ slug }: EventDetailProp) {
+export default async function EventDetailSection({ slug }) {
   const event = await fetchEventBySlug(slug);
   if (!event) return <div>Event not found.</div>;
 
