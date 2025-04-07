@@ -29,12 +29,28 @@ export default defineType({
 		}),
 		defineField({
 			name: "description",
-			type: "text",
+			type: "array",
 			title: "Product Description",
-			validation: (Rule) =>
-				Rule.required()
-					.min(10)
-					.error("Description should be at least 10 characters"),
+			of: [
+				{
+					type: "block",
+				},
+				{
+					type: "image",
+					fields: [
+						{
+							type: "text",
+							name: "alt",
+							title: "Alternative text",
+							description: `Some of your visitors cannot see images, 
+                be they blind, color-blind, low-sighted; 
+                alternative text is of great help for those 
+                people that can rely on it to have a good idea of 
+                what\'s on your page.`,
+						},
+					],
+				},
+			],
 		}),
 		defineField({
 			name: "tagline",
