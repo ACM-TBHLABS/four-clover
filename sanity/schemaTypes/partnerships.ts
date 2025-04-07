@@ -35,10 +35,6 @@ export default defineType({
 			name: "description",
 			type: "text",
 			title: "Description",
-			validation: (Rule) =>
-				Rule.required()
-					.min(10)
-					.error("Description should be at least 10 characters"),
 		}),
 		defineField({
 			name: "link",
