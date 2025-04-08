@@ -31,7 +31,7 @@ const IntroSection: React.FC<SectionProps> = ({ event }) => {
         <img
           src={urlFor(event.intro_image).url()}
           alt="products"
-          className="w-full md:w-1/2 h-[350px]"
+          className="w-full md:w-1/2 h-[350px] object-cover"
         />
       </div>
     </div>

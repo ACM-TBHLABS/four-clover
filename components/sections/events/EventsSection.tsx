@@ -106,7 +106,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
         <>
           <div className="hidden md:flex flex-col gap-[50px]">
             {events.map((event, index) => (
-              <Link href={`/events/${event.slug}`}>
+              <Link href={`/events/${event.slug}`} key={event._id || index}>
                 <EventCardStretched
                   key={event._id || index}
                   image={
@@ -126,7 +126,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
           </div>
           <div className="flex md:hidden flex-col gap-[50px]">
             {events.map((event, index) => (
-              <Link href={`/events/${event.slug}`}>
+              <Link href={`/events/${event.slug}`} key={event._id || index}>
                 <EventCard
                   key={event._id || index}
                   image={
