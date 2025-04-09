@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Mobile menu button */}
         <div className="md:hidden h-full flex items-center justify-center gap-[12px]">
           <button
-            className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-1"
             onClick={() => {
               router.push("/contact");
             }}
@@ -87,7 +87,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center space-x-4 lg:space-x-[32px] absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light leading-tight lg:leading-[27.6px]">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-[32px] absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light">
           <h1
             className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
             onClick={() => router.push("/about")}
@@ -115,9 +115,9 @@ const Navbar = () => {
         </div>
 
         {/* Desktop contact button */}
-        <div className="hidden md:flex items-center space-x-[20px] font-helvetica text-lg lg:text-2xl font-light leading-tight lg:leading-[27.6px]">
+        <div className="hidden md:flex items-center space-x-[20px] font-helvetica text-lg lg:text-2xl font-light">
           <button
-            className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px]"
+            className="border px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-black border-[0.5px]"
             onClick={() => {
               router.push("/contact");
             }}

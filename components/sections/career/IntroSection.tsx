@@ -42,7 +42,7 @@ const IntroSection = () => {
             <img
               src={urlFor(member.profile_image).url()}
               alt={member.name}
-              className="w-full md:h-[300px] object-cover rounded-md"
+              className="w-full md:h-[300px] object-cover rounded-r-md"
             />
             <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
               {member.name}

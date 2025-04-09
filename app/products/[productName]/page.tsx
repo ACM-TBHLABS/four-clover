@@ -46,7 +46,7 @@ const ProductPage = () => {
             title={product?.tagline}
             desc={product?.description}
           /> */}
-          <QuotationSection />
+          {/* <QuotationSection /> */}
         </div>
         <FAQSection />
       </div>

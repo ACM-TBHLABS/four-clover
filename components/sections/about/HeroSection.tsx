@@ -8,7 +8,7 @@ const HeroSection = () => {
       <img
         src="/landing/hero.png"
         alt="products"
-        className="w-full h-full object-cover absolute top-0 left-0 z-0"
+        className="w-full h-full max-h-[800px] object-cover absolute top-0 left-0 z-0"
       />
       <h1 className="w-full max-w-[1600px] mx-auto text-white font-helvetica font-normal text-[40px] md:text-[100px] md:leading-[114.99px] z-20  px-[20px] md:px-[150px]">
         About Company
