@@ -62,7 +62,7 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
                       "Practical insights from industry experts"
                     }
                     description={
-                      event.description ||
+                      event.intro_description ||
                       "Join us for a two-day event featuring top professionals in the dental industry."
                     }
                   />
@@ -117,7 +117,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
                     event.tagline || "Practical insights from industry experts"
                   }
                   description={
-                    event.description ||
+                    event.intro_description ||
                     "Join us for a two-day event featuring top professionals in the dental industry."
                   }
                 />
@@ -137,7 +137,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
                     event.tagline || "Practical insights from industry experts"
                   }
                   description={
-                    event.description ||
+                    event.intro_description ||
                     "Join us for a two-day event featuring top professionals in the dental industry."
                   }
                 />

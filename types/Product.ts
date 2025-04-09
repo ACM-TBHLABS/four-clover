@@ -1,4 +1,4 @@
-import { Image } from "./Image";
+import { Image } from "./image";
 
 export interface ProductFAQ {
 	question: string;
@@ -20,5 +20,6 @@ export interface Product {
 	discount?: number;
 	ref_link?: string; // Optional URL
 	brand?: string;
+	recommendedProducts?: Product[];
 	productFaqs?: ProductFAQ[];
 }
