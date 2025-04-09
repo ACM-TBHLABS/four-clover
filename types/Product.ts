@@ -20,5 +20,6 @@ export interface Product {
 	discount?: number;
 	ref_link?: string; // Optional URL
 	brand?: string;
+	recommendedProducts?: Product[];
 	productFaqs?: ProductFAQ[];
 }

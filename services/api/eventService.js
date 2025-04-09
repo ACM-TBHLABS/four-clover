@@ -2,12 +2,12 @@ import { client } from "@/sanity/lib/client";
 import { Event } from "@/types/event";
 
 export const fetchAllEvents = async () => {
-  const query = `*[_type == "event"]{
+	const query = `*[_type == "event"]{
     _id,
     tag,
     name,
     "slug": slug.current,
-    description,
+    "cover_image": cover_image.asset->url,
     tagline,
     start_date,
     end_date,
@@ -21,22 +21,22 @@ export const fetchAllEvents = async () => {
     content
   }`;
 
-  try {
-    const events = await client.fetch(query);
-    return events;
-  } catch (error) {
-    console.error("Error fetching events:", error);
-    return [];
-  }
+	try {
+		const events = await client.fetch(query);
+		return events;
+	} catch (error) {
+		console.error("Error fetching events:", error);
+		return [];
+	}
 };
 
 export const fetchEventBySlug = async (slug) => {
-  const query = `*[_type == "event" && slug.current == $slug][0]{
+	const query = `*[_type == "event" && slug.current == $slug][0]{
     _id,
     tag,
     name,
     "slug": slug.current,
-    description,
+    "cover_image": cover_image.asset->url,
     tagline,
     start_date,
     end_date,
@@ -50,22 +50,22 @@ export const fetchEventBySlug = async (slug) => {
     content
   }`;
 
-  try {
-    const event = await client.fetch(query, { slug });
-    return event;
-  } catch (error) {
-    console.error(`Error fetching event with slug ${slug}:`, error);
-    return null;
-  }
+	try {
+		const event = await client.fetch(query, { slug });
+		return event;
+	} catch (error) {
+		console.error(`Error fetching event with slug ${slug}:`, error);
+		return null;
+	}
 };
 
 export const fetchEventsByTag = async (tag) => {
-  const query = `*[_type == "event" && tag == $tag]{
+	const query = `*[_type == "event" && tag == $tag]{
     _id,
     tag,
     name,
     "slug": slug.current,
-    description,
+    "cover_image": cover_image.asset->url,
     tagline,
     start_date,
     end_date,
@@ -79,11 +79,11 @@ export const fetchEventsByTag = async (tag) => {
     content
   }`;
 
-  try {
-    const events = await client.fetch(query, { tag });
-    return events;
-  } catch (error) {
-    console.error(`Error fetching events with tag ${tag}:`, error);
-    return [];
-  }
+	try {
+		const events = await client.fetch(query, { tag });
+		return events;
+	} catch (error) {
+		console.error(`Error fetching events with tag ${tag}:`, error);
+		return [];
+	}
 };
