@@ -7,6 +7,8 @@ import faqs from "./faqs";
 import event from "./event";
 import teamMember from "./teamMember";
 import journey from "./journey";
+import contacts from "./contacts";
+import addresses from "./addresses";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
 	types: [
@@ -18,5 +20,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 		event,
 		teamMember,
 		journey,
+		contacts,
+		addresses,
 	],
 };
