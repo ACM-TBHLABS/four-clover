@@ -109,6 +109,12 @@ export default defineType({
 			title: "Brand",
 		}),
 		defineField({
+			name: "recommendedProducts",
+			type: "array",
+			title: "Recommended Products",
+			of: [{ type: "reference", to: [{ type: "product" }] }],
+		}),
+		defineField({
 			name: "productFaqs",
 			type: "array",
 			title: "Product FAQs",
