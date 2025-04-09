@@ -19,12 +19,10 @@ const IntroSection: React.FC<SectionProps> = ({ event }) => {
       <div className="flex flex-col md:flex-row gap-[32px] md:h-[350px]">
         <div className="w-full md:w-1/2 md:px-[20px] flex flex-col gap-[10px] justify-center">
           <h1 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none">
-            Experience Dental Workshop
+            {event.intro_title}
           </h1>
           <h1 className="font-helvetica font-light text-[18px] leading-none">
-            Enhance your skills and stay ahead in dental innovation. Learn from
-            industry experts and gain practical insights to elevate your
-            practice.
+            {event.intro_description}
           </h1>
         </div>
         {/* <div className="w-full md:w-1/2 h-[350px] bg-blue-200"></div> */}
