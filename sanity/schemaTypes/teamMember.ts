@@ -48,5 +48,12 @@ export default defineType({
 			validation: (Rule) =>
 				Rule.max(200).warning("Keep quotes under 200 characters"),
 		}),
+		defineField({
+			name: "display_on_leadership_screen",
+			type: "boolean",
+			title: "Display on Leadership Screen",
+			description:
+				"Toggle to display this doctor in a Leadership section",
+		}),
 	],
 });
