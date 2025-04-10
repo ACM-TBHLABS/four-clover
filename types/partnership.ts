@@ -1,5 +1,4 @@
-import { Image } from "./Image";
-
+import { Image } from "./image";
 export interface Partnership {
 	_id: string;
 	name: string;

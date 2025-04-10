@@ -12,7 +12,7 @@ interface Props {
 const HeroSection: React.FC<Props> = ({ image, name }) => {
   const router = useRouter();
   return (
-    <div className="h-[400px] md:h-[800px] w-full bg-red-500 relative">
+    <div className="h-[400px] md:h-[800px] w-full relative">
       {/* Full-screen blur background */}
       <img
         src="/products/blur_bg.png"

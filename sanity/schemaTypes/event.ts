@@ -41,11 +41,14 @@ export default defineType({
 			validation: (Rule) => Rule.required().error("Slug is required"),
 		}),
 		defineField({
-			name: "description",
-			type: "text",
-			title: "Description",
+			name: "cover_image",
+			type: "image",
+			title: "Cover Image",
+			options: {
+				hotspot: true,
+			},
 			validation: (Rule) =>
-				Rule.required().error("Description is required"),
+				Rule.required().error("Cover image is required"),
 		}),
 		defineField({
 			name: "tagline",

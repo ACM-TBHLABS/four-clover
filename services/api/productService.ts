@@ -42,6 +42,20 @@ export const fetchProductBySlug = async (
     discount,
     ref_link,
     brand,
+    recommendedProducts[]->{
+      _id,
+      name,
+      "slug": slug.current,
+      description,
+      tagline,
+      price,
+      "heroImage": heroImage.asset->url,
+      "images": images[].asset->url,
+      discount,
+      ref_link,
+      brand,
+      productFaqs,
+    },
     productFaqs
   }`;
 	try {
