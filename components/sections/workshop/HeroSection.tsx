@@ -1,6 +1,7 @@
 import TimerSection from "./TimerSection";
 import { Event } from "@/types/event";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 interface SectionProps {
   event: Event;
@@ -49,9 +50,9 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
               {event.tagline}
             </h1>
           </div>
-          <button className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8">
-            Register
-          </button>
+          <Link href={`/events/${event.slug}`} className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8">
+            Read More
+          </Link>
         </div>
       </div>
     </div>
