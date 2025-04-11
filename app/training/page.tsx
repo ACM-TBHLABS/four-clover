@@ -7,7 +7,7 @@
 // const TrainingPage = () => {
 //   return (
 //     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
-//       <div className="w-full max-w-screen md:max-w-[1600px]">
+//       <div className="w-full max-w-screen md:max-w-[1400px]">
 //         <div className="flex flex-col gap-[50px] px-[150px]">
 //           <HeroSection />
 //           <IntroSection/>
