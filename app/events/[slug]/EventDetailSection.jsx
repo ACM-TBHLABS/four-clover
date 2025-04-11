@@ -22,7 +22,7 @@ export default async function EventDetailSection({ slug }) {
   const dateStr = formatDateRange(event.start_date, event.end_date);
 
   return (
-    <div className="max-w-screen md:max-w-[1600px] w-full px-[24px] md:px-[150px]">
+    <div className="max-w-screen md:max-w-[1400px] w-full px-[24px] md:px-[150px]">
       {/* Image */}
       <div className="w-full aspect-video">
         <img
