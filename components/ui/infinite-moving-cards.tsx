@@ -88,7 +88,7 @@ export const InfiniteMovingCards = ({
             key={item.imagePath}
             src={item.imagePath}
             alt=""
-            className="w-[150px] md:w-[300px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
+            className="w-[100px] md:w-[150px] lg:w-[300px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
           />
         ))}
       </div>
