@@ -66,16 +66,35 @@
 
 // export default PartnersSection;
 
+"use client";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React from "react";
-const partners = [
-  { imagePath: "/landing/partner1.png" },
-  { imagePath: "/landing/partner2.png" },
-  { imagePath: "/landing/partner3.png" },
-  { imagePath: "/landing/partner4.png" },
-];
+import { urlFor } from "@/sanity/lib/image";
+import { fetchAllPartnerships } from "@/services/api/partnershipService";
+import { Partnership } from "@/types/partnership";
+import React, { useEffect, useState } from "react";
 
 const PartnersSection = () => {
+  const [partnerImages, setPartnerImages] = useState<{ imagePath: string }[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchPartnerships = async () => {
+      const res = await fetchAllPartnerships();
+      // Filter for partnerships with empty descriptions and format as {imagePath: string}
+      const formattedImages = res
+        .filter(
+          (partnership) =>
+            !partnership.description || partnership.description.trim() === ""
+        )
+        .map((partnership) => ({ imagePath: urlFor(partnership.logo).url() }));
+
+      setPartnerImages(formattedImages);
+    };
+
+    fetchPartnerships();
+  }, []);
+
   return (
     <div className="py-[100px] px-[24px] md:px-[150px] flex flex-col gap-[10px]">
       <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[82.79px]">
@@ -83,7 +102,11 @@ const PartnersSection = () => {
       </h1>
 
       <div className="my-[24px] md:my-[50px] overflow-hidden">
-        <InfiniteMovingCards items={partners} direction="left" speed="fast" />
+        <InfiniteMovingCards
+          items={partnerImages}
+          direction="left"
+          speed="fast"
+        />
       </div>
     </div>
   );
