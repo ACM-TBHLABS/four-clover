@@ -11,14 +11,11 @@ const page = () => {
   return (
     <div className="w-full flex flex-col items-center overflow-x-hidden">
       <HeroSection />
-
-      <div className="max-w-screen md:max-w-[1600px] w-full">
-        <div className="px-[24px] md:px-[150px]">
-          <IntroSection />
-          <VisionMissionSection />
-          <OurJourney />
-          <LeadershipSection />
-        </div>
+      <div className="max-w-screen md:max-w-[1400px] w-full">
+        <IntroSection />
+        <VisionMissionSection />
+        <OurJourney />
+        <LeadershipSection />
         <FAQSection />
       </div>
     </div>
