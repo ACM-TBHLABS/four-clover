@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import FAQSection from "@/components/sections/landing/FAQSection";
+import FAQSection from "@/components/FAQSection";
 import DescriptionSection from "@/components/sections/productDetail/DescriptionSection";
 import HeroSection from "@/components/sections/productDetail/HeroSection";
 import QuotationSection from "@/components/sections/productDetail/QuotationSection";
@@ -39,10 +39,9 @@ const ProductPage = () => {
 	}
 
 	return (
-		<div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
+		<div className="w-full flex flex-col items-center justify-center">
 			<HeroSection image={product?.heroImage} name={product?.name} />
-			<div className="max-w-screen md:max-w-[1400px] w-full">
-				<div className="px-[24px] md:px-[150px]">
+			<div className="max-w-screen md:max-w-[1400px] w-full px-6 md:px-[50px] lg:px-[150px]">
 					{/* <DescriptionSection
             title={product?.tagline}
             desc={product?.description}
@@ -55,9 +54,8 @@ const ProductPage = () => {
 							/>
 						)}
 					{/* <QuotationSection /> */}
-				</div>
-				<FAQSection />
 			</div>
+			<FAQSection />
 		</div>
 	);
 };
