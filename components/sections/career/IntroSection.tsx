@@ -29,21 +29,23 @@ const IntroSection = () => {
   }
 
   return (
-    <div className="flex flex-col gap-[24px] py-[100px] w-full">
-      <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
+    <div className="flex flex-col w-full">
+      <h1 className="font-helvetica font-normal text-[36px] md:text-[56px] lg:text-[72px] uppercase">
         Our Team
       </h1>
-      <div className="flex flex-wrap md:flex-row justify-start gap-3">
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5">
         {teamMembers?.map((member) => (
           <div
-            className="w-[45%] md:w-1/5 flex flex-col gap-[8px]"
+            className="w-full flex flex-col gap-2"
             key={member._id}
           >
-            <img
-              src={urlFor(member.profile_image).url()}
-              alt={member.name}
-              className="w-full md:h-[300px] object-cover rounded-r-md"
-            />
+            <div className="w-full h-[200px] md:h-[300px] flex justify-center items-center rounded-lg rounded-tl-none overflow-hidden">
+              <img
+                src={urlFor(member.profile_image).url()}
+                alt={member.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
               {member.name}
             </h1>
