@@ -21,7 +21,7 @@ const HeroSection: React.FC<Props> = ({ image, name }) => {
       />
 
       {/* Constrain max width and ensure relative positioning */}
-      <div className="w-full max-w-[1600px] mx-auto h-full relative flex items-center justify-center">
+      <div className="w-full max-w-[1400px] mx-auto h-full relative flex items-center justify-center">
         <img
           src={urlFor(image).url()}
           alt="products"
