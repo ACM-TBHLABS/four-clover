@@ -4,7 +4,7 @@ import IntroSection from "@/components/sections/about/IntroSection";
 import LeadershipSection from "@/components/sections/about/LeadershipSection";
 import OurJourney from "@/components/sections/about/OurJourney";
 import VisionMissionSection from "@/components/sections/about/VisionMissionSection";
-import FAQSection from "@/components/sections/landing/FAQSection";
+import FAQSection from "@/components/FAQSection";
 import React from "react";
 
 const page = () => {
