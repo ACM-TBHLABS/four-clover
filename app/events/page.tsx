@@ -1,4 +1,4 @@
-import FAQSection from "@/components/sections/landing/FAQSection";
+import FAQSection from "@/components/FAQSection";
 import WorkshopComponent from "./WorkshopPage"; // see below
 
 export default function WorkshopPageComponent() {
