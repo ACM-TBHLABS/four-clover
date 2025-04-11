@@ -66,34 +66,34 @@ const TimerSection: React.FC<TimerProps> = ({ startDate }) => {
         {!isEventStarted ? (
           <div className="flex gap-[6px] items-center justify-center">
             <div className="flex flex-col items-center justify-center bg-gray-200 aspect-square p-4 rounded-sm gap-[2px]">
-              <h1 className="font-bold text-[16px] md:text-[32px] leading-none">
+              <h1 className="font-bold text-[18px] md:text-[32px] leading-none">
                 {formatNumber(timeLeft.days)}
               </h1>
-              <h1 className="uppercase font-normal text-[18px] md:text-[20px] leading-none">
+              <h1 className="uppercase font-normal text-[12px] md:text-[20px] leading-none">
                 Days
               </h1>
             </div>
             <div className="flex flex-col items-center justify-center bg-gray-200 aspect-square p-4 rounded-sm gap-[2px]">
-              <h1 className="font-bold text-[16px] md:text-[32px] leading-none">
+              <h1 className="font-bold text-[18px] md:text-[32px] leading-none">
                 {formatNumber(timeLeft.hours)}
               </h1>
-              <h1 className="uppercase font-normal text-[18px] md:text-[20px] leading-none px-1">
+              <h1 className="uppercase font-normal text-[12px] md:text-[20px] leading-none px-1">
                 hrs
               </h1>
             </div>
             <div className="flex flex-col items-center justify-center bg-gray-200 aspect-square p-4 rounded-sm gap-[2px]">
-              <h1 className="font-bold text-[16px] md:text-[32px] leading-none">
+              <h1 className="font-bold text-[18px] md:text-[32px] leading-none">
                 {formatNumber(timeLeft.minutes)}
               </h1>
-              <h1 className="uppercase font-normal text-[18px] md:text-[20px] leading-none">
+              <h1 className="uppercase font-normal text-[12px] md:text-[20px] leading-none">
                 mins
               </h1>
             </div>
             <div className="flex flex-col items-center justify-center bg-gray-200 aspect-square p-4 rounded-sm gap-[2px]">
-              <h1 className="font-bold text-[16px] md:text-[32px] leading-none">
+              <h1 className="font-bold text-[18px] md:text-[32px] leading-none">
                 {formatNumber(timeLeft.seconds)}
               </h1>
-              <h1 className="uppercase font-normal text-[18px] md:text-[20px] leading-none">
+              <h1 className="uppercase font-normal text-[12px] md:text-[20px] leading-none">
                 secs
               </h1>
             </div>
