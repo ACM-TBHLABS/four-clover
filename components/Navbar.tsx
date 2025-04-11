@@ -22,9 +22,9 @@ const Navbar = () => {
         isLandingPage ? "bg-[#DAFFB7]" : ""
       }`}
     >
-      <div className="max-w-[1600px] w-full h-auto py-4 px-4 md:px-6 lg:px-12 xl:px-[150px] md:h-[108px] md:py-[24px] flex justify-between items-center relative">
+      <div className="max-w-[1400px] w-full h-auto py-4 px-4 md:px-[50px] lg:px-[150px] md:h-[108px] md:py-[24px] flex justify-between items-center relative">
         <div
-          className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]"
+          className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group"
           onClick={() => router.push("/")}
         >
           <img
@@ -32,7 +32,7 @@ const Navbar = () => {
             alt="Four Clover"
             className="h-8 md:h-auto transition-transform duration-300 ease-in-out"
           />
-          <h1 className="font-helvetica text-lg md:text-[24px] font-normal leading-tight md:leading-[27.6px] transition-transform duration-300 ease-in-out">
+          <h1 className="font-helvetica text-lg lg:text-[24px] font-normal leading-tight md:leading-[27.6px] transition-transform duration-300 ease-in-out">
             Four Clover
           </h1>
         </div>
