@@ -66,12 +66,33 @@ const ProductsSection = () => {
       if (tabName === "All") {
         // For "All" tab, fetch all products without filtering
         const allProducts = await fetchAllProducts();
+        allProducts.sort((a, b) => a.name.localeCompare(b.name));
+        // allProducts.sort(a, b => a.name.localeCompare(b.name));
         setProducts(allProducts);
       } else {
         // For category tabs, get all product lines for this category
-        const filtered = productLines.filter(
+        let filtered = productLines.filter(
           (product) => product.category.name === tabName
         );
+
+        // Sort product lines by priority (handling undefined values)
+        // Items with undefined priority will be placed at the end
+        filtered = filtered.sort((a, b) => {
+          // If both have priority, sort normally (higher number first)
+          if (a.priority !== undefined && b.priority !== undefined) {
+            return b.priority - a.priority;
+          }
+          // If only a has priority, a comes first
+          if (a.priority !== undefined) {
+            return -1;
+          }
+          // If only b has priority, b comes first
+          if (b.priority !== undefined) {
+            return 1;
+          }
+          // If neither has priority, maintain original order
+          return 0;
+        });
 
         if (filtered.length > 0) {
           // Fetch products for all product lines in this category in parallel
@@ -82,11 +103,12 @@ const ProductsSection = () => {
           const productArrays = await Promise.all(productPromises);
 
           // Flatten the array of arrays into a single array of products
+          // This maintains the priority order of product lines
           const allCategoryProducts = productArrays.flat();
 
           setProducts(allCategoryProducts);
 
-          // Still set the active product line ID to the first one for UI selection
+          // Set the active product line ID to the highest priority one
           setActiveProductLineId(filtered[0]._id);
         } else {
           // No product lines for this category
@@ -246,10 +268,8 @@ const ProductsSection = () => {
               No products available for the selected category.
             </p>
           ) : (
-            /* Products Grid */
-            <div
-              className={`flex flex-wrap gap-[50px] ${products.length % 3 <= 1 ? "justify-between" : "justify-start"}`}
-            >
+            /* Products Grid - 3 columns */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product) => (
                 <ProductCard
                   key={product._id}
