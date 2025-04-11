@@ -28,15 +28,15 @@ const LeadershipSection = () => {
   }
 
   return (
-    <div className="py-[50px] md:py-[100px] flex flex-col justify-start items-start">
-      <h1 className="font-helvetica font-normal text-[42px] md:text-[72px] whitespace-nowrap">
+    <div className="px-6 md:px-[50px] lg:px-[150px] md:py-[50px] lg:py-[100px] flex flex-col justify-start items-start">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] whitespace-nowrap">
         Leadership
       </h1>
-      <div className="w-full h-fit md:h-[500px] flex flex-col md:flex-row justify-start items-stretch gap-8">
+      <div className="w-full h-fit md:h-[500px] flex flex-col md:flex-row justify-start items-stretch gap-8 overflow-x-scroll overflow-y-hidden">
         {teamMembers.map((member) => (
           <div
             key={member._id}
-            className="w-full md:w-[600px] h-full flex flex-col p-3 md:p-5 justify-between items-start bg-gray-100 gap-8"
+            className="w-full md:min-w-[600px] h-full flex flex-col p-3 md:p-5 justify-between items-start bg-gray-100 gap-8"
           >
             <div className="w-full flex flex-col md:flex-row justify-between items-start gap-2">
               <div className="w-full flex justify-between items-start gap-2">
