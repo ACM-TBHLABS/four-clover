@@ -36,7 +36,7 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
               })}
               , {event.location}{" "}
             </h1>
-            <h1 className="font-helvetica font-normal text-[24px] md:text-[72px] leading-[100%]">
+            <h1 className="font-helvetica font-normal text-[24px] md:text-[56px] lg:text-[72px] leading-[100%]">
               {event.name}
             </h1>
             <h1 className="md:hidden font-helvetica font-light text-[14px] md:text-[18px] leading-[110%] md:leading-[100%] w-2/3">
