@@ -15,7 +15,11 @@ const EventCard: React.FC<EventCardProps> = ({
 }) => {
   return (
     <div className="w-full flex flex-col gap-[12px]">
-      <img src={image} alt={title} className="w-full h-[250px] object-cover" />
+      <img
+        src={image}
+        alt={title}
+        className="w-full aspect-video object-cover"
+      />
       <div className="flex flex-col gap-[12px]">
         <h2 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none">
           {title}

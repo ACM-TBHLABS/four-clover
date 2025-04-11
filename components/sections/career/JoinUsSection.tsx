@@ -9,8 +9,8 @@ const JoinUsSection = () => {
       <h1 className="font-helvetica font-normal text-[36px] md:text-[72px] uppercase">
         Why Join Us
       </h1>
-      <div className="w-full flex flex-col md:flex-row gap-[50px] justify-between">
-        <div className="flex flex-col gap-[8px] w-full md:w-1/2">
+      <div className="w-full flex flex-col lg:flex-row gap-[50px] justify-between">
+        <div className="flex flex-col gap-[8px] w-full lg:w-1/2">
           <PeopleTeam16Regular className="w-[48px] h-[48px]" />
           <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
             Collaborative Culture
@@ -19,7 +19,7 @@ const JoinUsSection = () => {
             A supportive team where ideas thrive.
           </h1>
         </div>
-        <div className="flex flex-col gap-[8px] w-full md:w-1/2">
+        <div className="flex flex-col gap-[8px] w-full lg:w-1/2">
           <HandHelping className="w-[48px] h-[48px]" />
           <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
             Purposeful Work
@@ -29,8 +29,8 @@ const JoinUsSection = () => {
           </h1>
         </div>
       </div>
-      <div className="w-full flex flex-col md:flex-row gap-[50px] justify-between">
-        <div className="flex flex-col gap-[8px] w-full md:w-1/2">
+      <div className="w-full flex flex-col lg:flex-row gap-[50px] justify-between">
+        <div className="flex flex-col gap-[8px] w-full lg:w-1/2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ const JoinUsSection = () => {
             Work with industry-leading technology that transforms patient care.
           </h1>
         </div>
-        <div className="flex flex-col gap-[8px] w-full md:w-1/2">
+        <div className="flex flex-col gap-[8px] w-full lg:w-1/2">
           <ArrowTrendingLines20Filled className="w-[48px] h-[48px]" />
           {/* <img
             src="/icons/arrowgrowth.png"

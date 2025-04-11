@@ -101,7 +101,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
   return (
     <div className="w-full flex flex-col gap-[50px]">
       <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
-        Highlight Events
+        Highlight Events Test
       </h1>
 
       {events.length > 0 ? (
