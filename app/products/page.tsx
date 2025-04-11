@@ -7,7 +7,7 @@ import FAQSection from "@/components/sections/landing/FAQSection";
 const ProductsPage = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
-      <div className="max-w-screen md:max-w-[1600px] w-full">
+      <div className="max-w-screen md:max-w-[1400px] w-full">
         <div className="px-[24px] md:px-[150px]">
           <HeroSection />
           <ProductsSection />
