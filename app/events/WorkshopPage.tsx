@@ -39,7 +39,7 @@ const WorkshopPage = () => {
     mainEvent = events[0];
   }
   return (
-    <div className="flex flex-col gap-[50px] px-[24px] md:px-[150px]">
+    <div className="flex flex-col gap-[50px] px-6 md:px-[50px] lg:px-[150px]">
       <HeroSection event={mainEvent} />
       <IntroSection event={mainEvent} />
       <EventsSection events={events} />
