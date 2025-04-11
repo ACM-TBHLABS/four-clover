@@ -10,14 +10,14 @@ const HeroSection = () => {
       {/* Green background that covers only half the image height */}
       <div className="absolute top-0 left-0 right-0 bg-[#DAFFB7] h-2/3 z-0"></div>
 
-      <div className="w-full max-w-[1600px] px-[24px] md:px-[150px] flex flex-col gap-[32px] relative z-10">
+      <div className="w-full max-w-[1400px] px-[24px] md:px-[50px] lg:px-[150px] flex flex-col gap-[32px] relative z-10">
         <div className="flex flex-row gap-[12px] justify-between w-full">
-          <h1 className="w-full font-helvetica text-[32px] lg:text-[80px] font-normal uppercase">
+          <h1 className="w-full font-helvetica text-[32px] md:text-[56px] lg:text-[72px] font-normal uppercase leading-[1.1]">
             Lead the <br />
             Generation with
             <br /> Innovation
           </h1>
-          <div className="flex-col gap-[12px] items-end mt-auto w-[300px] hidden xl:flex">
+          <div className="flex-col gap-[12px] items-end mt-auto w-[300px] hidden lg:flex">
             <h1 className="font-helvetica text-[18px] font-light">
               We are committed to pioneering technological advancements that
               drive innovation within the dental industry.
@@ -32,12 +32,14 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
-        <div className="w-full max-w-[1600px] h-auto z-10 relative">
-          <img
-            src="/landing/hero.png"
-            alt="hero"
-            className="w-full aspect-video object-cover rounded-[30px] md:border-[5px] border-[#DAFFB7]"
-          />
+        <div className="w-full max-w-[1400px] h-auto z-10 relative">
+          <div className="w-full h-[250px] md:h-[400px] lg:h-[600px] flex justify-center items-center rounded-lg md:rounded-3xl overflow-hidden">
+            <img
+              src="/landing/hero.png"
+              alt="hero"
+              className="w-full h-full aspect-video object-cover border-[#DAFFB7]"
+            />
+          </div>
           <PlayCircleIcon
             size={100}
             strokeWidth={0.55}
@@ -49,11 +51,3 @@ const HeroSection = () => {
   );
 };
 export default HeroSection;
-
-{
-  /* <div className="absolute bg-white bottom-0 left-0 h-[400px] w-screen" />
-<div className="absolute bg-white bottom-0 right-0 h-[400px] w-screen" /> */
-}
-{
-  /* <div className="absolute bg-white bottom-0 left-0 h-[20px] w-full z-1"></div> */
-}
