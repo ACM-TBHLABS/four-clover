@@ -10,6 +10,7 @@ import { ProductLine } from "@/types/productLine";
 import { Category } from "@/types/category";
 import { Product } from "@/types/Product";
 import { urlFor } from "@/sanity/lib/image";
+import ProductCard from "@/components/ProductCard";
 
 const ProductsSection = () => {
   // warning: 80% Vibe Coded. If you cant fix it, Claudes Sonnet 3.7 can
@@ -158,7 +159,7 @@ const ProductsSection = () => {
   }
 
   return (
-    <div className="flex flex-col gap-[50px]">
+    <div className="w-full flex flex-col gap-5 lg:gap-[50px]">
       {/* Desktop Tabs */}
       <div className="hidden md:flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden cursor-pointer">
         <TabButton
@@ -269,7 +270,7 @@ const ProductsSection = () => {
             </p>
           ) : (
             /* Products Grid - 3 columns */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product) => (
                 <ProductCard
                   key={product._id}
@@ -312,60 +313,6 @@ const TabButton = ({
       onClick={() => setActiveTab(label)}
     >
       <h1>{label}</h1>
-    </div>
-  );
-};
-
-const ProductCard = ({
-  id,
-  name,
-  image,
-  color,
-  slug,
-  router,
-}: {
-  id: string;
-  name: string;
-  image: string;
-  color?: string;
-  slug: string;
-  router: any;
-}) => {
-  return (
-    <div
-      onClick={() => router.push(`/products/${slug}`)}
-      className="w-full md:w-[380px] flex flex-col gap-[10px] relative group hover:scale-[1.01] transition-transform duration-300 ease-in-out"
-    >
-      <div className="h-[300px] bg-slate-700 relative cursor-pointer">
-        <img
-          src="/products/blur_bg.png"
-          alt="background"
-          className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-500"
-        />
-        <img
-          src={image}
-          alt={name}
-          className="w-[328px] h-[184px] absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 object-cover"
-        />
-        <button
-          onClick={(e) => {
-            e.stopPropagation(); // Prevent card click
-            router.push(`/quote/${id}`);
-          }}
-          className="hover:bg-slate-200 absolute bottom-0 right-0 font-helvetica font-light text-[20px] leading-[23px] px-[10px] py-[5px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
-        >
-          +Quote
-        </button>
-      </div>
-      <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[27.6px]">
-        {name}
-      </h1>
-
-      {color && (
-        <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[27.6px]">
-          ({color})
-        </h1>
-      )}
     </div>
   );
 };
