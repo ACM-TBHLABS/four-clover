@@ -5,17 +5,19 @@ import { urlFor } from '@/sanity/lib/image';
 export const portableTextComponents: PortableTextComponents = {
   types: {
     image: ({ value }: { value: any }) => (
-      <div className="my-4">
+      <div className="relative w-full aspect-[16/9] my-4">
         {value.asset?._ref && (
           <Image
             src={urlFor(value).url()}
-            alt={value.alt || 'Event image'}
-            width={600}
-            height={400}
+            alt={value.alt || "Event image"}
+            fill
+            className="object-contain"
           />
         )}
       </div>
     ),
+    
+    
   },
   block: {
     h1: ({ children }) => <h1 className="text-3xl font-bold mt-4">{children}</h1>,
