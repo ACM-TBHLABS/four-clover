@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <div className={`w-full flex flex-col items-center border-t`}>
-      <div className="max-w-[1600px] w-full h-auto py-4 px-4 md:px-6 lg:px-12 xl:px-[150px] md:h-[108px] md:py-[24px] flex flex-col md:flex-row justify-between md:items-center relative gap-[10px] md:gap-[0px]">
+      <div className="max-w-[1400px] w-full h-auto py-4 px-4 md:px-6 lg:px-12 xl:px-[150px] md:h-[108px] md:py-[24px] flex flex-col md:flex-row justify-between md:items-center relative gap-[10px] md:gap-[0px]">
         <div
           className="flex items-center hover:cursor-pointer transition-transform duration-300 ease-in-out group hover:scale-[1.05]"
           onClick={() => router.push("/")}
