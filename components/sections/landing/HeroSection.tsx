@@ -23,7 +23,7 @@ const HeroSection = () => {
               drive innovation within the dental industry.
             </h1>
             <button
-              className="hover:bg-black hover:text-white transition-all duration-300 hover:scale-105 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]"
+              className="hover:bg-black hover:text-white transition-all duration-300 ease-in-out w-[280px] py-[16px] px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[24px] leading-[27.6px]"
               onClick={() => {
                 router.push("/contact");
               }}
