@@ -46,7 +46,7 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
               </div>
               <Link
                 href={`/events/${event.slug}`}
-                className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8"
+                className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8 hover:bg-black/10 transform transition-all ease-in-out duration-100"
               >
                 Read More
               </Link>

@@ -34,7 +34,7 @@ const EventCard: React.FC<EventCardProps> = ({
             {description}
           </h1>
         </div>
-        <button className="rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit">
+        <button className="rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit hover:bg-black/10 transform transition-all ease-in-out duration-100">
           Read More
         </button>
       </div>

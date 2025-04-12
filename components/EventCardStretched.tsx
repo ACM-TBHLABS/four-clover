@@ -41,7 +41,7 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
       </div>
 
       <div className="">
-        <button className="rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit h-fit whitespace-nowrap">
+        <button className="rounded-full font-helvetica py-[8px] px-[12px] border-black border-[1px] w-fit h-fit whitespace-nowrap hover:bg-black/10 transform transition-all ease-in-out duration-100">
           Read More
         </button>
       </div>
