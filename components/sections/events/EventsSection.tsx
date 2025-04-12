@@ -43,15 +43,15 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
   return (
     <div className="flex flex-col md:flex-row gap-[32px]">
       <div className="w-full flex flex-col gap-[50px]">
-        <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
+        <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[100%]">
           Coming Soon
         </h1>
-        <div className="w-full flex flex-col md:flex-row gap-[50px]">
+        <div className="w-full flex flex-col md:flex-row gap-[50px] overflow-x-scroll overflow-y-hidden">
           {events.length > 0 ? (
             events.map((event, index) => (
               <div
                 key={event._id || index}
-                className="w-full md:w-1/2 cursor-pointer"
+                className="min-w-full w-full lg:max-w-1/2 lg:min-w-[400px] cursor-pointer"
               >
                 <Link href={`/events/${event.slug}`}>
                   <EventCard
@@ -100,7 +100,7 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
 const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
   return (
     <div className="w-full flex flex-col gap-[50px]">
-      <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[100%]">
         Highlight Events Test
       </h1>
 
