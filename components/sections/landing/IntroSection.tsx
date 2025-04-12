@@ -13,7 +13,7 @@ const IntroSection = () => {
           drive <br /> innovation within the dental industry.
         </h1>
         <button
-          className="hover:bg-black hover:text-white transition-all duration-300 md:hover:scale-105 ease-in-out w-fit lg:w-[280px] p-2 lg:py-[16px] md:px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[20px] md:text-[24px]"
+          className="hover:bg-black hover:text-white transition-all duration-300 ease-in-out w-fit lg:w-[280px] p-2 lg:py-[16px] md:px-[24px] border-solid border-black border-[0.5px] rounded-[5px] text-center font-helvetica font-normal text-[20px] md:text-[24px]"
           onClick={() => {
             router.push("/contact");
           }}
