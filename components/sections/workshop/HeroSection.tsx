@@ -54,7 +54,7 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
           </div>
         </>
       ) : (
-        <div className="w-full flex flex-col justify-center items-center overflow-x-hidden min-h-[80vh] gap-[25px]">
+        <div className="w-full flex flex-col justify-center items-center overflow-x-hidden min-h-[90vh] gap-[25px]">
           <div className="w-12 h-12 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-700" />
           <h1>Fetching events</h1>
         </div>
