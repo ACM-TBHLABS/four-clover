@@ -3,7 +3,7 @@ import { Product } from "@/types/Product";
 
 // Fetch all products
 export const fetchAllProducts = async (): Promise<Product[]> => {
-	const query = `*[_type == "product"]{
+	const query = `*[_type == "product"] | order(name asc){
     _id,
     name,
     "slug": slug.current,
@@ -17,6 +17,7 @@ export const fetchAllProducts = async (): Promise<Product[]> => {
     brand,
     productFaqs
   }`;
+
 	try {
 		const products = await client.fetch(query);
 		return products;

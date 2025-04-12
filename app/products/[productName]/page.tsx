@@ -42,10 +42,11 @@ const ProductPage = () => {
 		<div className="w-full flex flex-col items-center justify-center">
 			<HeroSection image={product?.heroImage} name={product?.name} />
 			<div className="max-w-screen md:max-w-[1400px] w-full px-6 md:px-[50px] lg:px-[150px]">
-					{/* <DescriptionSection
+				<div className="px-[24px] md:px-[150px]">
+					<DescriptionSection
             title={product?.tagline}
             desc={product?.description}
-          /> */}
+          />
 					{/* Conditionally render the RelatedProductsSection */}
 					{product?.recommendedProducts &&
 						product.recommendedProducts.length > 0 && (

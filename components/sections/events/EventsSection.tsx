@@ -19,11 +19,13 @@ const EventsSection: React.FC<EventsSectionProps> = ({ events = [] }) => {
     );
   }
 
-  // Filter events for "Coming Soon" section (could be based on date, status, etc.)
-  const comingSoonEvents = events.slice(0, 2);
+  const comingSoonEvents = events
+    .filter((event) => new Date(event?.start_date) > new Date())
+    .slice(0, 2);
 
-  const highlightEvents = events;
-  // const highlightEvents = events.slice(2);
+  const highlightEvents = events.filter(
+    (event) => new Date(event?.start_date) < new Date()
+  );
 
   return (
     <div className="w-full flex flex-col gap-[50px]">
@@ -99,12 +101,12 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
   return (
     <div className="w-full flex flex-col gap-[50px]">
       <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
-        Highlight Events
+        Highlight Events Test
       </h1>
 
       {events.length > 0 ? (
         <>
-          <div className="hidden md:flex flex-col gap-[50px]">
+          <div className="hidden xl:flex flex-col gap-[50px]">
             {events.map((event, index) => (
               <Link href={`/events/${event.slug}`} key={event._id || index}>
                 <EventCardStretched
@@ -124,7 +126,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
               </Link>
             ))}
           </div>
-          <div className="flex md:hidden flex-col gap-[50px]">
+          <div className="flex xl:hidden flex-col gap-[50px]">
             {events.map((event, index) => (
               <Link href={`/events/${event.slug}`} key={event._id || index}>
                 <EventCard
