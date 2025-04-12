@@ -43,7 +43,7 @@ export const portableTextComponents: PortableTextComponents = {
     strike: ({ children }) => <span className="line-through">{children}</span>,
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal pl-5">{children}</ol>,
+    bullet: ({ children }) => <ul className="list-disc pl-5 py-2">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal pl-5 py-2">{children}</ol>,
   },
 };

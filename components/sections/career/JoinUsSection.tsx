@@ -4,7 +4,7 @@ import React from "react";
 const JoinUsSection = () => {
   return (
     <div className="flex flex-col gap-5 py-[50px] lg:py-[100px]">
-      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] uppercase">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] uppercase">
         Why Join Us
       </h1>
       <div className="w-full flex flex-col md:flex-row gap-5 md:gap-[50px] justify-between">

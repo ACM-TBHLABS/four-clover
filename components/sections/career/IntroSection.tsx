@@ -30,7 +30,7 @@ const IntroSection = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <h1 className="font-helvetica font-normal text-[36px] md:text-[56px] lg:text-[72px] uppercase">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] uppercase">
         Our Team
       </h1>
       <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5">

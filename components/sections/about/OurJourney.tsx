@@ -46,7 +46,7 @@ const OurJourney = () => {
 			</div>
 
 			<div className="w-full lg:w-1/2 h-full flex flex-col">
-				<h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] whitespace-nowrap">
+				<h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] whitespace-nowrap">
 					Our Journey
 				</h1>
 

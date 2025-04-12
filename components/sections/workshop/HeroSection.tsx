@@ -21,32 +21,25 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent">
               {/* Additional overlay at the bottom for text area */}
             </div>
-            <div className="flex bottom-2 md:bottom-10 left-2 md:left-10 absolute flex-col gap-[8px] md:gap-[32px]">
-              <div className="flex flex-col gap-[8px] lg:gap-[16px] w-[80%]">
-                <h1 className="hidden md:block font-helvetica font-light text-[18px] leading-[100%]">
+            <div className="w-full flex bottom-0 absolute flex-col gap-3 lg:gap-5 p-3 md:p-4 lg:p-5">
+              <div className="w-full flex flex-col-reverse md:flex-col gap-2">
+                <h1 className="font-helvetica font-light text-[14px] lg:text-3xl leading-[100%]">
                   {new Date(event.start_date).toLocaleString("en-US", {
                     dateStyle: "long",
                     timeStyle: "short",
                   })}
                   , {event.location}{" "}
                 </h1>
-                <h1 className="font-helvetica font-normal text-[24px] md:text-[56px] xl:text-[72px] leading-[100%]">
+                <h1 className="font-helvetica font-normal text-[24px] md:text-[32px] xl:text-[64px] leading-[1]">
                   {event.name}
                 </h1>
-                <h1 className="md:hidden font-helvetica font-light text-[14px] md:text-[18px] leading-[110%] md:leading-[100%] w-2/3">
-                  {new Date(event.start_date).toLocaleString("en-US", {
-                    dateStyle: "long",
-                    timeStyle: "short",
-                  })}
-                  , {event.location}{" "}
-                </h1>
-                <h1 className="hidden md:block font-helvetica font-light text-[20px] md:text-[24px] leading-[100%]">
+                <h1 className="hidden md:block font-helvetica font-light text-[20px] lg:text-3xl leading-[1]">
                   {event.tagline}
                 </h1>
               </div>
               <Link
+                className="rounded-full lg:hover:bg-black lg:hover:text-white transition-all duration-300 ease-in-out w-fit lg:w-[280px] px-3 py-1 lg:py-[16px] md:px-[24px] border-solid border-black border-[0.5px] text-center font-helvetica font-normal text-[16px] md:text-[24px]"
                 href={`/events/${event.slug}`}
-                className="w-fit backdrop-blur-xl bg-white/50 border-black border-[1px] rounded-full font-helvetica font-light text-[16px] md:text-[32px] py-1 md:py-3 px-3 md:px-8 hover:bg-black/10 transform transition-all ease-in-out duration-100"
               >
                 Read More
               </Link>

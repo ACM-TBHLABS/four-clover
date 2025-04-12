@@ -7,7 +7,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
-      <div className="w-full max-w-screen md:max-w-[1400px] px-[24px] md:px-[150px] flex flex-col gap-[50px] py-[100px]">
+      <div className="w-full max-w-screen md:max-w-[1400px] px-[24px] md:px-[50px] lg:px-[150px] flex flex-col gap-[50px] py-[100px]">
         <HeroSection />
         <IntroSection />
         <AddressSection />

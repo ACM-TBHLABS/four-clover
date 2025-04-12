@@ -11,7 +11,7 @@ const HeroSection = () => {
             <h1 className="font-helvetica font-light text-[18px] leading-[100%]">
               April 28-29th, 2025, Bangkok, Queen Sirikit Convention Center
             </h1>
-            <h1 className="font-helvetica font-normal text-[32px] md:text-[72px] leading-[100%]">
+            <h1 className="font-helvetica font-normal text-[32px] md:text-[64px] leading-[100%]">
               Sale Training
             </h1>
             <h1 className="font-helvetica font-light text-[20px] md:text-[24px] leading-[100%]">

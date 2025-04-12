@@ -28,7 +28,7 @@ const PartnersSection = () => {
 
   return (
     <div className="p-[24px] md:p-[50px] lg:px-[150px] flex flex-col">
-      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[1.1]">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[1.1]">
         Trusted Collaborators
       </h1>
 

@@ -34,7 +34,7 @@ const HeroSection: React.FC<Props> = ({ image, name }) => {
             className="w-full h-full object-contain mix-blend-multiply"
           />
         </div>
-        <h1 className="text-white font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-none">
+        <h1 className="text-white font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-none">
           {name}
         </h1>
       </div>

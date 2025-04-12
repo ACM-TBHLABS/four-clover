@@ -7,7 +7,7 @@ const SolutionsSection = () => {
   return (
     <div className="py-[100px] flex flex-col gap-[50px]">
       <div className="px-[150px]">
-        <h1 className="font-helvetica font-normal text-[72px] leading-[82.79px]">
+        <h1 className="font-helvetica font-normal text-[64px] leading-[82.79px]">
           Our Solutions
         </h1>
         <h1 className="font-helvetica font-light text-[32px] leading-[36.8px]">

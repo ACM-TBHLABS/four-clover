@@ -24,7 +24,7 @@ const IntroSection = () => {
 
       <div className="py-[50px] lg:py-[100px] flex flex-col md:flex-row gap-[50px] justify-between cursor-default">
         <div className="flex-1 flex flex-col gap-1 md:gap-2 lg:gap-3 transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[32px] lg:text-[72px] flex items-baseline leading-none">
+          <h1 className="font-helvetica font-normal text-[32px] lg:text-[64px] flex items-baseline leading-none">
             10+
             <span className="font-helvetica font-normal text-[28px] lg:text-[42px] lg:ml-2">
               &nbsp;years
@@ -40,7 +40,7 @@ const IntroSection = () => {
           </p>
         </div>
         <div className="flex-1 flex flex-col gap-1 md:gap-2 lg:gap-3 transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[32px] lg:text-[72px] flex items-baseline leading-none">
+          <h1 className="font-helvetica font-normal text-[32px] lg:text-[64px] flex items-baseline leading-none">
             100+
           </h1>
           <h1 className="font-helvetica font-light text-[28px] lg:text-[42px]">
@@ -52,7 +52,7 @@ const IntroSection = () => {
           </p>
         </div>
         <div className="flex-1 flex flex-col gap-1 md:gap-2 lg:gap-3 transition-transform duration-300 ease-in-out group">
-          <h1 className="font-helvetica font-normal text-[32px] lg:text-[72px] flex items-baseline leading-none">
+          <h1 className="font-helvetica font-normal text-[32px] lg:text-[64px] flex items-baseline leading-none">
             500+
           </h1>
           <h1 className="font-helvetica font-light text-[28px] lg:text-[42px]">

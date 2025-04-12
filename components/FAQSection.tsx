@@ -34,7 +34,7 @@ const FAQSection = () => {
 
   return (
     <div className="w-full max-w-[1400px] py-[50px] pb-[100px] px-[24px] md:px-[50px] lg:px-[150px] flex flex-col gap-2 md:gap-[20px]">
-      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[1.1]">
+      <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[1.1]">
         FAQs
       </h1>
       <Accordion type="multiple">

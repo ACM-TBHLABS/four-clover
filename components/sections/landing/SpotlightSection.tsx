@@ -19,7 +19,7 @@ const SpotlightSection = () => {
     <div className="px-[24px] md:px-[50px] lg:px-[150px] py-[50px] md:py-[50px] lg:py-[100px]">
       <div className="w-full flex flex-col gap-8 lg:gap-[100px]">
         <div className="flex flex-col gap-5 md:gap-8">
-          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[1.1]">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[1.1]">
             Collaborating for Innovation
           </h1>
           <h1 className="font-helvetica font-light text-[18px] md:text-[24px] lg:text-[32px] w-full lg:w-1/2">
@@ -29,7 +29,7 @@ const SpotlightSection = () => {
           </h1>
         </div>
         <div className="w-full flex flex-col gap-[32px]">
-          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] leading-[1.1]">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[1.1]">
             Spotlight Partnerships
           </h1>
 
@@ -51,7 +51,7 @@ const SpotlightSection = () => {
                       <h1 className="hidden md:block font-helvetica font-normal text-[16px] md:text-[24px] lg:text-[32px]">
                         {partnership.name}
                       </h1>
-                      <h1 className="font-helvetica font-light text-[16px] lg:text-[18px] leading-[1.1]">
+                      <h1 className="font-helvetica font-light text-[16px] md:text-[18px] leading-[1.1]">
                         {partnership.description}
                       </h1>
                     </div>

@@ -4,7 +4,7 @@ import React from "react";
 const QuotationSection = () => {
   return (
     <div className="py-[100px] flex flex-col md:flex-row gap-[20px]">
-      <h1 className="w-full md:w-1/2 font-helvetica font-normal text-[36px] md:text-[72px] md:leading-[82.79px]">
+      <h1 className="w-full md:w-1/2 font-helvetica font-normal text-[36px] md:text-[64px] md:leading-[82.79px]">
         Submit Product Quotation
       </h1>
       <div className="w-full md:w-1/2 max-w-[800px] flex flex-col gap-[20px]">

@@ -12,7 +12,7 @@ const HeroSection = () => {
 
       <div className="w-full max-w-[1400px] px-[24px] md:px-[50px] lg:px-[150px] flex flex-col gap-[32px] relative z-10">
         <div className="flex flex-row gap-[12px] justify-between w-full">
-          <h1 className="w-full font-helvetica text-[32px] md:text-[56px] lg:text-[72px] font-normal uppercase leading-[1.1]">
+          <h1 className="w-full font-helvetica text-[32px] md:text-[56px] lg:text-[64px] font-normal uppercase leading-[1.1]">
             Lead the <br />
             Generation with
             <br /> Innovation

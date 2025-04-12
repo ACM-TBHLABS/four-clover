@@ -12,7 +12,7 @@ const VisionMissionSection = () => {
           />
         </div>
         <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start p-6 md:pl-[50px] gap-2">
-          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] whitespace-nowrap leading-none">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] whitespace-nowrap leading-none">
             Our Vision
           </h1>
           <p className="font-helvetica font-light text-[18px] md:text-[24px] lg:text-[32px] leading-[1.2]">
@@ -29,7 +29,7 @@ const VisionMissionSection = () => {
           />
         </div>
         <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start p-6 lg:pl-[50px] gap-2">
-          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[72px] whitespace-nowrap leading-none">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] whitespace-nowrap leading-none">
             Our Mission
           </h1>
           <p className="font-helvetica font-light text-[18px] md:text-[24px] lg:text-[32px] leading-[1.2]">
