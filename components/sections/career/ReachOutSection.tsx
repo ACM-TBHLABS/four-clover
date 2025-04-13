@@ -39,8 +39,8 @@ const ReachOutSection = () => {
 					let's make a difference together!
 				</h1>
 			</div>
-			<div className="flex-1 w-full flex flex-col gap-[12px]">
-				<form ref={formRef} onSubmit={handleSubmit}>
+			<div className="flex-1 w-full flex flex-col gap-3">
+				<form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
 					<div className="w-full flex flex-col gap-1 md:gap-2">
 						<h1 className="font-helvetica font-normal text-[18px] md:text-[24px]">
 							Email

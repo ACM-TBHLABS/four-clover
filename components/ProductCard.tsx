@@ -29,7 +29,7 @@ const ProductCard = ({
         <img
           src={image}
           alt={name}
-          className="w-[328px] h-[184px] absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 object-cover mix-blend-multiply"
+          className="w-full h-full absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 object-cover mix-blend-multiply"
         />
         <button
           onClick={(e) => {
