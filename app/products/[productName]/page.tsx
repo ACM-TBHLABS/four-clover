@@ -45,6 +45,8 @@ const ProductPage = () => {
         <DescriptionSection
           title={product?.tagline}
           desc={product?.description}
+          colors={product?.colors}
+          sizes={product?.sizes}
         />
         {/* Conditionally render the RelatedProductsSection */}
         {product?.recommendedProducts &&
