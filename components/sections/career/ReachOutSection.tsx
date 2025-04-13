@@ -12,10 +12,10 @@ const ReachOutSection = () => {
 
 		emailjs
 			.sendForm(
-				"service_nic29yf", // Replace with your EmailJS service ID
-				"template_ao7hqrk", // Replace with your EmailJS template ID
+				process.env.NEXT_PUBLIC_SERVICE_ID ?? (() => { throw new Error("SERVICE_ID is not defined in environment variables"); })(), // Replace with your EmailJS service ID
+				process.env.NEXT_PUBLIC_TEMPLATE_ID ?? (() => { throw new Error("Template ID is not defined in environment variables"); })(), // Replace with your EmailJS template ID
 				formRef.current!,
-				"8lABT5vXd2sp6SFuO" // Replace with your EmailJS public key
+				process.env.NEXT_PUBLIC_PUBLIC_KEY ?? (() => { throw new Error("Public Key is not defined in environment variables"); })() // Replace with your EmailJS public key
 			)
 			.then(
 				(result) => {
