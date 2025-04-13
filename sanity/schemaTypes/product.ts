@@ -152,17 +152,48 @@ export default defineType({
 			of: [
 				defineField({
 					name: "color",
-					type: "string",
-					title: "Color Name",
-					validation: (Rule) =>
-						Rule.required().error("Color name is required"),
+					type: "object",
+					title: "Color",
+					fields: [
+						defineField({
+							name: "name",
+							type: "string",
+							title: "Color Name",
+							validation: (Rule) =>
+								Rule.required().error("Color name is required"),
+						}),
+						defineField({
+							name: "code",
+							type: "string",
+							title: "Color Code",
+							validation: (Rule) =>
+								Rule.required().error("Color code is required"),
+						}),
+					],
 				}),
+			],
+		}),
+		// sizes
+		// eg. size - 30mm, 40mm, 50mm
+		// size have only one field
+		defineField({
+			name: "sizes",
+			type: "array",
+			title: "Available Sizes",
+			of: [
 				defineField({
-					name: "colorCode",
-					type: "string",
-					title: "Color Code",
-					validation: (Rule) =>
-						Rule.required().error("Color code is required"),
+					name: "size",
+					type: "object",
+					title: "Size",
+					fields: [
+						defineField({
+							name: "name",
+							type: "string",
+							title: "Size Name",
+							validation: (Rule) =>
+								Rule.required().error("Size name is required"),
+						}),
+					],
 				}),
 			],
 		}),
