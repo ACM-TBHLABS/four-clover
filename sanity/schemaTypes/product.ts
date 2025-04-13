@@ -144,5 +144,27 @@ export default defineType({
 			validation: (Rule) =>
 				Rule.max(5).warning("Keep FAQs concise (max 5)"),
 		}),
+		// colors
+		defineField({
+			name: "colors",
+			type: "array",
+			title: "Available Colors",
+			of: [
+				defineField({
+					name: "color",
+					type: "string",
+					title: "Color Name",
+					validation: (Rule) =>
+						Rule.required().error("Color name is required"),
+				}),
+				defineField({
+					name: "colorCode",
+					type: "string",
+					title: "Color Code",
+					validation: (Rule) =>
+						Rule.required().error("Color code is required"),
+				}),
+			],
+		}),
 	],
 });
