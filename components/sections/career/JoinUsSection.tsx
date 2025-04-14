@@ -3,11 +3,11 @@ import React from "react";
 
 const JoinUsSection = () => {
   return (
-    <div className="flex flex-col gap-5 py-[50px] lg:py-[100px]">
+    <div className="flex flex-col gap-10 py-[50px] lg:py-[100px]">
       <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] uppercase">
         Why Join Us
       </h1>
-      <div className="w-full flex flex-col md:flex-row gap-5 md:gap-[50px] justify-between">
+      <div className="w-full flex flex-col md:flex-row gap-10 md:gap-[50px] justify-between">
         <div className="flex flex-col gap-[8px] w-full">
           <UsersRound className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14" />
           <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
@@ -27,7 +27,7 @@ const JoinUsSection = () => {
           </h1>
         </div>
       </div>
-      <div className="w-full flex flex-col md:flex-row gap-5 md:gap-[50px] justify-between">
+      <div className="w-full flex flex-col md:flex-row gap-10 md:gap-[50px] justify-between">
         <div className="flex flex-col gap-2 w-full">
           <Lightbulb className="w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14" />
           <h1 className="font-helvetica text-[16px] md:text-[32px] font-normal">
