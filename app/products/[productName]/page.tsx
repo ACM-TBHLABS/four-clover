@@ -32,8 +32,9 @@ const ProductPage = () => {
 
   if (!product) {
     return (
-      <div className="w-full flex flex-col items-center justify-center overflow-x-hidden">
-        <div>Loading...</div>
+      <div className="w-full flex flex-col justify-center items-center overflow-x-hidden min-h-[90vh] gap-[25px]">
+        <div className="w-12 h-12 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-700" />
+        <h1>Loading...</h1>
       </div>
     );
   }
