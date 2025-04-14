@@ -15,7 +15,9 @@ export const fetchAllProducts = async (): Promise<Product[]> => {
     discount,
     ref_link,
     brand,
-    productFaqs
+    productFaqs,
+    colors,
+    sizes
   }`;
 
 	try {
@@ -57,7 +59,9 @@ export const fetchProductBySlug = async (
       brand,
       productFaqs,
     },
-    productFaqs
+    productFaqs,
+    colors,
+    sizes
   }`;
 	try {
 		const product = await client.fetch(query, { slug });

@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden h-full flex items-center justify-center gap-[12px]">
+        <div className="md:hidden h-full flex items-center justify-center gap-3">
           <button
             className="border border-black px-4 py-1 transition-all hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-1"
             onClick={() => {
@@ -87,7 +87,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center space-x-4 lg:space-x-[32px] absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light">
+        <div className="hidden md:flex items-center space-x-2 lg:space-x-5 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light">
           <h1
             className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
             onClick={() => router.push("/about")}
