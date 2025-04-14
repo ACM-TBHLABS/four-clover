@@ -1,10 +1,16 @@
 "use client";
-import React from "react";
-import { PlayCircleIcon } from "lucide-react";
+import React, { useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
   const router = useRouter();
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
   return (
     <div className="w-full relative flex flex-col items-center justify-center pt-[100px] py-[32px] xl:py-[100px]">
       {/* Green background that covers only half the image height */}
@@ -34,20 +40,32 @@ const HeroSection = () => {
         </div>
         <div className="w-full max-w-[1400px] h-auto z-10 relative">
           <div className="w-full h-[250px] md:h-[400px] lg:h-[600px] flex justify-center items-center rounded-lg md:rounded-3xl overflow-hidden">
-            <img
-              src="/landing/hero.png"
-              alt="hero"
+            <video
+              src="/video/hero.mp4"
               className="w-full h-full aspect-video object-cover border-[#DAFFB7]"
+              autoPlay
+              muted={isMuted}
+              loop
+              playsInline
             />
           </div>
-          <PlayCircleIcon
-            size={100}
-            strokeWidth={0.55}
-            className="absolute text-gray-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:bg-white rounded-full transition-all duration-300 ease-in-out"
-          />
+
+          {/* Mute/Unmute button */}
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-6 right-6 bg-white bg-opacity-50 hover:bg-opacity-75 p-2 rounded-full transition-all duration-300 ease-in-out"
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+          >
+            {isMuted ? (
+              <VolumeX size={24} className="text-gray-800" />
+            ) : (
+              <Volume2 size={24} className="text-gray-800" />
+            )}
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
 export default HeroSection;
