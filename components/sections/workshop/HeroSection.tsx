@@ -12,7 +12,7 @@ const HeroSection: React.FC<SectionProps> = ({ event }) => {
     <div className="w-full ">
       {event ? (
         <>
-          <TimerSection startDate={event.start_date} />
+          <TimerSection event={event} />
           <div className="w-full h-[350px] md:h-auto md:aspect-video relative">
             <img
               src={urlFor(event.cover_image).url()}

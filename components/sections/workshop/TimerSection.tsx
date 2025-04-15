@@ -1,11 +1,12 @@
 "use client";
+import { Event } from "@/types/event";
 import { useState, useEffect } from "react";
 
 interface TimerProps {
-  startDate: string;
+  event: Event;
 }
 
-const TimerSection: React.FC<TimerProps> = ({ startDate }) => {
+const TimerSection: React.FC<TimerProps> = ({ event }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -16,7 +17,7 @@ const TimerSection: React.FC<TimerProps> = ({ startDate }) => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const startTime = new Date(startDate).getTime();
+      const startTime = new Date(event.start_date).getTime();
       const now = new Date().getTime();
       const difference = startTime - now;
 
@@ -50,7 +51,7 @@ const TimerSection: React.FC<TimerProps> = ({ startDate }) => {
 
     // Clean up interval on unmount
     return () => clearInterval(timer);
-  }, [startDate]);
+  }, [event.start_date]);
 
   // Format numbers to ensure they're always two digits
   const formatNumber = (num: number): string => {
@@ -61,7 +62,7 @@ const TimerSection: React.FC<TimerProps> = ({ startDate }) => {
     <div className="w-full flex flex-col gap-[12px] py-[24px] justify-center items-center">
       <div className="flex flex-col items-center justify-center gap-[12px]">
         <h1 className="font-helvetica font-bold text-[16px] md:text-[32px]">
-          {isEventStarted ? "Event has started!" : "Upcoming Event"}
+          {isEventStarted ? "Event has started!" : `${event.name}`}
         </h1>
         {!isEventStarted ? (
           <div className="flex gap-[6px] items-center justify-center">

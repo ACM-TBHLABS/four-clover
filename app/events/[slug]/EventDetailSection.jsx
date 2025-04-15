@@ -24,26 +24,28 @@ export default async function EventDetailSection({ slug }) {
   return (
     <div className="max-w-screen md:max-w-[1400px] w-full px-[24px] md:px-[50px] lg:px-[150px]">
       {/* Image */}
-      <div className="w-full h-[100vw] md:h-[30vw] aspect-video">
-        <img
-          src={urlFor(event.intro_image).url()}
-          className="w-full h-full object-contain"
-          alt={event.name}
-        />
-      </div>
+      <div className="bg-accent p-4">
+        <div className="w-full h-[100vw] md:h-[30vw] aspect-video">
+          <img
+            src={urlFor(event.intro_image).url()}
+            className="w-full h-full object-contain"
+            alt={event.name}
+          />
+        </div>
 
-      {/* Text Section - aligned to the left */}
-      <div className="mt-6">
-        {/* DATE + LOCATION */}
-        <p className="text-sm text-gray-500 mb-2">
-          {dateStr}, {event.location}
-        </p>
+        {/* Text Section - aligned to the left */}
+        <div className="mt-6 ">
+          {/* DATE + LOCATION */}
+          <p className="text-sm text-gray-500 mb-2">
+            {dateStr}, {event.location}
+          </p>
 
-        {/* TITLE */}
-        <h1 className="text-4xl font-semibold mb-2">{event.name}</h1>
+          {/* TITLE */}
+          <h1 className="text-4xl font-semibold mb-2">{event.name}</h1>
 
-        {/* TAGLINE */}
-        <p className="text-lg text-gray-600">{event.tagline}</p>
+          {/* TAGLINE */}
+          <p className="text-lg text-gray-600">{event.tagline}</p>
+        </div>
       </div>
 
       {/* Content */}
