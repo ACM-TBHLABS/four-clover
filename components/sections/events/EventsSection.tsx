@@ -41,7 +41,7 @@ interface SectionProps {
 
 const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-[32px]">
+    <div id="upcoming" className="flex flex-col md:flex-row gap-[32px]">
       <div className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]">
         <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
           Coming Soon
@@ -99,7 +99,10 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
 
 const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
   return (
-    <div className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]">
+    <div
+      id="highlights"
+      className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]"
+    >
       <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
         Highlight Events
       </h1>

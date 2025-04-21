@@ -22,6 +22,28 @@ const WorkshopPage = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          const offset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
+
+    const timer = setTimeout(handleScroll, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   if (!events) {
     return <h1>Loading...</h1>;
   }

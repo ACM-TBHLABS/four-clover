@@ -28,7 +28,10 @@ const LeadershipSection = () => {
   }
 
   return (
-    <div className="px-6 md:px-[50px] lg:px-[150px] md:py-[50px] lg:py-[100px] flex flex-col justify-start items-start">
+    <div
+      id="team"
+      className="px-6 md:px-[50px] lg:px-[150px] md:py-[50px] lg:py-[100px] flex flex-col justify-start items-start"
+    >
       <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] whitespace-nowrap">
         Leadership
       </h1>

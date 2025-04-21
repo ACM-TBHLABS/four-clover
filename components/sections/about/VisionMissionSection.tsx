@@ -3,7 +3,10 @@ import React from "react";
 const VisionMissionSection = () => {
   return (
     <div className="py-[50px] lg:py-[100px] lg:px-[150px] flex flex-col justify-start items-start">
-      <div className="w-full h-fit lg:h-[500px] flex flex-col md:flex-row-reverse justify-start items-start">
+      <div
+        id="vision"
+        className="w-full h-fit lg:h-[500px] flex flex-col md:flex-row-reverse justify-start items-start"
+      >
         <div className="w-full md:w-1/2 h-full flex">
           <img
             src="/about/vision.png"
@@ -16,11 +19,15 @@ const VisionMissionSection = () => {
             Our Vision
           </h1>
           <p className="font-helvetica font-light text-[18px] md:text-[24px] lg:text-[32px] leading-[1.2]">
-          Leading the dental industry with trusted partnerships and innovative solutions that elevate global oral healthcare standards.
+            Leading the dental industry with trusted partnerships and innovative
+            solutions that elevate global oral healthcare standards.
           </p>
         </div>
       </div>
-      <div className="w-full h-fit lg:h-[500px] flex flex-col md:flex-row justify-start items-start">
+      <div
+        id="mission"
+        className="w-full h-fit lg:h-[500px] flex flex-col md:flex-row justify-start items-start"
+      >
         <div className="w-full md:w-1/2 h-full flex">
           <img
             src="/about/mission.png"
@@ -33,7 +40,8 @@ const VisionMissionSection = () => {
             Our Mission
           </h1>
           <p className="font-helvetica font-light text-[18px] md:text-[24px] lg:text-[32px] leading-[1.2]">
-          Empowering dental professionals with innovative products, expert training, and trusted partnerships to advance dental care standards.
+            Empowering dental professionals with innovative products, expert
+            training, and trusted partnerships to advance dental care standards.
           </p>
         </div>
       </div>

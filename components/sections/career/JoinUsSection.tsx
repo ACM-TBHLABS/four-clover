@@ -3,7 +3,7 @@ import React from "react";
 
 const JoinUsSection = () => {
   return (
-    <div className="flex flex-col gap-10 py-[50px] lg:py-[100px]">
+    <div id="join" className="flex flex-col gap-10 py-[50px] lg:py-[100px]">
       <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] uppercase">
         Why Join Us
       </h1>

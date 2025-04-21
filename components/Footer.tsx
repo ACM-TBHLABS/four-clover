@@ -5,11 +5,7 @@ import { InstagramIcon } from "lucide-react";
 
 const Footer = () => {
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   return (
     <div
@@ -33,7 +29,7 @@ const Footer = () => {
         {/* Mobile menu button */}
         <div className="md:hidden h-full flex items-center justify-center gap-3">
           <div className="flex flex-col gap-8 md:mt-2 text-xl lg:text-2xl font-semibold">
-            <div className="flex justify-between items-center space-x-2 md:space-x-0">
+            <div className="flex justify-between items-center space-x-2 md:space-x-0 mr-4">
               <div className="w-8 h-8">
                 <img
                   src="/socials/line.png"
@@ -54,70 +50,58 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <button
-            className="flex items-center p-2"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {!isMenuOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            )}
-          </button>
         </div>
 
         {/* Desktop navigation */}
         <div className="hidden h-full md:mt-2 md:flex space-x-8 lg:space-x-[50px] items-start font-helvetica text-lg lg:text-2xl font-normal px-8">
           <div className="flex flex-col">
             <div className="mb-4">
-              <h1 className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800">
+              <h1
+                className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800"
+                onClick={() => {
+                  router.push("/about");
+                }}
+              >
                 About
               </h1>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/about#vision");
+                }}
+              >
                 Vision
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/about#mission");
+                }}
+              >
                 Mission
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/about#journey");
+                }}
+              >
                 Journey
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/about#team");
+                }}
+              >
                 Teams
               </h2>
             </div>
@@ -125,17 +109,32 @@ const Footer = () => {
 
           <div className="flex flex-col">
             <div className="mb-4">
-              <h1 className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800">
+              <h1
+                className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800"
+                onClick={() => {
+                  router.push("/events");
+                }}
+              >
                 Events
               </h1>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/events#upcoming");
+                }}
+              >
                 Upcoming
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/events#highlights");
+                }}
+              >
                 Highlights
               </h2>
             </div>
@@ -143,22 +142,42 @@ const Footer = () => {
 
           <div className="flex flex-col">
             <div className="mb-4">
-              <h1 className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800">
+              <h1
+                className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800"
+                onClick={() => {
+                  router.push("/products");
+                }}
+              >
                 Products
               </h1>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/products");
+                }}
+              >
                 Medical
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/products");
+                }}
+              >
                 Dental
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/products");
+                }}
+              >
                 Equipment
               </h2>
             </div>
@@ -166,17 +185,32 @@ const Footer = () => {
 
           <div className="flex flex-col">
             <div className="mb-4">
-              <h1 className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800">
+              <h1
+                className="text-xl lg:text-2xl font-semibold hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800"
+                onClick={() => {
+                  router.push("/career");
+                }}
+              >
                 Career
               </h1>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/career#team");
+                }}
+              >
                 Our Team
               </h2>
             </div>
             <div>
-              <h2 className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light">
+              <h2
+                className="text-lg hover:cursor-pointer transition-transform duration-300 ease-in-out hover:text-slate-800 font-light"
+                onClick={() => {
+                  router.push("/career#join");
+                }}
+              >
                 Join Us
               </h2>
             </div>
@@ -209,48 +243,46 @@ const Footer = () => {
       </div>
 
       {/* Mobile navigation menu */}
-      {isMenuOpen && (
-        <div className="md:hidden w-full bg-transparent px-7">
-          <div className="flex flex-col py-4 space-y-4 font-helvetica text-xl font-light">
-            <h1
-              className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
-              onClick={() => {
-                router.push("/about");
-                setIsMenuOpen(false);
-              }}
-            >
-              About
-            </h1>
-            <h1
-              className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
-              onClick={() => {
-                router.push("/products");
-                setIsMenuOpen(false);
-              }}
-            >
-              Products
-            </h1>
-            <h1
-              className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
-              onClick={() => {
-                router.push("/events");
-                setIsMenuOpen(false);
-              }}
-            >
-              Events
-            </h1>
-            <h1
-              className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
-              onClick={() => {
-                router.push("/career");
-                setIsMenuOpen(false);
-              }}
-            >
-              Career
-            </h1>
-          </div>
+      <div className="md:hidden w-full bg-transparent px-7">
+        <div className="flex flex-col py-4 space-y-4 font-helvetica text-xl font-light">
+          <h1
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            onClick={() => {
+              router.push("/about");
+              setIsMenuOpen(false);
+            }}
+          >
+            About
+          </h1>
+          <h1
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            onClick={() => {
+              router.push("/products");
+              setIsMenuOpen(false);
+            }}
+          >
+            Products
+          </h1>
+          <h1
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            onClick={() => {
+              router.push("/events");
+              setIsMenuOpen(false);
+            }}
+          >
+            Events
+          </h1>
+          <h1
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            onClick={() => {
+              router.push("/career");
+              setIsMenuOpen(false);
+            }}
+          >
+            Career
+          </h1>
         </div>
-      )}
+      </div>
     </div>
   );
 };
