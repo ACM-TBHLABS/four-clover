@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import EventCard from "@/components/EventCard";
 import EventCardStretched from "@/components/EventCardStretched";
 import { Event } from "@/types/event";
@@ -10,6 +11,8 @@ interface EventsSectionProps {
 }
 
 const EventsSection: React.FC<EventsSectionProps> = ({ events = [] }) => {
+  const [selectedType, setSelectedType] = useState<string>("all");
+
   // If no events are provided, return early or show loading state
   if (!events || events.length === 0) {
     return (
@@ -19,17 +22,33 @@ const EventsSection: React.FC<EventsSectionProps> = ({ events = [] }) => {
     );
   }
 
-  const comingSoonEvents = events
+  // Get unique event types
+  const eventTypes = [
+    "all",
+    ...new Set(events.map((event) => event.tag).filter(Boolean)),
+  ];
+
+  const filteredEvents =
+    selectedType === "all"
+      ? events
+      : events.filter((event) => event.tag === selectedType);
+
+  const comingSoonEvents = filteredEvents
     .filter((event) => new Date(event?.start_date) > new Date())
     .slice(0, 2);
 
-  const highlightEvents = events.filter(
+  const highlightEvents = filteredEvents.filter(
     (event) => new Date(event?.start_date) < new Date()
   );
 
   return (
     <div className="w-full flex flex-col gap-[50px] md:gap-[100px]">
-      <ComingSoonSection events={comingSoonEvents} />
+      <ComingSoonSection
+        events={comingSoonEvents}
+        eventTypes={eventTypes}
+        selectedType={selectedType}
+        onTypeChange={setSelectedType}
+      />
       <HighlightEventsSection events={highlightEvents} />
     </div>
   );
@@ -37,15 +56,36 @@ const EventsSection: React.FC<EventsSectionProps> = ({ events = [] }) => {
 
 interface SectionProps {
   events: Event[];
+  eventTypes?: string[];
+  selectedType?: string;
+  onTypeChange?: (type: string) => void;
 }
 
-const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
+const ComingSoonSection: React.FC<SectionProps> = ({
+  events,
+  eventTypes = [],
+  selectedType = "all",
+  onTypeChange,
+}) => {
   return (
     <div id="upcoming" className="flex flex-col md:flex-row gap-[32px]">
       <div className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]">
-        <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
-          Coming Soon
-        </h1>
+        <div className="flex justify-between items-center">
+          <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
+            Coming Soon
+          </h1>
+          <select
+            value={selectedType}
+            onChange={(e) => onTypeChange?.(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {eventTypes.map((type) => (
+              <option key={type} value={type}>
+                {type.charAt(0).toUpperCase() + type.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="w-full flex justify-start items-stretch flex-row gap-5 md:gap-[50px] overflow-x-scroll overflow-y-hidden">
           {events.length > 0 ? (
             events.map((event, index) => (
@@ -59,6 +99,7 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
                       urlFor(event.intro_image).url() || "/mockup/workshop.png"
                     }
                     title={event.name || "Dental Workshop"}
+                    eventType={event.tag}
                     tagline={
                       event.tagline ||
                       "Practical insights from industry experts"
@@ -73,22 +114,7 @@ const ComingSoonSection: React.FC<SectionProps> = ({ events }) => {
             ))
           ) : (
             <>
-              <div className="w-1/2">
-                <EventCard
-                  image="/mockup/workshop.png"
-                  title="Dental Workshop 2025"
-                  tagline="Practical insights from industry experts"
-                  description="Join us for a two-day event featuring top professionals in the dental industry."
-                />
-              </div>
-              <div className="w-1/2">
-                <EventCard
-                  image="/mockup/workshop.png"
-                  title="Dental Workshop 2025"
-                  tagline="Practical insights from industry experts"
-                  description="Join us for a two-day event featuring top professionals in the dental industry."
-                />
-              </div>
+              <h1>No events yet. Stay tuned!</h1>
             </>
           )}
         </div>
@@ -117,6 +143,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
                   image={
                     urlFor(event.intro_image).url() || "/mockup/workshop.png"
                   }
+                  eventType={event.tag}
                   title={event.name || "DENTIS Factory Visit"}
                   tagline={
                     event.tagline || "Practical insights from industry experts"
@@ -138,6 +165,7 @@ const HighlightEventsSection: React.FC<SectionProps> = ({ events }) => {
                     urlFor(event.intro_image).url() || "/mockup/workshop.png"
                   }
                   title={event.name || "DENTIS Factory Visit"}
+                  eventType={event.tag}
                   tagline={
                     event.tagline || "Practical insights from industry experts"
                   }

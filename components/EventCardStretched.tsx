@@ -3,6 +3,7 @@ import React from "react";
 interface EventCardStretchedProps {
   image: string;
   title: string;
+  eventType: string;
   description: string;
   tagline: string;
 }
@@ -10,15 +11,19 @@ interface EventCardStretchedProps {
 const EventCardStretched: React.FC<EventCardStretchedProps> = ({
   image,
   title,
+  eventType,
   description,
   tagline,
 }) => {
   return (
     <div className="w-full flex gap-[32px] justify-between cursor-pointer">
-      <div className="flex gap-[12px] w-[250px]">
+      <div className="flex flex-col gap-[20px] w-[250px]">
         <h2 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none w-[250px]">
           {title}
         </h2>
+        <h1 className="bg-accent rounded-full border border-gray-200 px-8 py-1 w-fit">
+          {eventType}
+        </h1>
       </div>
 
       <div className="flex gap-[12px] w-[250px]">

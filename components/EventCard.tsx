@@ -3,6 +3,7 @@ import React from "react";
 interface EventCardProps {
   image: string;
   title: string;
+  eventType: string;
   description: string;
   tagline: string;
 }
@@ -10,6 +11,7 @@ interface EventCardProps {
 const EventCard: React.FC<EventCardProps> = ({
   image,
   title,
+  eventType,
   description,
   tagline,
 }) => {
@@ -23,9 +25,15 @@ const EventCard: React.FC<EventCardProps> = ({
         />
       </div>
       <div className="h-full flex-1 flex flex-col gap-2 md:gap-3">
-        <h1 className="font-helvetica font-normal text-[18px] md:text-[32px] leading-[1.1]">
-          {title}
-        </h1>
+        <div className="flex gap-4 md:gap-6 items-center">
+          <h1 className="font-helvetica font-normal text-[18px] md:text-[32px] leading-[1.1]">
+            {title}
+          </h1>
+          <h1 className="bg-accent rounded-full border border-gray-200 px-4 py-1 w-fit text-sm">
+            {eventType}
+          </h1>
+        </div>
+
         <div className="flex flex-col gap-1 md:gap-3">
           <h1 className="md:uppercase font-helvetica text-[16px] md:text-[24px] font-light md:font-normal leading-none truncate">
             {tagline}
