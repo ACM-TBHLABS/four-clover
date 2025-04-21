@@ -30,19 +30,27 @@ const Footer = () => {
         <div className="md:hidden h-full flex items-center justify-center gap-3">
           <div className="flex flex-col gap-8 md:mt-2 text-xl lg:text-2xl font-semibold">
             <div className="flex justify-between items-center space-x-2 md:space-x-0 mr-4">
-              <div className="w-8 h-8">
+              <div className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out">
                 <img
                   src="/socials/line.png"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="w-8 h-8">
+              <div
+                className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out"
+                onClick={() => {
+                  window.open(
+                    "https://web.facebook.com/fourclover.co/",
+                    "_blank"
+                  );
+                }}
+              >
                 <img
                   src="/socials/facebook.png"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="w-8 h-8">
+              <div className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out">
                 <img
                   src="/socials/insta.png"
                   className="w-full h-full object-cover"
@@ -220,19 +228,27 @@ const Footer = () => {
         <div className="hidden md:flex flex-col gap-8 md:mt-2 text-xl lg:text-2xl font-semibold">
           <h1 className="hidden xl:block">Follow us on</h1>
           <div className="flex justify-center space-x-2 lg:space-x-4 items-center w-full">
-            <div className="w-8 h-8">
+            <div className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out">
               <img
                 src="/socials/line.png"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-8 h-8">
+            <div
+              className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out"
+              onClick={() => {
+                window.open(
+                  "https://web.facebook.com/fourclover.co/",
+                  "_blank"
+                );
+              }}
+            >
               <img
                 src="/socials/facebook.png"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-8 h-8">
+            <div className="w-8 h-8 hover:cursor-pointer hover:scale-105 duration-100 transition-all ease-in-out">
               <img
                 src="/socials/insta.png"
                 className="w-full h-full object-cover"
@@ -244,9 +260,9 @@ const Footer = () => {
 
       {/* Mobile navigation menu */}
       <div className="md:hidden w-full bg-transparent px-7">
-        <div className="flex flex-col py-4 space-y-4 font-helvetica text-xl font-light">
+        <div className="flex justify-between gap-4 py-4 font-helvetica text-xl font-light w-full">
           <h1
-            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[15px]"
             onClick={() => {
               router.push("/about");
               setIsMenuOpen(false);
@@ -255,7 +271,7 @@ const Footer = () => {
             About
           </h1>
           <h1
-            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[15px]"
             onClick={() => {
               router.push("/products");
               setIsMenuOpen(false);
@@ -264,7 +280,7 @@ const Footer = () => {
             Products
           </h1>
           <h1
-            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[15px]"
             onClick={() => {
               router.push("/events");
               setIsMenuOpen(false);
@@ -273,7 +289,7 @@ const Footer = () => {
             Events
           </h1>
           <h1
-            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[18px]"
+            className="hover:cursor-pointer text-black font-light hover:text-slate-800 text-[15px]"
             onClick={() => {
               router.push("/career");
               setIsMenuOpen(false);

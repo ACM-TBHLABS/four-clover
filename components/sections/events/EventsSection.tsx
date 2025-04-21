@@ -70,14 +70,14 @@ const ComingSoonSection: React.FC<SectionProps> = ({
   return (
     <div id="upcoming" className="flex flex-col md:flex-row gap-[32px]">
       <div className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between md:justify-start gap-0 md:gap-12 items-center">
           <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
             Coming Soon
           </h1>
           <select
             value={selectedType}
             onChange={(e) => onTypeChange?.(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm md:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             {eventTypes.map((type) => (
               <option key={type} value={type}>
