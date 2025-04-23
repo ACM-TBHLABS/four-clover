@@ -197,5 +197,14 @@ export default defineType({
 				}),
 			],
 		}),
+		defineField({
+			name: "brochure",
+			type: "file",
+			title: "Product Brochure",
+			description: "Upload a PDF brochure or product spec sheet.",
+			options: {
+				accept: ".pdf,.doc,.docx", // restrict to PDF and Word files
+			},
+		}),
 	],
 });

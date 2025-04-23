@@ -61,7 +61,8 @@ export const fetchProductBySlug = async (
     },
     productFaqs,
     colors,
-    sizes
+    sizes,
+    brochure
   }`;
 	try {
 		const product = await client.fetch(query, { slug });

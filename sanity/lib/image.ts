@@ -10,6 +10,11 @@ export const urlFor = (source: SanityImageSource) => {
 	return builder.image(source);
 };
 
+export const getSanityFileUrl = (ref: string) => {
+	const [, id, ext] = ref.split("-");
+	return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`;
+};
+
 // <Image
 // src={urlFor(products[0].productHeroImage)
 //   .url()} // Add .url()
