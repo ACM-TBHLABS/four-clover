@@ -5,6 +5,7 @@ import EventCardStretched from "@/components/EventCardStretched";
 import { Event } from "@/types/event";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 interface EventsSectionProps {
   events?: Event[];
@@ -67,6 +68,15 @@ const ComingSoonSection: React.FC<SectionProps> = ({
   selectedType = "all",
   onTypeChange,
 }) => {
+  const categories = ["All", "Event", "Training"];
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("All");
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (onTypeChange) {
+      onTypeChange(tab.toLowerCase());
+    }
+  }
   return (
     <div id="upcoming" className="flex flex-col md:flex-row gap-[32px]">
       <div className="w-full flex flex-col gap-3 md:gap-5 lg:gap-[50px]">
@@ -74,17 +84,47 @@ const ComingSoonSection: React.FC<SectionProps> = ({
           <h1 className="font-helvetica font-normal text-[32px] md:text-[56px] lg:text-[64px] leading-[100%]">
             Coming Soon
           </h1>
-          <select
-            value={selectedType}
-            onChange={(e) => onTypeChange?.(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm md:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {eventTypes.map((type) => (
-              <option key={type} value={type}>
-                {type.charAt(0).toUpperCase() + type.slice(1)}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <div
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center justify-between border border-black rounded-[8px] p-3 bg-white min-w-[110px] cursor-pointer"
+            >
+              <span
+                className={`${
+                  activeTab === "All" ? "text-black" : "text-green-700"
+                }`}
+              >
+                {activeTab}
+              </span>
+              <ChevronDown
+                className={`transition-transform duration-300 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+            {isDropdownOpen && (
+              <div className="absolute z-10 w-full border border-black rounded-[8px] mt-1 bg-white shadow-lg">
+                {categories.map((tab, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      handleTabChange(tab);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`p-3 hover:bg-[#EFEFEF] cursor-pointer
+                  ${
+                    activeTab === tab
+                      ? "bg-[#EFEFEF] text-green-700"
+                      : "text-black"
+                  }
+                  ${index === categories.length - 1 ? "rounded-b-[8px]" : ""}`}
+                  >
+                    {tab}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full flex justify-start items-stretch flex-row gap-5 md:gap-[50px] overflow-x-scroll overflow-y-hidden">
           {events.length > 0 ? (
@@ -114,7 +154,9 @@ const ComingSoonSection: React.FC<SectionProps> = ({
             ))
           ) : (
             <>
-              <h1>No events yet. Stay tuned!</h1>
+              <h1 className="font-helvetica text-[#666666] text-[18px] font-light">
+                No events yet. Stay tuned!
+              </h1>
             </>
           )}
         </div>

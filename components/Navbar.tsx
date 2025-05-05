@@ -87,31 +87,27 @@ const Navbar = () => {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center space-x-2 lg:space-x-5 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light">
-          <h1
-            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
-            onClick={() => router.push("/about")}
-          >
-            about
-          </h1>
-          <h1
-            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
-            onClick={() => router.push("/products")}
-          >
-            products
-          </h1>
-          <h1
-            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
-            onClick={() => router.push("/events")}
-          >
-            events
-          </h1>
-          <h1
-            className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out hover:text-slate-800"
-            onClick={() => router.push("/career")}
-          >
-            career
-          </h1>
+        <div className="hidden md:flex items-center gap-5 absolute left-1/2 transform -translate-x-1/2 font-helvetica text-lg lg:text-2xl font-light">
+          <AnimatedNavLink
+            text="about"
+            link="/about"
+            setIsMenuOpen={setIsMenuOpen}
+          />
+          <AnimatedNavLink
+            text="products"
+            link="/products"
+            setIsMenuOpen={setIsMenuOpen}
+          />
+          <AnimatedNavLink
+            text="events"
+            link="/events"
+            setIsMenuOpen={setIsMenuOpen}
+          />
+          <AnimatedNavLink
+            text="career"
+            link="/career"
+            setIsMenuOpen={setIsMenuOpen}
+          />
         </div>
 
         {/* Desktop contact button */}
@@ -175,3 +171,55 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const AnimatedNavLink = ({
+  text,
+  link,
+  setIsMenuOpen,
+}: {
+  text: string;
+  link: string;
+  setIsMenuOpen: (x: boolean) => void;
+}) => {
+  const router = useRouter();
+  const [xPos1, setXPos1] = useState(-120);
+  const [xPos2, setXPos2] = useState(-280);
+
+  return (
+    <div
+      className="relative group cursor-pointer text-gray-800 font-light hover:text-black text-[18px]"
+      onClick={() => {
+        router.push(link);
+        setIsMenuOpen(false);
+      }}
+      onMouseEnter={(e) => {
+        setXPos1(120);
+        setXPos2(0);
+      }}
+      onMouseLeave={(e) => {
+        setXPos1(-120);
+        setXPos2(-280);
+      }}
+    >
+      <h1 className="duration-300 transition-all">{text}</h1>
+      <div className="absolute -bottom-[2px] w-full h-[2px] block transition-all overflow-hidden">
+        <div className="relative w-full h-[2px] block transition-all">
+          <div
+            className="absolute w-full h-[2px] bg-black block transition-all"
+            style={{
+              transform: `translateX(${xPos1}%)`,
+              transition: "transform 0.3s ease-in-out",
+            }}
+          ></div>
+          <div
+            className="absolute w-full h-[2px] bg-black block transition-all"
+            style={{
+              transform: `translateX(${xPos2}%)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+};

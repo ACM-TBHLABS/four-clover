@@ -21,7 +21,7 @@ const EventCardStretched: React.FC<EventCardStretchedProps> = ({
         <h2 className="font-helvetica font-normal text-[16px] md:text-[32px] leading-none w-[250px]">
           {title}
         </h2>
-        <h1 className="bg-accent rounded-full border border-gray-200 px-8 py-1 w-fit">
+        <h1 className={`capitalize bg-accent rounded-full border border-gray-200 px-8 py-1 w-fit ${eventType == "event" ? "text-cyan-600 bg-cyan-600/10" : "text-green-600 bg-green-600/10"}`}>
           {eventType}
         </h1>
       </div>
