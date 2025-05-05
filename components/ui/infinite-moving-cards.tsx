@@ -4,94 +4,107 @@ import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
-  items,
-  direction = "left",
-  speed = "fast",
-  pauseOnHover = true,
-  className,
+	items,
+	direction = "left",
+	speed = "fast",
+	pauseOnHover = true,
+	className,
 }: {
-  items: {
-    imagePath: string;
-  }[];
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
-  className?: string;
+	items: {
+		imagePath: string;
+		link?: string; // 🆕 Added link
+	}[];
+	direction?: "left" | "right";
+	speed?: "fast" | "normal" | "slow";
+	pauseOnHover?: boolean;
+	className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLDivElement>(null);
+	const containerRef = React.useRef<HTMLDivElement>(null);
+	const scrollerRef = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
+	useEffect(() => {
+		addAnimation();
+	}, []);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
+	const [start, setStart] = useState(false);
 
-      getDirection();
-      getSpeed();
-      setStart(true);
-    }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
-  return (
-    <div
-      ref={containerRef}
-      className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]",
-        className
-      )}
-    >
-      <div
-        ref={scrollerRef}
-        className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-[20px] md:space-x-[100px]",
-          start && "animate-scroll"
-          // pauseOnHover && "hover:[animation-play-state:paused]"
-        )}
-      >
-        {items.map((item, idx) => (
-          <img
-            key={item.imagePath}
-            src={item.imagePath}
-            alt=""
-            className="w-[100px] md:w-[150px] lg:w-[300px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
-          />
-        ))}
-      </div>
-    </div>
-  );
+	function addAnimation() {
+		if (containerRef.current && scrollerRef.current) {
+			const scrollerContent = Array.from(scrollerRef.current.children);
+
+			scrollerContent.forEach((item) => {
+				const duplicatedItem = item.cloneNode(true);
+				if (scrollerRef.current) {
+					scrollerRef.current.appendChild(duplicatedItem);
+				}
+			});
+
+			getDirection();
+			getSpeed();
+			setStart(true);
+		}
+	}
+
+	const getDirection = () => {
+		if (containerRef.current) {
+			containerRef.current.style.setProperty(
+				"--animation-direction",
+				direction === "left" ? "forwards" : "reverse"
+			);
+		}
+	};
+
+	const getSpeed = () => {
+		if (containerRef.current) {
+			const duration =
+				speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
+			containerRef.current.style.setProperty(
+				"--animation-duration",
+				duration
+			);
+		}
+	};
+
+	return (
+		<div
+			ref={containerRef}
+			className={cn(
+				"scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]",
+				className
+			)}
+		>
+			<div
+				ref={scrollerRef}
+				className={cn(
+					"flex items-center justify-center w-max min-w-full shrink-0 flex-nowrap gap-[40px] md:gap-[80px] lg:gap-[120px]",
+					start && "animate-scroll"
+				)}
+			>
+				{items.map((item) =>
+					item.link ? (
+						<a
+							key={item.imagePath}
+							href={item.link}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="block"
+						>
+							<img
+								src={item.imagePath}
+								alt=""
+								className="w-[100px] md:w-[150px] lg:w-[300px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
+							/>
+						</a>
+					) : (
+						<img
+							key={item.imagePath}
+							src={item.imagePath}
+							alt=""
+							className="w-[100px] md:w-[150px] lg:w-[300px] object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
+						/>
+					)
+				)}
+			</div>
+		</div>
+	);
 };
