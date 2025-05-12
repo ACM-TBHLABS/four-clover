@@ -32,23 +32,27 @@ const AddressSection = () => {
 					Addresses
 				</h1>
 			</div>
-			<div className="flex flex-col md:flex-row gap-[24px] md:gap-[50px] justify-between">
+			<div className="flex flex-col md:flex-row gap-8 justify-between">
 				{addresses.map((addr, index) => (
 					<div
 						key={addr._id || index}
-						className="flex flex-col gap-[4px] font-helvetica font-normal text-[13px] md:text-[18px]"
+						className="w-[100%] md:w-[40%] flex flex-col gap-[13px] font-helvetica"
 					>
-						<h1>{addr.location}</h1>
-						<h1>{addr.address}</h1>
+						<h1 className="font-light text-[13px] md:text-[18px] text-[#666666]">
+							{addr.location}
+						</h1>
+						<h1 className="font-normal text-[13px] md:text-[18px] hover:underline transition-colors duration-200">
+							{addr.address}
+						</h1>
 						<a
 							href={`tel:${addr.phoneNumber}`}
-							className="hover:underline transition-colors duration-200"
+							className="font-normal text-[13px] md:text-[18px] hover:underline transition-colors duration-200"
 						>
 							{addr.phoneNumber}
 						</a>
 						<a
 							href={`mailto:${addr.email}`}
-							className="hover:underline transition-colors duration-200"
+							className="font-normal text-[13px] md:text-[18px] hover:underline transition-colors duration-200"
 						>
 							{addr.email}
 						</a>
