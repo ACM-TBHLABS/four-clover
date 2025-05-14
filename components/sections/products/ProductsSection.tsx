@@ -261,7 +261,7 @@ const ProductsSection = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Array.from({ length: itemsPerPage }).map((_, index) => (
             <div key={index} className="flex flex-col gap-2">
-              <div className="aspect-square w-full bg-gray-300 rounded-md"></div>
+              <div className="aspect-video w-full bg-gray-300 rounded-md"></div>
               <div className="h-6 w-3/4 bg-gray-300 rounded-md"></div>
               <div className="h-4 w-1/2 bg-gray-300 rounded-md"></div>
             </div>
@@ -402,8 +402,8 @@ const ProductsSection = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
           {Array.from({ length: itemsPerPage }).map((_, index) => (
             <div key={index} className="flex flex-col gap-2">
-              <div className="aspect-square w-full bg-gray-300 rounded-md"></div>
-              <div className="h-6 w-3/4 bg-gray-300 rounded-md"></div>
+              <div className="aspect-video w-full bg-gray-300 rounded-md"></div>
+              <div className="h-4 w-3/4 bg-gray-300 rounded-md"></div>
               <div className="h-4 w-1/2 bg-gray-300 rounded-md"></div>
             </div>
           ))}
