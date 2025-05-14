@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { fetchAllCategories } from "@/services/api/categoryService";
@@ -24,6 +24,9 @@ const ProductsSection = () => {
   const [activeTab, setActiveTab] = useState("");
   const [activeProductLineId, setActiveProductLineId] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6); // Show 9 products per page (3x3 grid)
+  const sectionRef = useRef<HTMLDivElement>(null); // Ref for the section top
 
   // Initial data fetching - categories and product lines
   useEffect(() => {
@@ -69,6 +72,7 @@ const ProductsSection = () => {
         );
         setFilteredProducts(filtered);
       }
+      setCurrentPage(1); // Reset to first page on search
     }
   }, [searchQuery, products]);
 
@@ -82,6 +86,7 @@ const ProductsSection = () => {
     setLoading(true);
     setActiveTab(tabName);
     setSearchQuery(""); // Reset search query on tab change
+    setCurrentPage(1); // Reset to first page on tab change
 
     try {
       if (tabName === "All") {
@@ -155,6 +160,7 @@ const ProductsSection = () => {
     setLoading(true);
     setActiveProductLineId(productLineId);
     setSearchQuery(""); // Reset search query on product line change
+    setCurrentPage(1); // Reset to first page on product line change
 
     try {
       const lineProducts = await fetchProductsByProductLineId(productLineId);
@@ -183,13 +189,60 @@ const ProductsSection = () => {
     setSearchQuery(e.target.value);
   };
 
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    // if (sectionRef.current) {
+    //   const width = window.innerWidth;
+    //   let yOffset = -100; // default for lg and up
+
+    //   if (width < 768) {
+    //     // base (mobile)
+    //     yOffset = -32;
+    //   } else if (width >= 768 && width <= 9999) {
+    //     // md
+    //     yOffset = -50;
+    //   } else {
+    //     // lg and above
+    //     yOffset = -100;
+    //   }
+
+    //   const y =
+    //     sectionRef.current.getBoundingClientRect().top +
+    //     window.pageYOffset +
+    //     yOffset;
+
+    //   window.scrollTo({ top: y, behavior: "smooth" });
+    // }
+    if (sectionRef.current) {
+      let yOffset = -50;
+      const y =
+        sectionRef.current.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      if (window.innerWidth < 768) {
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  };
+
   // Show loading indicator while initial data is loading
   if (loading && categories.length === 0) {
     return <p>Loading product lines...</p>;
   }
 
   return (
-    <div className="w-full flex flex-col gap-5 lg:gap-[25px]">
+    <div ref={sectionRef} className="w-full flex flex-col gap-5 lg:gap-[25px]">
       {/* Desktop Tabs */}
       <div className="hidden md:flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden cursor-pointer">
         <TabButton
@@ -330,7 +383,7 @@ const ProductsSection = () => {
           ) : (
             /* Products Grid - 3 columns */
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
+              {currentProducts.map((product) => (
                 <ProductCard
                   key={product._id}
                   id={product._id}
@@ -340,6 +393,28 @@ const ProductsSection = () => {
                   slug={product.slug}
                 />
               ))}
+            </div>
+          )}
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 border rounded-md bg-white text-black disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+              <span className="text-gray-700">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 border rounded-md bg-white text-black disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
             </div>
           )}
         </>
