@@ -238,7 +238,37 @@ const ProductsSection = () => {
 
   // Show loading indicator while initial data is loading
   if (loading && categories.length === 0) {
-    return <p>Loading product lines...</p>;
+    // Skeleton for initial loading state
+    return (
+      <div className="w-full flex flex-col gap-5 lg:gap-[25px] animate-pulse">
+        {/* Desktop Tabs Skeleton */}
+        <div className="hidden md:flex border-black border-x-[0.5px] border-y-[0.5px] w-fit rounded-[8px] overflow-hidden">
+          <div className="h-[60px] w-[60px] bg-gray-300"></div>
+          <div className="h-[60px] w-[200px] bg-gray-300 border-l-[0.5px] border-black"></div>
+          <div className="h-[60px] w-[200px] bg-gray-300 border-l-[0.5px] border-black"></div>
+        </div>
+        {/* Mobile Dropdown Skeleton */}
+        <div className="md:hidden relative">
+          <div className="flex items-center justify-between border border-black rounded-[8px] p-3 bg-gray-300 h-[50px]"></div>
+        </div>
+
+        {/* Search Bar Skeleton */}
+        <div className="w-full max-w-md">
+          <div className="h-[42px] w-full bg-gray-300 rounded-md"></div>
+        </div>
+
+        {/* Products Grid Skeleton */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: itemsPerPage }).map((_, index) => (
+            <div key={index} className="flex flex-col gap-2">
+              <div className="aspect-square w-full bg-gray-300 rounded-md"></div>
+              <div className="h-6 w-3/4 bg-gray-300 rounded-md"></div>
+              <div className="h-4 w-1/2 bg-gray-300 rounded-md"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -368,8 +398,15 @@ const ProductsSection = () => {
 
       {/* Loading state - replaces content completely */}
       {loading ? (
-        <div className="w-full py-10 flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-700"></div>
+        // Skeleton for product grid loading
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
+          {Array.from({ length: itemsPerPage }).map((_, index) => (
+            <div key={index} className="flex flex-col gap-2">
+              <div className="aspect-square w-full bg-gray-300 rounded-md"></div>
+              <div className="h-6 w-3/4 bg-gray-300 rounded-md"></div>
+              <div className="h-4 w-1/2 bg-gray-300 rounded-md"></div>
+            </div>
+          ))}
         </div>
       ) : (
         <>
