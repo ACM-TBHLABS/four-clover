@@ -5,7 +5,7 @@ export async function POST(req: Request) {
 		// Parse the incoming JSON data from the request body
 		const formData = await req.json();
 		const accessToken = await getZohoAccessToken();
-		// console.log("Access Token:", accessToken);
+		console.log("Access Token:", accessToken);
 		const orgId = process.env.ZOHO_ORG_ID!;
 		const baseUrl = process.env.ZOHO_API_BASE_URL!;
 
@@ -17,11 +17,11 @@ export async function POST(req: Request) {
 		};
 
 		// Log the data to make sure it's correct
-		// console.log("Data to send to Zoho:", zohoData);
+		console.log("Data to send to Zoho:", zohoData);
 
 		// Construct the full Zoho API URL
 		const zohoApiUrl = `${baseUrl}/books/v3/cm_event_registration?organization_id=${orgId}`;
-		// console.log("Zoho API URL:", zohoApiUrl);
+		console.log("Zoho API URL:", zohoApiUrl);
 
 		// Send the data to Zoho Books custom module
 		const zohoRes = await fetch(zohoApiUrl, {
@@ -37,10 +37,10 @@ export async function POST(req: Request) {
 		const json = await zohoRes.json();
 
 		// Log the response from Zoho API
-		// console.log("Zoho Response:", json);
+		console.log("Zoho Response:", json);
 
 		if (!zohoRes.ok) {
-			// console.error("Zoho API error:", json);
+			console.error("Zoho API error:", json);
 			return new Response(
 				JSON.stringify({ message: "Zoho request failed", error: json }),
 				{ status: zohoRes.status }
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
 
 		return new Response(JSON.stringify(json), { status: 200 });
 	} catch (err) {
-		// console.error("Unexpected error:", err);
+		console.error("Unexpected error:", err);
 		return new Response(
 			JSON.stringify({ message: "Zoho request failed", error: err }),
 			{ status: 500 }
