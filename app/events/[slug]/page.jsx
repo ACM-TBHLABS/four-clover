@@ -1,12 +1,12 @@
 // app/events/[slug]/page.jsx
-import EventDetailSection from "./EventDetailSection";
+import EventDetailPage from "./EventDetailPage";
 
 export default async function EventPage({ params }) {
   const { slug } = params;
 
   return (
     <div className="w-full flex items-start justify-center">
-      <EventDetailSection slug={slug} />
+      <EventDetailPage slug={slug} />
     </div>
   );
 }

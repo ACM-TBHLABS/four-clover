@@ -20,8 +20,10 @@ import { toast } from "sonner";
 
 export default function EventRegistrationDialog({
 	eventName,
+	disabled = false,
 }: {
 	eventName: string;
+	disabled?: boolean;
 }) {
 	const [formData, setFormData] = useState({
 		cf_name: "",
@@ -38,7 +40,7 @@ export default function EventRegistrationDialog({
 		// Basic email validation
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!emailRegex.test(formData.cf_email)) {
-			setErrors({ cf_email: "Invalid email address" });
+			setErrors({ cf_email: "Please provide a valid email" });
 			return;
 		}
 
@@ -75,7 +77,8 @@ export default function EventRegistrationDialog({
 			<AlertDialogTrigger asChild>
 				<Button
 					variant="outline"
-					className="mt-2 px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-black border-[0.5px]"
+					disabled={disabled}
+					className="mt-2 px-3 py-1 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-full border-black border-[0.5px]"
 				>
 					Register!
 				</Button>
@@ -111,7 +114,7 @@ export default function EventRegistrationDialog({
 						<Label htmlFor="cf_email">Email</Label>
 						<Input
 							id="cf_email"
-							type="email"
+							type="text"
 							disabled={loading}
 							value={formData.cf_email}
 							onChange={(e) =>
