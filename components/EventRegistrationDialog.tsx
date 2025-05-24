@@ -28,8 +28,11 @@ export default function EventRegistrationDialog({
 	const [formData, setFormData] = useState({
 		cf_name: "",
 		cf_email: "",
+		cf_phone_number: "",
+		cf_job_title: "",
 		cf_event_name: eventName,
 	});
+
 	const [errors, setErrors] = useState<{ cf_email?: string }>({});
 	const [loading, setLoading] = useState(false);
 	const [open, setOpen] = useState(false); // control dialog manually
@@ -61,8 +64,11 @@ export default function EventRegistrationDialog({
 			setFormData({
 				cf_name: "",
 				cf_email: "",
+				cf_phone_number: "",
+				cf_job_title: "",
 				cf_event_name: eventName,
 			});
+
 			toast.success("Registration successful!");
 		} catch (err) {
 			console.error("Submission error:", err);
@@ -95,7 +101,15 @@ export default function EventRegistrationDialog({
 
 				<form onSubmit={handleSubmit} className="space-y-4">
 					<div className="flex flex-col space-y-1">
-						<Label htmlFor="cf_name">Name</Label>
+						<Label htmlFor="cf_event_name">Event</Label>
+						<Input
+							id="cf_event_name"
+							disabled
+							value={formData.cf_event_name}
+						/>
+					</div>
+					<div className="flex flex-col space-y-1">
+						<Label htmlFor="cf_name">Full Name</Label>
 						<Input
 							id="cf_name"
 							disabled={loading}
@@ -131,13 +145,41 @@ export default function EventRegistrationDialog({
 							</p>
 						)}
 					</div>
+					<div className="flex flex-col space-y-1">
+						<Label htmlFor="cf_phone_number">Phone Number</Label>
+						<Input
+							id="cf_phone_number"
+							type="tel"
+							disabled={loading}
+							value={formData.cf_phone_number}
+							onChange={(e) =>
+								setFormData({
+									...formData,
+									cf_phone_number: e.target.value,
+								})
+							}
+							required
+						/>
+					</div>
 
 					<div className="flex flex-col space-y-1">
-						<Label htmlFor="cf_event_name">Event</Label>
+						<Label htmlFor="cf_job_title">
+							Job Title / Role{" "}
+							<span className="text-muted-foreground">
+								(optional)
+							</span>
+						</Label>
 						<Input
-							id="cf_event_name"
-							disabled
-							value={formData.cf_event_name}
+							id="cf_job_title"
+							type="text"
+							disabled={loading}
+							value={formData.cf_job_title}
+							onChange={(e) =>
+								setFormData({
+									...formData,
+									cf_job_title: e.target.value,
+								})
+							}
 						/>
 					</div>
 

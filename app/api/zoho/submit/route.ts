@@ -14,6 +14,8 @@ export async function POST(req: Request) {
 			cf_name: formData.cf_name,
 			cf_email: formData.cf_email,
 			cf_event_name: formData.cf_event_name,
+			cf_phone_number: formData.cf_phone_number,
+			cf_job_title: formData.cf_job_title,
 		};
 
 		// Log the data to make sure it's correct
