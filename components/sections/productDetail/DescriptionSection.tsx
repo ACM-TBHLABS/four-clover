@@ -61,110 +61,103 @@ const DescriptionSection: React.FC<SectionProps> = ({
 						components={portableTextComponents}
 					/>
 				</div>
-				<div className="w-full flex flex-col justify-start items-start gap-2 md:gap-3">
-					<h1 className="font-helvetica font-normal text-[32px] leading-[1.1]">
-						Colors
-					</h1>
-					<div className="flex flex-wrap gap-2 md:gap-5">
-						{colors?.length === 0 ||
-							(!colors && (
-								<div className="min-w-20 flex flex-col items-center gap-1">
-									<span className="text-[16px] font-helvetica text-[#666666] opacity-50">
-										No colors available
-									</span>
-								</div>
-							))}
-						{colors
-							?.slice(0, showLessColors ? 5 : colors.length)
-							?.map((color, index) => {
-								return (
-									<div
-										key={index}
-										className="flex flex-col items-center gap-1"
-									>
+				{(colors ?? []).length > 0 && (
+					<div className="w-full flex flex-col justify-start items-start gap-2 md:gap-3">
+						<h1 className="font-helvetica font-normal text-[32px] leading-[1.1]">
+							Colors
+						</h1>
+						<div className="flex flex-wrap gap-2 md:gap-5">
+							{colors
+								?.slice(0, showLessColors ? 5 : colors.length)
+								?.map((color, index) => {
+									return (
 										<div
-											className="w-20 h-20 rounded-lg border-[1px] border-[#666666] flex justify-center items-center"
-											style={{
-												backgroundColor:
-													color.code.includes("#")
-														? color.code
-														: `#${color.code}`,
-											}}
-										></div>
-										<span className="text-[16px] font-helvetica">
-											{color.name}
-										</span>
-									</div>
-								);
-							})}
-						{colors?.length && colors?.length > 5 && (
-							<div className="flex flex-col items-center gap-1">
-								<button
-									className="h-full text-[16px] font-helvetica text-[#666666] opacity-50 hover:opacity-100 transition-opacity duration-200"
-									onClick={() =>
-										setShowLessColors(!showLessColors)
-									}
-								>
-									{showLessColors ? "Show more" : "Show less"}
-								</button>
-								<span className="text-[16px] font-helvetica opacity-0">
-									-
-								</span>
-							</div>
-						)}
-					</div>
-				</div>
-				<div className="w-full flex flex-col justify-start items-start gap-2 md:gap-3">
-					<h1 className="font-helvetica font-normal text-[32px] leading-[1.1]">
-						Sizes
-					</h1>
-					<div className="flex flex-wrap gap-2 md:gap-5">
-						{sizes?.length === 0 ||
-							(!sizes && (
-								<div className="min-w-20 flex flex-col items-center gap-1">
-									<span className="text-[16px] font-helvetica text-[#666666] opacity-50">
-										No sizes available
+											key={index}
+											className="flex flex-col items-center gap-1"
+										>
+											<div
+												className="w-20 h-20 rounded-lg border-[1px] border-[#666666] flex justify-center items-center"
+												style={{
+													backgroundColor:
+														color.code.includes("#")
+															? color.code
+															: `#${color.code}`,
+												}}
+											></div>
+											<span className="text-[16px] font-helvetica">
+												{color.name}
+											</span>
+										</div>
+									);
+								})}
+							{(colors?.length ?? 0) > 5 && (
+								<div className="flex flex-col items-center gap-1">
+									<button
+										className="h-full text-[16px] font-helvetica text-[#666666] opacity-50 hover:opacity-100 transition-opacity duration-200"
+										onClick={() =>
+											setShowLessColors(!showLessColors)
+										}
+									>
+										{showLessColors
+											? "Show more"
+											: "Show less"}
+									</button>
+									<span className="text-[16px] font-helvetica opacity-0">
+										-
 									</span>
 								</div>
-							))}
-						{sizes
-							?.slice(0, showLessSizes ? 5 : sizes.length)
-							?.map((size, index) => {
-								return (
-									<div
-										key={index}
-										className="min-w-20 flex flex-col items-center gap-1 p-2 border-[1px] border-[#666666] rounded-lg"
-									>
-										<span className="text-[16px] font-helvetica">
-											{size.name}
-										</span>
-									</div>
-								);
-							})}
-						{sizes?.length && sizes?.length > 5 && (
-							<div className="flex flex-col items-center gap-1">
-								<button
-									className="h-full text-[16px] font-helvetica text-[#666666] opacity-50 hover:opacity-100 transition-opacity duration-200"
-									onClick={() =>
-										setShowLessSizes(!showLessSizes)
-									}
-								>
-									{showLessSizes ? "Show more" : "Show less"}
-								</button>
-							</div>
-						)}
-					</div>
-					{brochure?.asset?._ref && (
-						<div className="mt-4">
-							<button
-								onClick={handleDownload}
-								className="px-3 py-2 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-black border-[0.5px]"
-							>
-								Download Product Brochure
-							</button>
+							)}
 						</div>
-					)}
-				</div>
+					</div>
+				)}
+
+				{(sizes ?? []).length > 0 && (
+					<div className="w-full flex flex-col justify-start items-start gap-2 md:gap-3">
+						<h1 className="font-helvetica font-normal text-[32px] leading-[1.1]">
+							Sizes
+						</h1>
+						<div className="flex flex-wrap gap-2 md:gap-5">
+							{sizes
+								?.slice(0, showLessSizes ? 5 : sizes.length)
+								?.map((size, index) => {
+									return (
+										<div
+											key={index}
+											className="min-w-20 flex flex-col items-center gap-1 p-2 border-[1px] border-[#666666] rounded-lg"
+										>
+											<span className="text-[16px] font-helvetica">
+												{size.name}
+											</span>
+										</div>
+									);
+								})}
+							{(sizes?.length ?? 0) > 5 && (
+								<div className="flex flex-col items-center gap-1">
+									<button
+										className="h-full text-[16px] font-helvetica text-[#666666] opacity-50 hover:opacity-100 transition-opacity duration-200"
+										onClick={() =>
+											setShowLessSizes(!showLessSizes)
+										}
+									>
+										{showLessSizes
+											? "Show more"
+											: "Show less"}
+									</button>
+								</div>
+							)}
+						</div>
+					</div>
+				)}
+				{brochure?.asset?._ref && (
+					<div className="mt-4">
+						<button
+							onClick={handleDownload}
+							className="px-3 py-2 lg:px-[20px] lg:py-2 transition-all group hover:scale-[1.02] hover:cursor-pointer hover:bg-black hover:text-white duration-300 ease-in-out rounded-[5px] border-black border-[0.5px]"
+						>
+							Download Product Brochure
+						</button>
+					</div>
+				)}
 			</div>
 			<div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[50%] border-b-[1px] border-[#666666]"></div>
 		</div>
