@@ -33,7 +33,10 @@ export default function EventRegistrationDialog({
 		cf_event_name: eventName,
 	});
 
-	const [errors, setErrors] = useState<{ cf_email?: string }>({});
+	const [errors, setErrors] = useState<{
+		cf_email?: string;
+		cf_phone_number?: string;
+	}>({});
 	const [loading, setLoading] = useState(false);
 	const [open, setOpen] = useState(false); // control dialog manually
 
@@ -44,6 +47,15 @@ export default function EventRegistrationDialog({
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!emailRegex.test(formData.cf_email)) {
 			setErrors({ cf_email: "Please provide a valid email" });
+			return;
+		}
+
+		// Basic phone validation (only digits, 10–15 digits allowed)
+		const phoneRegex = /^[0-9]{10,15}$/;
+		if (!phoneRegex.test(formData.cf_phone_number)) {
+			setErrors({
+				cf_phone_number: "Please provide a valid phone number",
+			});
 			return;
 		}
 
@@ -160,6 +172,11 @@ export default function EventRegistrationDialog({
 							}
 							required
 						/>
+						{errors.cf_phone_number && (
+							<p className="text-sm text-red-500">
+								{errors.cf_phone_number}
+							</p>
+						)}
 					</div>
 
 					<div className="flex flex-col space-y-1">
