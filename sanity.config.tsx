@@ -24,8 +24,8 @@ export default defineConfig({
 			src="/logo.png"
 			alt="The Grand Dental Studio"
 			style={{
-				width: 32,
-				height: 32,
+				width: 24,
+				height: 24,
 				objectFit: "contain",
 				display: "flex",
 				alignItems: "center",
