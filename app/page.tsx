@@ -6,7 +6,7 @@ import SpotlightSection from "@/components/sections/landing/SpotlightSection";
 
 export default function Home() {
   return (
-    // final devliery, hero update
+    // final devliery, hero update, tanat changes
     <div className="w-full flex flex-col items-center overflow-x-hidden">
       <HeroSection />
       <div className="max-w-screen md:max-w-[1400px] w-full">
