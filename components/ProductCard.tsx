@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const ProductCard = ({
   id,
@@ -34,7 +34,7 @@ const ProductCard = ({
         <button
           onClick={(e) => {
             e.stopPropagation(); // Prevent card click
-            router.push(`/quote/${id}`);
+            router.push(`/products/${slug}`);
           }}
           className="hover:bg-slate-200 absolute bottom-0 right-0 font-helvetica font-light text-[20px] px-2 py-1 bg-white md:opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
         >
@@ -54,4 +54,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard
+export default ProductCard;
